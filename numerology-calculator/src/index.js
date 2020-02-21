@@ -32,8 +32,9 @@ function hideResult() {
   document.getElementById("page-output").style.display = "none";
 }
 
-function showValidationError() {
+function showValidationError(err) {
   matrixForm.querySelector('.invalid-feedback').style.display = "block";
+  matrixForm.querySelector('.invalid-feedback').innerHTML = err;
 }
 
 function hideValidationError() {
@@ -62,12 +63,12 @@ matrixForm.onsubmit = function(event) {
   event.preventDefault();
 
   if (!mask.isValid()) {
-    showValidationError();
+    showValidationError('mask');
   } else {
     let date = new Date(dateField.value);
 
     if (isNaN(date)) {
-      showValidationError();
+      showValidationError(dateField.value);
       return;
     }
 
