@@ -26,22 +26,14 @@ function showResult() {
 }
 
 /**
- * Hide matrix table
+ * Show/Hide validation error
  */
-function hideResult() {
-  document.getElementById("page-output").style.display = "none";
-}
-
-function showValidationError(err) {
+function showValidationError() {
   matrixForm.querySelector('.invalid-feedback').style.display = "block";
-  matrixForm.querySelector('.invalid-feedback').innerHTML = err;
 }
-
 function hideValidationError() {
     matrixForm.querySelector('.invalid-feedback').style.display = "";
 }
-
-
 
 /**
  * Init input mask
@@ -50,11 +42,11 @@ const mask = Inputmask({
   "mask": "99.99.9999",
   "placeholder": "дд.мм.гггг"
 }).mask(dateField);
+
 flatpickr(dateField, {
   allowInput: true,
   dateFormat: 'd.m.Y'
 });
-
 
 /**
  * Form submit handler

@@ -5613,17 +5613,12 @@ function showResult() {
   document.getElementById("page-output").style.display = "";
 }
 /**
- * Hide matrix table
+ * Show/Hide validation error
  */
 
 
-function hideResult() {
-  document.getElementById("page-output").style.display = "none";
-}
-
-function showValidationError(err) {
+function showValidationError() {
   matrixForm.querySelector('.invalid-feedback').style.display = "block";
-  matrixForm.querySelector('.invalid-feedback').innerHTML = err;
 }
 
 function hideValidationError() {
