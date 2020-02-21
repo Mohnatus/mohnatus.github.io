@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Психоматрица</title>
+  <meta name="description" content="Расчет матрицы по нумерологии">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+  <div class="page">
+    <div id="page-input">
+      <form id="matrix-form" onsubmit="return false">
+        <input type="date" name="date">
+        <button type="submit">Рассчитать</button>
+      </form>
+    </div>
+
+    <div id="page-output" style="display: none">
+      <table id="matrix-result">
+        <tr>
+          <td colspan="3">
+            Дата рождения: <span id="birth"></span>
+            <br>
+            Числа: <span id="numbers"></span>
+            <br>
+            Число судьбы: <span id="fateNumber"></span>
+          </td>
+          <td>
+            Темперамент<br><span id="temperament"></span>
+          </td>
+        </tr>
+        <tr>
+          <td>Характер<br><span id="personality"></span></td>
+          <td>Здоровье<br><span id="health"></span></td>
+          <td>Удача<br><span id="luck"></span></td>
+          <td>Цель<br><span id="purpose"></span></td>
+        </tr>
+        <tr>
+          <td>Энергия<br><span id="energy"></span></td>
+          <td>Логика<br><span id="logic"></span></td>
+          <td>Долг<br><span id="duty"></span></td>
+          <td>Семья<br><span id="family"></span></td>
+        </tr>
+        <tr>
+          <td>Труд<br><span id="labour"></span></td>
+          <td>Интерес<br><span id="interes"></span></td>
+          <td>Память<br><span id="memory"></span></td>
+          <td>Привычка<br><span id="habit"></span></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>
