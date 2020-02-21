@@ -63,12 +63,13 @@ matrixForm.onsubmit = function(event) {
   event.preventDefault();
 
   if (!mask.isValid()) {
-    showValidationError('mask');
+    showValidationError();
   } else {
-    let date = new Date(dateField.value);
+    let dateString = dateField.value.split(".").reverse().join(".");
+    let date = new Date(dateString);
 
     if (isNaN(date)) {
-      showValidationError(dateField.value);
+      showValidationError();
       return;
     }
 
