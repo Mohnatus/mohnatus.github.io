@@ -1,0 +1,13 @@
+@import 'flatpickr/dist/flatpickr.css';
+
+$purple: #512DA8;
+$red: #FF4081;
+$textColor:#212121;
+
+$radius: 4px;
+
+@import './scss/base.scss';
+@import './scss/typography.scss';
+@import './scss/form.scss';
+@import './scss/btn.scss';
+@import './scss/table.scss';

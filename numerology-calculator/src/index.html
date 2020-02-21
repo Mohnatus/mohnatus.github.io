@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Психоматрица</title>
+  <meta name="description" content="Расчет матрицы по нумерологии">
+</head>
+<body>
+
+  <div class="page">
+    <div id="page-input" class="page__input">
+      <div class="container">
+        <form class="form" id="matrix-form" onsubmit="return false">
+          <div class="form__field">
+            <label for="date" class="form__label">Введите дату вашего рождения</label>
+            <input class="form__control" type="text" id="date" name="date" autocomplete="off" placeholder="дд.мм.гггг">
+          </div>
+
+          <div class="form__field">
+            <button class="btn btn--block" type="submit">Рассчитать</button>
+          </div>
+
+          <div class="form__feedback">
+            <div class="invalid-feedback">Введите корректную дату рождения</div>
+          </div>
+        </form>
+      </div>
+
+    </div>
+
+    <div id="page-output" class="page__output" style="display: none">
+      <div class="container">
+
+        <div class="table" id="matrix-result">
+          <div class="row">
+            <div class="cell cell-lg-3">
+              Дата рождения: <span id="birth"></span>
+              <br>
+              Числа: <span id="numbers"></span>
+              <br>
+              Число судьбы: <span id="fateNumber"></span>
+            </div>
+            <div class="cell cell-lg-1 text-center">
+              Темперамент<br><span id="temperament"></span>
+            </div>
+
+            <div class="cell cell-lg-1 text-center">Характер<br><span id="personality"></span></div>
+            <div class="cell cell-lg-1 text-center">Здоровье<br><span id="health"></span></div>
+            <div class="cell cell-lg-1 text-center">Удача<br><span id="luck"></span></div>
+            <div class="cell cell-lg-1 text-center">Цель<br><span id="purpose"></span></div>
+
+            <div class="cell cell-lg-1 text-center">Энергия<br><span id="energy"></span></div>
+            <div class="cell cell-lg-1 text-center">Логика<br><span id="logic"></span></div>
+            <div class="cell cell-lg-1 text-center">Долг<br><span id="duty"></span></div>
+            <div class="cell cell-lg-1 text-center">Семья<br><span id="family"></span></div>
+
+            <div class="cell cell-lg-1 text-center">Труд<br><span id="labour"></span></div>
+            <div class="cell cell-lg-1 text-center">Интерес<br><span id="interes"></span></div>
+            <div class="cell cell-lg-1 text-center">Память<br><span id="memory"></span></div>
+            <div class="cell cell-lg-1 text-center">Привычка<br><span id="habit"></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="index.js" defer></script>
+</body>
+</html>

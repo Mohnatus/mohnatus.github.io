@@ -1,0 +1,34 @@
+.table {
+  width: 100%;
+  font-size: 0.75rem;
+  margin-right: -5px;
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .cell {
+    flex-grow: 1;
+    width: 100%;
+    background: lighten($purple, 45%);
+    padding: 10px 15px;
+    border-radius: $radius;
+    margin-right: 5px;
+    margin-bottom: 5px;
+  }
+}
+
+@media screen and (min-width: 520px) {
+  .table {
+    .cell-lg-1 {
+      width: calc(25% - 5px);
+    }
+    .cell-lg-2 {
+      width: calc(50% - 5px);
+    }
+    .cell-lg-3 {
+      width: calc(75% - 5px);
+    }
+  }
+}
