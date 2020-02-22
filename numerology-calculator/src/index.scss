@@ -1,12 +1,52 @@
-@import 'flatpickr/dist/flatpickr.css';
-
 $purple: #512DA8;
-$red: #FF4081;
+$lightPurple: #d5caf1;
+
+$red: #EF9A9A;
+$orange: #FFCC80;
+$yellow: #FFF59D;
+$green: #C5E1A5;
+$lightblue: #80DEEA;
+$blue: #81D4FA;
+$violet: #B39DDB;
+$silver: #BDBDBD;
+
+$mainColor: $purple;
+$secondaryColor: lighten($purple, 45%);
+$bgColor: #f7f7f7;
+$errorColor: #FF4081;
 $textColor:#212121;
+
+
+
+$items: (
+  personality: $red,
+  energy: $orange,
+  interest: $yellow,
+  health: $green,
+  logic: $lightblue,
+  labour: $blue,
+  luck: $violet,
+  duty: $silver,
+  memory: white
+);
+
 
 $radius: 4px;
 
+@mixin breakpointMax {
+  @media screen and (min-width: 520px) {
+    @content;
+  }
+}
+
+@mixin breakpointMin {
+  @media screen and (min-width: 360px) {
+    @content;
+  }
+}
+
 @import './scss/base.scss';
+@import './scss/grid.scss';
 @import './scss/typography.scss';
 @import './scss/form.scss';
 @import './scss/btn.scss';

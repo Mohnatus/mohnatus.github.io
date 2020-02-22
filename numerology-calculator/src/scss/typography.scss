@@ -1,6 +1,6 @@
 
 html {
-  font-size: 18px;
+  font-size: 14px;
 }
 
 body {
@@ -11,4 +11,10 @@ body {
 
 .text-center {
   text-align: center;
+}
+
+@include breakpointMax {
+  html {
+    font-size: 18px;
+  }
 }

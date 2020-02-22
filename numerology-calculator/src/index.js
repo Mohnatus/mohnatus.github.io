@@ -11,10 +11,11 @@ const dateField = matrixForm.elements.date;
  * Inserts matrix data into a matrix table
  * @param {Object} results
  */
-function fillTable(results) {
-  Object.keys(results).forEach(function(field) {
-    document.getElementById(field).innerHTML = results[field] || "Пусто";
-  })
+function fillTable(matrixData) {
+  Object.keys(matrixData).forEach(function(field) {
+    let elements = [...document.querySelectorAll(`[data-item="${field}"]`)];
+    elements.forEach(el => el.innerHTML = matrixData[field] || "Пусто");
+  });
 }
 
 /**
@@ -60,7 +61,8 @@ matrixForm.onsubmit = function(event) {
     }
 
     hideValidationError();
-    fillTable(calculate(date));
+    let matrixData = calculate(date);
+    fillTable(matrixData);
     showResult();
   }
 }

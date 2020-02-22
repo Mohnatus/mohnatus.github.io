@@ -2869,7 +2869,231 @@ var define;
 },{}],"../node_modules/inputmask/index.js":[function(require,module,exports) {
 module.exports = require("./dist/inputmask");
 
-},{"./dist/inputmask":"../node_modules/inputmask/dist/inputmask.js"}],"js/calculate.js":[function(require,module,exports) {
+},{"./dist/inputmask":"../node_modules/inputmask/dist/inputmask.js"}],"js/utils.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getTotalSum = getTotalSum;
+exports.getDigitsSum = getDigitsSum;
+exports.getFirstDigit = getFirstDigit;
+exports.getDigitsArray = getDigitsArray;
+exports.getAllDigits = getAllDigits;
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
+function getDigitsSum(number) {
+  var numbersArray = getDigitsArray(number);
+  return numbersArray.reduce(function (sum, digit) {
+    return sum + digit;
+  }, 0);
+}
+
+function getFirstDigit(number) {
+  return Math.floor(number / 10);
+}
+
+function getDigitsArray(number) {
+  return ('' + number).split('').map(Number);
+}
+
+function getAllDigits() {
+  for (var _len = arguments.length, numbers = new Array(_len), _key = 0; _key < _len; _key++) {
+    numbers[_key] = arguments[_key];
+  }
+
+  return numbers.reduce(function (acc, number) {
+    return [].concat(_toConsumableArray(acc), _toConsumableArray(getDigitsArray(number)));
+  }, []);
+}
+
+function getTotalSum(number) {
+  while (number >= 10) {
+    number = getDigitsSum(number);
+  }
+
+  return number;
+}
+},{}],"js/getAdditionalDigits.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _utils = require("./utils");
+
+var _default = function _default(date) {
+  var day = date.day,
+      month = date.month,
+      year = date.year;
+  /**
+   * Первое дополнительное число
+   * Сложите все числа даты рождения
+   * 18.08.1984
+   * 1 + 8 + 0 + 8 + 1 + 9 + 8 + 4 = 39
+   */
+
+  var first = (0, _utils.getDigitsSum)(day) + (0, _utils.getDigitsSum)(month) + (0, _utils.getDigitsSum)(year);
+  /**
+   * Второе дополнительное число
+   * Сложите цифры первого дополнительного числа между собой
+   * 3 + 9 = 12
+   */
+
+  var second = (0, _utils.getDigitsSum)(first);
+  /**
+   * Третье дополнительное число
+   * Вычтите из первого дополнительно числа (2 × на первую цифру даты рождения)
+   * 39 – (2 × 1) = 37
+   * Если первая цифра в дате рождения 0 (например, 05),
+   * в этом случае умножаете на число после нуля, в данном примере – на 5
+   */
+
+  var firstBirthDigit = (0, _utils.getFirstDigit)(day);
+  var third = first - 2 * firstBirthDigit;
+
+  if (firstBirthDigit === 0) {
+    third = third * day;
+  }
+  /**
+   * Четвертое дополнительное число
+   * Сложите третье дополнительное число между собой
+   * 3 + 7 = 10
+   */
+
+
+  var forth = (0, _utils.getDigitsSum)(third);
+  return [first, second, third, forth];
+};
+
+exports.default = _default;
+},{"./utils":"js/utils.js"}],"js/order.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _default = ['personality', 'energy', 'interest', 'health', 'logic', 'labour', 'luck', 'duty', 'memory'];
+exports.default = _default;
+},{}],"js/getMainValues.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _order = _interopRequireDefault(require("./order"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _default = function _default(digits) {
+  var matrix = Object.create(null);
+
+  _order.default.forEach(function (key) {
+    matrix[key] = 0;
+  });
+  /**
+   * Все полученные «1» ставите в «Характер»
+   * 2 - в «Энергию»
+   * 3 – в «Интерес»
+   * 4 – в «Здоровье»
+   * 5 - в «Логику»
+   * 6 – в «Труд»
+   * 7 – в «Удачу»
+   * 8 – в «Долг»
+   * 9 – в «Память»
+   */
+
+
+  digits.forEach(function (digit) {
+    if (digit === 0) return;
+    var key = _order.default[digit - 1];
+    matrix[key] = matrix[key] + 1;
+  });
+  return matrix;
+};
+
+exports.default = _default;
+},{"./order":"js/order.js"}],"js/getAdditionalValues.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _default = function _default(matrix) {
+  var interest = matrix.interest,
+      logic = matrix.logic,
+      luck = matrix.luck,
+      health = matrix.health,
+      labour = matrix.labour,
+      personality = matrix.personality,
+      energy = matrix.energy,
+      duty = matrix.duty,
+      memory = matrix.memory;
+  /**
+   * «Темперамент» – считаем количество чисел в «Интересе»/«Логике»/«Удаче» по диагонали матрицы. Их сумма составит коэффициент этого сектора.
+   */
+
+  var temperament = interest + logic + luck;
+  /**
+   * «Быт»: считаем количество цифр в «Здоровье»/«Логике»/«Труде». Их сумма равна коэффициенту сектора.
+   */
+
+  var everyday = health + logic + labour;
+  /**
+   * «Целеустремленность»: сумма цифр, которые есть в секторах «Характер»/ «Здоровье»/ «Удача».
+   */
+
+  var purpose = personality + health + luck;
+  /**
+   * «Семья»: сумма цифр, имеющихся в секторах «Энергия»/«Логика»/ «Долг».
+   */
+
+  var family = energy + logic + duty;
+  /**
+   * Сектор «Стабильность»: количество цифр в секторах «Интерес»/«Труд»/«Память».
+   */
+
+  var habits = interest + labour + memory;
+  return {
+    temperament: temperament,
+    everyday: everyday,
+    purpose: purpose,
+    family: family,
+    habits: habits
+  };
+};
+
+exports.default = _default;
+},{}],"js/getFateNumber.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _utils = require("./utils");
+
+var _default = function _default(dateSum) {
+  return (0, _utils.getTotalSum)(dateSum);
+};
+
+exports.default = _default;
+},{"./utils":"js/utils.js"}],"js/calculate.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2877,72 +3101,84 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.calculate = calculate;
 
-/**
- * Calculates matrix parts
- */
-var transforms = {
-  numbers: function numbers(date) {
-    return [34, 7, 30, 3];
-  },
-  fateNumber: function fateNumber(date) {
-    return 7;
-  },
-  temperament: function temperament(date) {
-    return 3;
-  },
-  personality: function personality(date) {
-    return 3;
-  },
-  health: function health(date) {
-    return 3;
-  },
-  luck: function luck(date) {
-    return 3;
-  },
-  purpose: function purpose(date) {
-    return 3;
-  },
-  energy: function energy(date) {
-    return 3;
-  },
-  logic: function logic(date) {
-    return 3;
-  },
-  duty: function duty(date) {
-    return 3;
-  },
-  family: function family(date) {
-    return 3;
-  },
-  interes: function interes(date) {
-    return 3;
-  },
-  labour: function labour(date) {
-    return 3;
-  },
-  memory: function memory(date) {
-    return 3;
-  },
-  habit: function habit(date) {
-    return 3;
-  }
-};
-var months = ['января', "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"];
+var _getAdditionalDigits = _interopRequireDefault(require("./getAdditionalDigits"));
+
+var _getMainValues = _interopRequireDefault(require("./getMainValues"));
+
+var _utils = require("./utils");
+
+var _getAdditionalValues = _interopRequireDefault(require("./getAdditionalValues"));
+
+var _getFateNumber = _interopRequireDefault(require("./getFateNumber"));
+
+var _order = _interopRequireDefault(require("./order"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
+var months = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
 /**
  * Сalculates a matrix data based on the birth date
  * @param {Date} date Date string from input (dd.mm.yyyy)
  */
 
 function calculate(date) {
-  var data = {
-    birth: "".concat(date.getDate(), " ").concat(months[date.getMonth()], " ").concat(date.getFullYear())
+  var day = date.getDate();
+  var month = date.getMonth() + 1;
+  var year = date.getFullYear();
+  date = {
+    day: day,
+    month: month,
+    year: year
   };
-  Object.keys(transforms).forEach(function (key) {
-    data[key] = transforms[key](date);
+  /**
+   * Рассчитываем дополнительные числа
+   */
+
+  var additionalDigits = (0, _getAdditionalDigits.default)(date);
+  console.log(additionalDigits);
+  /**
+   * Теперь, используя все дополнительные числа, а также цифры даты рождения,
+   * заполняем секторы матрицы с соответствующими значениями.
+   */
+
+  var digits = _utils.getAllDigits.apply(void 0, _toConsumableArray(additionalDigits).concat([day, month, year]));
+
+  console.log(digits);
+  var mainValues = (0, _getMainValues.default)(digits);
+  console.log(mainValues);
+  /**
+   * Кроме того, необходимо заполнить оставшиеся значения
+   */
+
+  var additionalValues = (0, _getAdditionalValues.default)(mainValues);
+  console.log(additionalValues);
+  var fateNumber = (0, _getFateNumber.default)(additionalDigits[0]);
+  var mainValuesFormatted = {};
+  Object.keys(mainValues).forEach(function (key) {
+    var index = _order.default.indexOf(key) + 1;
+    mainValuesFormatted[key] = new Array(mainValues[key] + 1).join(index);
   });
-  return data;
+  return _objectSpread({
+    birth: "".concat(day, " ").concat(months[month], " ").concat(year),
+    numbers: additionalDigits.join(', '),
+    fateNumber: fateNumber
+  }, mainValuesFormatted, {}, additionalValues);
 }
-},{}],"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+},{"./getAdditionalDigits":"js/getAdditionalDigits.js","./getMainValues":"js/getMainValues.js","./utils":"js/utils.js","./getAdditionalValues":"js/getAdditionalValues.js","./getFateNumber":"js/getFateNumber.js","./order":"js/order.js"}],"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
@@ -3009,17 +3245,12 @@ function reloadCSS() {
 }
 
 module.exports = reloadCSS;
-},{"./bundle-url":"../node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"../node_modules/flatpickr/dist/flatpickr.css":[function(require,module,exports) {
+},{"./bundle-url":"../node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"index.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"index.scss":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
-
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"flatpickr/dist/flatpickr.css":"../node_modules/flatpickr/dist/flatpickr.css","_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"index.js":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _inputmask = _interopRequireDefault(require("inputmask"));
@@ -3030,6 +3261,14 @@ require("./index.scss");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
 var matrixForm = document.getElementById("matrix-form");
 var dateField = matrixForm.elements.date;
 /**
@@ -3037,9 +3276,13 @@ var dateField = matrixForm.elements.date;
  * @param {Object} results
  */
 
-function fillTable(results) {
-  Object.keys(results).forEach(function (field) {
-    document.getElementById(field).innerHTML = results[field] || "Пусто";
+function fillTable(matrixData) {
+  Object.keys(matrixData).forEach(function (field) {
+    var elements = _toConsumableArray(document.querySelectorAll("[data-item=\"".concat(field, "\"]")));
+
+    elements.forEach(function (el) {
+      return el.innerHTML = matrixData[field] || "Пусто";
+    });
   });
 }
 /**
@@ -3090,7 +3333,8 @@ matrixForm.onsubmit = function (event) {
     }
 
     hideValidationError();
-    fillTable((0, _calculate.calculate)(date));
+    var matrixData = (0, _calculate.calculate)(date);
+    fillTable(matrixData);
     showResult();
   }
 };
@@ -3122,7 +3366,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53018" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58690" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

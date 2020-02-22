@@ -1,0 +1,63 @@
+.table {
+  width: 100%;
+  font-size: 0.75rem;
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .cell {
+    flex-grow: 0;
+    flex-shrink: 0;
+    width: 100%;
+    padding: 5px;
+  }
+
+  .cell--service {
+    padding: 0;
+  }
+
+  @for $i from 1 to 12 {
+    .cell-#{$i} {
+      display: block;
+      width: 100% / 12 * $i;
+    }
+  }
+
+  .cell-0 {
+    display: none;
+  }
+}
+
+@include breakpointMin {
+  .table {
+      @for $i from 1 to 12 {
+      .cell-md-#{$i} {
+        display: block;
+        width: 100% / 12 * $i;
+      }
+    }
+
+    .cell-md-0 {
+      display: none;
+    }
+  }
+
+}
+
+@include breakpointMax {
+  .table {
+    @for $i from 1 to 13 {
+      .cell-lg-#{$i} {
+        display: block;
+        width: 100% / 12 * $i;
+      }
+    }
+
+    .cell-lg-0 {
+      display: none;
+    }
+  }
+}

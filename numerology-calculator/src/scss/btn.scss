@@ -5,13 +5,13 @@
   border-radius: $radius;
   border: 0;
   outline: none;
-  background: $purple;
+  background: $mainColor;
   color: white;
   cursor: pointer;
 
   &:hover {
-    background: lighten($purple, 5%);
-    box-shadow: 0 0 5px 0 $purple;
+    background: lighten($mainColor, 5%);
+    box-shadow: 0 0 5px 0 $mainColor;
   }
 
   &--block {
