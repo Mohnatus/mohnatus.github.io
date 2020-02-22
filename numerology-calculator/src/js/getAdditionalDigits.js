@@ -30,10 +30,6 @@ export default (date) => {
 	let firstBirthDigit = getFirstDigit(day);
 	let third = first - 2 * firstBirthDigit;
 
-	if (firstBirthDigit === 0) {
-		third = third * day;
-	}
-
 	/**
 	 * Четвертое дополнительное число
 	 * Сложите третье дополнительное число между собой

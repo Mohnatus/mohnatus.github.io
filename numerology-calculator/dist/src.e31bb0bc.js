@@ -2897,6 +2897,7 @@ function getDigitsSum(number) {
 }
 
 function getFirstDigit(number) {
+  if (number < 10) return number;
   return Math.floor(number / 10);
 }
 
@@ -2963,16 +2964,11 @@ var _default = function _default(date) {
 
   var firstBirthDigit = (0, _utils.getFirstDigit)(day);
   var third = first - 2 * firstBirthDigit;
-
-  if (firstBirthDigit === 0) {
-    third = third * day;
-  }
   /**
    * Четвертое дополнительное число
    * Сложите третье дополнительное число между собой
    * 3 + 7 = 10
    */
-
 
   var forth = (0, _utils.getDigitsSum)(third);
   return [first, second, third, forth];

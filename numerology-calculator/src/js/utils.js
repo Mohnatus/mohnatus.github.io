@@ -4,6 +4,7 @@ function getDigitsSum(number) {
 }
 
 function getFirstDigit(number) {
+	if (number < 10) return number;
 	return Math.floor(number / 10);
 }
 
