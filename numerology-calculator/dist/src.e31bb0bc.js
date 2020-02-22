@@ -3258,6 +3258,8 @@ var _calculate = require("./js/calculate");
 
 require("./index.scss");
 
+var _order = _interopRequireDefault(require("./js/order"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
@@ -3268,7 +3270,7 @@ function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.
 
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
 
-var matrixForm = document.getElementById("matrix-form");
+var matrixForm = document.getElementById('matrix-form');
 var dateField = matrixForm.elements.date;
 /**
  * Inserts matrix data into a matrix table
@@ -3280,7 +3282,13 @@ function fillTable(matrixData) {
     var elements = _toConsumableArray(document.querySelectorAll("[data-item=\"".concat(field, "\"]")));
 
     elements.forEach(function (el) {
-      return el.innerHTML = matrixData[field] || "Пусто";
+      var text = matrixData[field];
+
+      if (text == 0) {
+        if (_order.default.indexOf(field) !== -1) text = 'Пусто';
+      }
+
+      el.innerHTML = text;
     });
   });
 }
@@ -3290,7 +3298,7 @@ function fillTable(matrixData) {
 
 
 function showResult() {
-  document.getElementById("page-output").style.display = "";
+  document.getElementById('page-output').style.display = '';
 }
 /**
  * Show/Hide validation error
@@ -3298,11 +3306,11 @@ function showResult() {
 
 
 function showValidationError() {
-  matrixForm.querySelector('.invalid-feedback').style.display = "block";
+  matrixForm.querySelector('.invalid-feedback').style.display = 'block';
 }
 
 function hideValidationError() {
-  matrixForm.querySelector('.invalid-feedback').style.display = "";
+  matrixForm.querySelector('.invalid-feedback').style.display = '';
 }
 /**
  * Init input mask
@@ -3310,8 +3318,8 @@ function hideValidationError() {
 
 
 var mask = (0, _inputmask.default)({
-  "mask": "99.99.9999",
-  "placeholder": "дд.мм.гггг"
+  mask: '99.99.9999',
+  placeholder: 'дд.мм.гггг'
 }).mask(dateField);
 /**
  * Form submit handler
@@ -3323,7 +3331,7 @@ matrixForm.onsubmit = function (event) {
   if (!mask.isValid()) {
     showValidationError();
   } else {
-    var dateString = dateField.value.split(".").reverse().join("-");
+    var dateString = dateField.value.split('.').reverse().join('-');
     var date = new Date(dateString);
 
     if (isNaN(date)) {
@@ -3332,7 +3340,6 @@ matrixForm.onsubmit = function (event) {
     }
 
     var day = Number(dateField.value.slice(0, 2));
-    console.log('day', day, 'date', date);
 
     if (date.getDate() !== day) {
       showValidationError();
@@ -3345,7 +3352,7 @@ matrixForm.onsubmit = function (event) {
     showResult();
   }
 };
-},{"inputmask":"../node_modules/inputmask/index.js","./js/calculate":"js/calculate.js","./index.scss":"index.scss"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"inputmask":"../node_modules/inputmask/index.js","./js/calculate":"js/calculate.js","./index.scss":"index.scss","./js/order":"js/order.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -3373,7 +3380,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56883" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59075" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
