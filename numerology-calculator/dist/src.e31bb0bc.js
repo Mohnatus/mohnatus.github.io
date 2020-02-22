@@ -3331,6 +3331,14 @@ matrixForm.onsubmit = function (event) {
       return;
     }
 
+    var day = Number(dateField.value.slice(0, 2));
+    console.log('day', day, 'date', date);
+
+    if (date.getDate() !== day) {
+      showValidationError();
+      return;
+    }
+
     hideValidationError();
     var matrixData = (0, _calculate.calculate)(date);
     fillTable(matrixData);
@@ -3365,7 +3373,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53935" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56883" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

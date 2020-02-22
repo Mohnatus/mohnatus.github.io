@@ -52,10 +52,19 @@ matrixForm.onsubmit = function(event) {
   if (!mask.isValid()) {
     showValidationError();
   } else {
+
     let dateString = dateField.value.split(".").reverse().join("-");
     let date = new Date(dateString);
 
     if (isNaN(date)) {
+      showValidationError();
+      return;
+    }
+
+    let day = Number(dateField.value.slice(0, 2));
+    console.log('day', day, 'date', date)
+    if (date.getDate() !== day) {
+
       showValidationError();
       return;
     }
