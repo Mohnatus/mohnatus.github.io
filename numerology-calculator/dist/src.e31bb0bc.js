@@ -2915,7 +2915,10 @@ function getAllDigits() {
 }
 
 function getTotalSum(number) {
+  var except = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
+
   while (number >= 10) {
+    if (except.indexOf(number) !== -1) return number;
     number = getDigitsSum(number);
   }
 
@@ -3089,7 +3092,7 @@ exports.default = void 0;
 var _utils = require("./utils");
 
 var _default = function _default(dateSum) {
-  return (0, _utils.getTotalSum)(dateSum);
+  return (0, _utils.getTotalSum)(dateSum, [11]);
 };
 
 exports.default = _default;

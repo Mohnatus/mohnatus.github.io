@@ -17,8 +17,9 @@ function getAllDigits(...numbers) {
 	}, [])
 }
 
-function getTotalSum(number) {
+function getTotalSum(number, except = []) {
 	while(number >= 10) {
+    if (except.indexOf(number) !== -1) return number;
 		number = getDigitsSum(number);
 	}
 	return number;
