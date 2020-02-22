@@ -3152,7 +3152,6 @@ function calculate(date) {
    */
 
   var additionalDigits = (0, _getAdditionalDigits.default)(date);
-  console.log(additionalDigits);
   /**
    * Теперь, используя все дополнительные числа, а также цифры даты рождения,
    * заполняем секторы матрицы с соответствующими значениями.
@@ -3160,15 +3159,12 @@ function calculate(date) {
 
   var digits = _utils.getAllDigits.apply(void 0, _toConsumableArray(additionalDigits).concat([day, month, year]));
 
-  console.log(digits);
   var mainValues = (0, _getMainValues.default)(digits);
-  console.log(mainValues);
   /**
    * Кроме того, необходимо заполнить оставшиеся значения
    */
 
   var additionalValues = (0, _getAdditionalValues.default)(mainValues);
-  console.log(additionalValues);
   var fateNumber = (0, _getFateNumber.default)(additionalDigits[0]);
   var mainValuesFormatted = {};
   Object.keys(mainValues).forEach(function (key) {
@@ -3176,7 +3172,7 @@ function calculate(date) {
     mainValuesFormatted[key] = new Array(mainValues[key] + 1).join(index);
   });
   return _objectSpread({
-    birth: "".concat(day, " ").concat(months[month], " ").concat(year),
+    birth: "".concat(day, " ").concat(months[month - 1], " ").concat(year),
     numbers: additionalDigits.join(', '),
     fateNumber: fateNumber
   }, mainValuesFormatted, {}, additionalValues);
@@ -3369,7 +3365,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58690" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53935" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

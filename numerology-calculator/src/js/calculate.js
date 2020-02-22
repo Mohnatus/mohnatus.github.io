@@ -38,8 +38,6 @@ function calculate(date) {
 	 */
 	const additionalDigits = getAdditionalDigits(date);
 
-	console.log(additionalDigits)
-
 	/**
 	 * Теперь, используя все дополнительные числа, а также цифры даты рождения,
 	 * заполняем секторы матрицы с соответствующими значениями.
@@ -47,19 +45,13 @@ function calculate(date) {
 
 	let digits = getAllDigits(...additionalDigits, day, month, year);
 
-	console.log(digits);
-
 	let mainValues = getMainValues(digits);
-
-	console.log(mainValues)
 
 	/**
 	 * Кроме того, необходимо заполнить оставшиеся значения
 	 */
 
 	let additionalValues = getAdditionalValues(mainValues);
-
-	console.log(additionalValues);
 
 	let fateNumber = getFateNumber(additionalDigits[0]);
 
@@ -70,7 +62,7 @@ function calculate(date) {
 	});
 
 	return {
-		birth: `${day} ${months[month]} ${year}`,
+		birth: `${day} ${months[month - 1]} ${year}`,
 		numbers: additionalDigits.join(', '),
 		fateNumber,
 		...mainValuesFormatted,
