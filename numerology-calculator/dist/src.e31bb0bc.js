@@ -5647,7 +5647,7 @@ matrixForm.onsubmit = function (event) {
   if (!mask.isValid()) {
     showValidationError();
   } else {
-    var dateString = dateField.value.split(".").reverse().join(".");
+    var dateString = dateField.value.split(".").reverse().join("-");
     var date = new Date(dateString);
 
     if (isNaN(date)) {
