@@ -1,5 +1,4 @@
 import Inputmask from "inputmask";
-import flatpickr from "flatpickr";
 
 import { calculate } from './js/calculate';
 
@@ -42,11 +41,6 @@ const mask = Inputmask({
   "mask": "99.99.9999",
   "placeholder": "дд.мм.гггг"
 }).mask(dateField);
-
-flatpickr(dateField, {
-  allowInput: true,
-  dateFormat: 'd.m.Y'
-});
 
 /**
  * Form submit handler

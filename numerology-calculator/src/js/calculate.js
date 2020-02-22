@@ -49,13 +49,28 @@ const transforms = {
 	}
 };
 
+const months = [
+  'января',
+  "февраля",
+  "марта",
+  "апреля",
+  "мая",
+  "июня",
+  "июля",
+  "августа",
+  "сентября",
+  "октября",
+  "ноября",
+  "декабря"
+];
+
 /**
  * Сalculates a matrix data based on the birth date
  * @param {Date} date Date string from input (dd.mm.yyyy)
  */
 function calculate(date) {
 	let data = {
-		birth: date
+		birth: `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`
 	};
 	Object.keys(transforms).forEach(key => {
 		data[key] = transforms[key](date);
