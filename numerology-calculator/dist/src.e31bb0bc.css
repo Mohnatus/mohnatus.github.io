@@ -256,13 +256,12 @@ body {
 
 .matrix-item {
   background: #d5caf1;
-  min-height: 80px;
+  height: 85px;
   border-radius: 4px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 10px 15px;
-  height: 100%;
 }
 
 .cell--personality .matrix-item {

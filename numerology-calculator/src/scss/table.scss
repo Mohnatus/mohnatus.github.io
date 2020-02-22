@@ -1,15 +1,12 @@
 .matrix {
   &-item {
     background: $secondaryColor;
-    min-height: 80px;
+    height: 85px;
     border-radius: $radius;
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 10px 15px;
-    height: 100%;
-
-
   }
 }
 
