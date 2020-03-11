@@ -1,0 +1,1511 @@
+<svg id="phone" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 152.83 279.33">
+  <defs>
+    <style>
+      .text { font-size:8.94px;font-family:PT Sans; }
+      .mini-text{font-size:5.21px;}
+      .medium {font-size:7.45px;}
+      .like-text { font-size: 7.82px; font-family:PT Sans; fill: #ee5ba0;}
+      .pre{white-space:pre;}
+
+      #sign-step { font-size: 0; }
+
+
+      .op-2 { opacity: 0.2;}
+
+      .path-2{clip-path:url(#clip-path-2);}
+      .path-1{clip-path:url(#clip-path-1);}
+      .path-3{clip-path:url(#clip-path-3);}
+      .path-4{clip-path:url(#clip-path-4);}
+      .path-5 {clip-path:url(#clip-path-5);}
+
+      .red { fill: #e51878; }
+
+
+      .line {fill:none;stroke-miterlimit:10;stroke:#fff;stroke-width:0.75px;}
+      
+
+      
+
+      .square-border {stroke-miterlimit:10; }
+      <!--.square-line{fill:#e6e6e6;}-->
+
+
+      .fill-none { fill: none; }
+
+      .white { fill: #fff; }
+      .gray { fill:#e6e6e6; }
+      .pink {fill:#ee5ba0;}
+      .yellow {fill:#ffc523;}
+      .blue {fill:#17b8d3;}
+      .violet { fill:#4f33a3; }
+      .peach {fill:#fecc9b;}
+      .peach2 {fill:#f2be8f;}
+      .aqua{fill:#2ad6e8;}
+      .dirty-blue{fill:#0091a0;}
+      .brown{fill:#89552f;}
+      .brown2{fill:#754c27;}
+      .black{fill:#333;}
+
+      <!--#profile-title, #phone-profile,
+      [data-view="gallery"] #gallery-title, [data-view="gallery"] #phone-gallery,
+      [data-view="add"] #add-title, [data-view="add"] #phone-add { display: block; }
+
+      #gallery-title, #phone-gallery,
+      #add-title, #phone-add,
+      [data-view="gallery"] #profile-title, [data-view="gallery"] #phone-profile,
+      [data-view="add"] #profile-title, [data-view="add"] #phone-profile { display: none; }
+
+      #mask, #letters, #active-item, #like { display: none; }
+
+      [data-view="add"][data-action="sign"] #mask, 
+      [data-view="add"][data-action="sign"] #letters,
+      [data-view="profile"][data-action="end"] #active-item,
+      [data-view="profile"][data-action="like"] #active-item,
+      [data-view="profile"][data-action="like"] #like { display: block; }
+
+      [data-action="start"] .square-border {fill:none; stroke:#4f33a3;}
+      [data-action="start"] .square-line {fill:#4f33a3;}
+      [data-action="like"] #heart { fill: #ee5ba0; }-->
+    </style>
+
+    <clipPath id="clip-path-1" transform="translate(-228.22 -126.66)">
+      <rect class="fill-none" x="232.6" y="302.84" width="34.58" height="35.71"/>
+    </clipPath>
+    <clipPath id="clip-path-2" transform="translate(-228.22 -126.66)">
+      <rect class="fill-none" x="232.6" y="190.26" width="144.08" height="111.01"/>
+    </clipPath>
+    <clipPath id="clip-path-3" transform="translate(-416.31 -126.66)">
+      <rect class="fill-none" x="528.18" y="196.86" width="31.21" height="32.23"/>
+    </clipPath>
+    <clipPath id="clip-path-4" transform="translate(-701.72 -126.16)"><rect class="fill-none" x="706.09" y="257.63" width="46.17" height="47.67"/></clipPath>
+    <clipPath id="clip-path-5">
+      <rect class="fill-none" x="4.37" y="168.43" width="144.08" height="80.68"/>
+    </clipPath>
+
+  </defs>
+  
+  <g id="phone-base">
+    <g id="white-phone-base">
+      <rect class="white" width="152.83" height="279.33" rx="21.94" ry="21.94"/>
+      <path class="gray" d="M137,143.48H103.72a1.83,1.83,0,0,1-1.83-1.83h0a1.83,1.83,0,0,1,1.83-1.83H137a1.83,1.83,0,0,1,1.83,1.83h0A1.83,1.83,0,0,1,137,143.48Z" transform="translate(-43.94 -126.66)"/>
+      <circle class="gray" cx="46.98" cy="14.99" r="3.38"/>
+    </g>
+      
+    <g id="main-phone-button">
+      <circle class="gray" cx="76.41" cy="263.15" r="8.68"/>
+    </g>
+
+    <g id="gray-phone-base">
+      <rect class="gray" x="4.37" y="31.31" width="144.08" height="217.8"/>
+      <rect class="white" x="14.57" y="36.91" width="24.32" height="7.69" rx="2.98" ry="2.98"/>
+      <rect class="white" x="110.63" y="36.91" width="27.3" height="7.69" rx="3.16" ry="3.16"/>
+    </g>
+
+    <g id="profile-line">
+      <line class="line" x1="4.37" y1="63.6" x2="148.46" y2="63.6"/>
+    </g>
+  </g>
+
+  <g id="phone-profile" opacity="1">
+    <g id="profile-title">
+      <text class="text white" transform="translate(50.64 58.01)">мой профил<tspan x="47.67" y="0">ь</tspan></text>
+    </g>
+    <g id="profile-header">
+      <g id="big-star">
+        <circle class="white" cx="27.36" cy="87.05" r="18.99"/>
+        <polygon class="gray" points="27.36 77.83 30.35 83.9 37.04 84.87 32.2 89.59 33.34 96.26 27.36 93.11 21.37 96.26 22.51 89.59 17.67 84.87 24.36 83.9 27.36 77.83"/>
+        <text class="text white" transform="translate(8.37 116.21)">Моё имя</text>
+      </g>
+
+      <g id="profile-lines">
+        <rect class="white" x="53.79" y="92.75" width="73.97" height="9.68" rx="1.12" ry="1.12"/>
+        <rect class="white" x="53.79" y="70.91" width="26.06" height="15.89" rx="0.85" ry="0.85"/>
+        <rect class="white" x="85.68" y="70.91" width="26.06" height="15.89" rx="0.85" ry="0.85"/>
+        <rect class="white" x="117.33" y="70.91" width="26.06" height="15.89" rx="0.85" ry="0.85"/>
+        <rect class="white" x="130.24" y="92.75" width="13.15" height="9.68" rx="0.47" ry="0.47"/>
+      </g>
+    </g>
+
+    <g id="big-squares">
+      <rect class="pink" x="4.4" y="131.47" width="46.17" height="47.66"/>
+      <rect class="yellow" x="52.59" y="131.47" width="47.66" height="47.66"/>
+      <rect class="blue" x="102.31" y="131.47" width="46.17" height="47.66"/>
+      <rect class="yellow" x="4.4" y="181.18" width="46.17" height="47.66"/>
+      <rect class="blue" x="52.59" y="181.18" width="47.66" height="47.66"/>
+      <rect class="pink" x="102.31" y="181.18" width="46.17" height="47.66"/>
+
+
+      <g id="active-item" opacity="0">
+        <g class="path-4"><rect class="violet" x="4.37" y="131.47" width="46.17" height="47.85"/><path class="pink" d="M746.92,286.66l0.2,0.56a0.22,0.22,0,0,0,.15.14l0.57,0.15a0.22,0.22,0,0,1,.08.38l-0.47.36a0.22,0.22,0,0,0-.08.18l0,0.59a0.22,0.22,0,0,1-.34.19l-0.49-.33a0.22,0.22,0,0,0-.2,0l-0.55.21a0.22,0.22,0,0,1-.29-0.26l0.17-.57a0.22,0.22,0,0,0,0-.2l-0.37-.46a0.22,0.22,0,0,1,.16-0.35l0.59,0a0.22,0.22,0,0,0,.17-0.1l0.32-.5A0.22,0.22,0,0,1,746.92,286.66Z" transform="translate(-701.72 -126.16)"/><path class="yellow" d="M710.93,261.86l0.2,0.56a0.22,0.22,0,0,0,.15.14l0.57,0.15a0.22,0.22,0,0,1,.08.38l-0.47.36a0.22,0.22,0,0,0-.08.18l0,0.59a0.22,0.22,0,0,1-.34.19l-0.49-.33a0.22,0.22,0,0,0-.2,0l-0.55.21a0.22,0.22,0,0,1-.29-0.26l0.17-.57a0.22,0.22,0,0,0,0-.2l-0.37-.46a0.22,0.22,0,0,1,.16-0.35l0.59,0a0.22,0.22,0,0,0,.17-0.1l0.32-.5A0.22,0.22,0,0,1,710.93,261.86Z" transform="translate(-701.72 -126.16)"/><path class="white" d="M747.68,265.7l0.77,2.91a0.21,0.21,0,0,0,.37.07l0.74-1,0.91,2.18-0.59-3.06a0.21,0.21,0,0,0-.36-0.09l-0.83,1Z" transform="translate(-701.72 -126.16)"/><ellipse class="peach" cx="728.22" cy="276.01" rx="13.49" ry="8.79" transform="translate(-735.98 -8.61) rotate(-9.02)"/><path class="white" d="M731.67,281.09a8.25,8.25,0,0,0,2.54,0,3.52,3.52,0,0,0,1.83-1.31,2.49,2.49,0,0,1-1.55,2.44C732.75,283,731.67,281.09,731.67,281.09Z" transform="translate(-701.72 -126.16)"/><ellipse class="peach2" cx="728.27" cy="282.17" rx="2.09" ry="0.89" transform="translate(-736.2 -11.94) rotate(-8.76)"/><ellipse class="peach2" cx="738.54" cy="278.66" rx="1.7" ry="0.73" transform="translate(-735.55 -10.4) rotate(-8.76)"/><polygon class="peach" points="28.88 158.22 29.02 161.79 31.37 161.6 31.23 157.1 28.88 158.22"/><path class="blue" d="M722.65,293.63l0.07-1.65a8.91,8.91,0,0,0,2.25-1.65,31.87,31.87,0,0,1,2.61-2.85,5.16,5.16,0,0,1,3.09-.7,1.29,1.29,0,0,0,1.19.43c1.31-.17,1.22-0.86,1.22-0.86a6.9,6.9,0,0,0,3-.46,12.27,12.27,0,0,0,2.92-1.76l1.92,1.27s-2.11,1.73-3.06,2.61a5.34,5.34,0,0,1-2.16,1.08,9.07,9.07,0,0,1,1.46,4.41c0,2.16-.14,3.15-0.14,3.15s-1.74,1.83-5.4.89-3.93-2.17-3.93-2.17a10.75,10.75,0,0,0,1.33-2.76,9.92,9.92,0,0,0-.31-2.48,25.47,25.47,0,0,0-2,1.83C724.58,294.26,722.65,293.63,722.65,293.63Z" transform="translate(-701.72 -126.16)"/><path class="aqua" d="M723.55,291.18l0.89,2.69a0.28,0.28,0,0,1-.22.37,43.62,43.62,0,0,1-7.4.73c-3.58,0-6.17-.25-6.24-1.75s2.86-1,2.86-1-0.85-.41-0.71-0.71,3.43,1.46,4.78,1.39a30.85,30.85,0,0,0,5.66-1.92A0.28,0.28,0,0,1,723.55,291.18Z" transform="translate(-701.72 -126.16)"/><path class="aqua" d="M738.8,283.81l1.76,2.23a0.28,0.28,0,0,0,.42,0,43.63,43.63,0,0,0,4.68-5.78c1.94-3,3.18-5.29,2-6.17s-2.39,1.85-2.39,1.85,0.12-.94-0.2-1-0.66,3.67-1.47,4.76a30.85,30.85,0,0,1-4.71,3.68A0.28,0.28,0,0,0,738.8,283.81Z" transform="translate(-701.72 -126.16)"/><path class="blue" d="M724.59,301.61a1.92,1.92,0,0,0,1.44.29c0.49-.28.67-1.65,1.13-3.8s0.6-2.78.6-2.78l4.72,1.58,4.51-.53a27.33,27.33,0,0,1-.74,3.24c-0.42,1.3-3.63,10.3-3.63,10.3l-1.76-.69,2.22-7.46s-0.07.18-2-.21-2-.74-2-0.74-1.34,2.93-2.57,3.19a4.91,4.91,0,0,1-2.82-.66Z" transform="translate(-701.72 -126.16)"/><path class="dirty-blue" d="M728.28,294.12a21.72,21.72,0,0,0,5,1.06c3,0.27,3.85-.15,3.85-0.15a2.77,2.77,0,0,1,0,1,3,3,0,0,1-.21,1.16,10.73,10.73,0,0,1-4.08.07c-2.68-.35-5.3-1-5.3-1a3.71,3.71,0,0,1,.23-1.16A4,4,0,0,1,728.28,294.12Z" transform="translate(-701.72 -126.16)"/><path class="dirty-blue" d="M730.77,309.17l1.93,0.65a0.28,0.28,0,0,1,.16.4c-0.37.65-1.19,2.19-1,2.57s2,1.5,1.3,2.25-3.54-1-3.68-1.81a14.79,14.79,0,0,1,1-3.89A0.28,0.28,0,0,1,730.77,309.17Z" transform="translate(-701.72 -126.16)"/><path class="dirty-blue" d="M724.64,301.68l-0.79,1.88a0.28,0.28,0,0,1-.41.13c-0.62-.42-2.09-1.35-2.49-1.22s-1.64,1.84-2.34,1.13,1.21-3.46,2.08-3.53a14.79,14.79,0,0,1,3.81,1.25A0.28,0.28,0,0,1,724.64,301.68Z" transform="translate(-701.72 -126.16)"/><path class="white" d="M732.88,287.85l-1.19,3.56a0.26,0.26,0,0,0,.33.33l1.43-.49-0.55,2.9,1.49-3.59a0.26,0.26,0,0,0-.32-0.35l-1.55.47Z" transform="translate(-701.72 -126.16)"/><path class="brown" d="M715.81,280.63a9.51,9.51,0,0,1-1.38-3.3c-0.4-1.93.64-4.94,0-5.3a23.55,23.55,0,0,0-2.59-1,11.75,11.75,0,0,1,1.6-.52l1-.27-2.59-1.61a5.45,5.45,0,0,1,2.45-1,7.39,7.39,0,0,1,2.07.24,4.78,4.78,0,0,1-.47-1.6,7,7,0,0,1,.39-1.82,8.74,8.74,0,0,0,4.65,1.18c2.63-.11,9.79-2,12.1-3.32s6.06-2.57,8.86-1.8,4.13,3.56,2.86,4.93a2.2,2.2,0,0,1-2.67.59s2-.27,1.6-1.77-1.78-1-2.27-.81a3.7,3.7,0,0,0-1.88,2.57c-0.32,1.49.63,5,.63,5a32.44,32.44,0,0,0-13,2.21A37.55,37.55,0,0,0,715.81,280.63Z" transform="translate(-701.72 -126.16)"/><path class="brown2" d="M736.38,271.09a4.54,4.54,0,0,1-.22-3.54,12,12,0,0,1,1.58-2.86,7.27,7.27,0,0,0-3.1,1.64,5.55,5.55,0,0,0-1.42,2.25l-1.06-2a3.69,3.69,0,0,1-.35,1.76c-0.36.3-2.51-.49-4.74-0.69a17.31,17.31,0,0,0-4.53.3l2.64,2a12.51,12.51,0,0,0-2.57-.06,2.64,2.64,0,0,0-1.68.85l1.25,1-4.47.75a7.8,7.8,0,0,0,1.25,2.28,25.64,25.64,0,0,0,2,2.23,46,46,0,0,1,7.77-3.91C732,272.13,736.38,271.09,736.38,271.09Z" transform="translate(-701.72 -126.16)"/><path class="dirty-blue" d="M716.41,280.56a4.59,4.59,0,0,0-4.15-2c-2.9.12-4.79,3.8-4.79,3.8a8.19,8.19,0,0,0,4.79-1A5.31,5.31,0,0,1,716.41,280.56Z" transform="translate(-701.72 -126.16)"/><path class="blue" d="M716.59,280.24a4.59,4.59,0,0,0-4.55.8c-2.27,1.81-1.63,5.89-1.63,5.89a8.19,8.19,0,0,0,3.27-3.65A5.31,5.31,0,0,1,716.59,280.24Z" transform="translate(-701.72 -126.16)"/><path class="peach" d="M717.36,280.72s-0.52-.75-1.92,0,0.23,3.24,1.78,3.61,2.16,0.14,2.35-.42S717.36,280.72,717.36,280.72Z" transform="translate(-701.72 -126.16)"/><circle class="peach2" cx="15.05" cy="156.09" r="0.73"/><path class="blue" d="M738.6,270.63c3.9-.19,3.73,3.7,2.14,5.58s-3.94,1.5-7.28,2.25-1.69,1.64-6.24,2.72-6.8.29-10.47-.13c-4.17-.47,3.88-5.62,7.61-6.87S734.7,270.82,738.6,270.63Z" transform="translate(-701.72 -126.16)"/><ellipse class="peach" cx="737.66" cy="274.83" rx="2.28" ry="2.23" transform="translate(-665.72 505.52) rotate(-47.39)"/><ellipse class="black" cx="738.9" cy="274.24" rx="0.92" ry="1.01" transform="translate(-664.89 506.24) rotate(-47.39)"/><ellipse class="peach" cx="727.45" cy="277.47" rx="2.28" ry="2.23" transform="translate(-670.96 498.85) rotate(-47.39)"/><ellipse class="black" cx="728.69" cy="276.88" rx="0.92" ry="1.01" transform="translate(-670.13 499.58) rotate(-47.39)"/></g><path class="gray" d="M747.49,261.84l1.57-1.24a0.74,0.74,0,0,1,.45-0.16h0.17V266h-0.19a0.74,0.74,0,0,1-.43-0.13l-1.53-1a0.74,0.74,0,0,1-.33-0.62v-1.82A0.74,0.74,0,0,1,747.49,261.84Z" transform="translate(-701.72 -126.16)"/><path class="gray" d="M745.22,260H741a1.12,1.12,0,0,0-1.12,1.12v4.22a1.12,1.12,0,0,0,1.12,1.12h4.22a1.12,1.12,0,0,0,1.12-1.12v-4.22A1.12,1.12,0,0,0,745.22,260Zm-2.11,5.33a2.11,2.11,0,1,1,2.11-2.11A2.11,2.11,0,0,1,743.11,265.34Z" transform="translate(-701.72 -126.16)"/><circle class="gray" cx="41.4" cy="137.08" r="1.06"/>
+      </g>
+    </g>
+
+    <g id="menu">
+      <g id="menu-star">
+        <circle class="white" cx="133.74" cy="239.54" r="5.21"/>
+        <polygon class="gray" points="133.74 234.67 135.18 237.58 138.39 238.05 136.07 240.32 136.62 243.52 133.74 242.01 130.87 243.52 131.42 240.32 129.09 238.05 132.31 237.58 133.74 234.67"/>
+      </g>
+
+      
+        
+      <g id="menu-heart">
+        <path id="heart" class="white" d="M149.28,363.7l0.07-.1a2.16,2.16,0,0,1,1.57-1,2.06,2.06,0,0,1,1.83.68,2.55,2.55,0,0,1,.21,3.15,10.56,10.56,0,0,1-1,1.16,33.38,33.38,0,0,1-2.58,2.23,0.09,0.09,0,0,1-.13,0,28.58,28.58,0,0,1-2.93-2.59,6.27,6.27,0,0,1-.79-1,2.38,2.38,0,0,1-.16-2.23,2.21,2.21,0,0,1,1.4-1.35,2.11,2.11,0,0,1,2.31.73Z" transform="translate(-43.94 -126.66)"/>
+
+  
+        <g id="heart-clone" class="red" opacity="0">
+          <g id="heart-clone-scale" transform="scale(1)" >
+            <path id="heart-clone-translate" d="M149.28,363.7l0.07-.1a2.16,2.16,0,0,1,1.57-1,2.06,2.06,0,0,1,1.83.68,2.55,2.55,0,0,1,.21,3.15,10.56,10.56,0,0,1-1,1.16,33.38,33.38,0,0,1-2.58,2.23,0.09,0.09,0,0,1-.13,0,28.58,28.58,0,0,1-2.93-2.59,6.27,6.27,0,0,1-.79-1,2.38,2.38,0,0,1-.16-2.23,2.21,2.21,0,0,1,1.4-1.35,2.11,2.11,0,0,1,2.31.73Z" transform="translate(-43.94 -126.66)" />
+          </g>
+        </g>
+
+        
+      </g>
+
+      
+        
+      <g id="menu-center" fill="white" stroke="#e6e6e6" stroke-width="0.37">
+        <rect class="square-border" x="71.97" y="235.41" width="8.87" height="8.65" rx="2.23" ry="2.23"/>
+        <rect class="square-line" x="76.22" y="237.5" width="0.37" height="4.47"/>
+        <rect class="square-line" x="120.16" y="364.17" width="0.37" height="4.47" transform="translate(442.81 119.39) rotate(90)"/>
+      </g>
+        
+      <g id="menu-loupe">
+        <circle class="white" cx="47.03" cy="239.07" r="3.66"/>
+        <rect class="white" x="93.21" y="368.93" width="2.66" height="0.44" transform="translate(244.78 -85.39) rotate(45)"/>
+      </g>
+        
+      <g id="menu-home">
+        <path class="white" d="M58.71,370.18v-3.09A1.12,1.12,0,0,1,59,366.3l3.52-3.52a0.37,0.37,0,0,1,.53,0l3.62,3.62a1.12,1.12,0,0,1,.33.79v2.95a0.37,0.37,0,0,1-.37.37H64a0.37,0.37,0,0,1-.37-0.37v-2a0.74,0.74,0,0,0-.74-0.74H62.76a0.74,0.74,0,0,0-.74.74v2a0.37,0.37,0,0,1-.37.37H59.08A0.37,0.37,0,0,1,58.71,370.18Z" transform="translate(-43.94 -126.66)"/>
+      </g>
+
+      <g id="like" opacity="0">
+        <g class="op-2">
+          <rect x="94.47" y="215.55" width="21.25" height="15.65" rx="3.66" ry="3.66"/>
+          <path d="M985.91,356.22c-0.48,0-.57.25-0.19,0.55l4.81,3.75a1.13,1.13,0,0,0,1.36,0l4.51-3.84c0.37-.31.27-0.56-0.21-0.56Z" transform="translate(-886.03 -126.16)"/>
+        </g>
+        <rect class="white" x="94.47" y="214.43" width="21.25" height="15.65" rx="3.66" ry="3.66"/>
+        <path class="white" d="M985.91,355.11c-0.48,0-.57.25-0.19,0.55l4.81,3.75a1.13,1.13,0,0,0,1.36,0l4.51-3.84c0.37-.31.27-0.56-0.21-0.56Z" transform="translate(-886.03 -126.16)"/>
+        <path class="pink" d="M987.64,346l0.07-.1a2.16,2.16,0,0,1,1.57-1,2.06,2.06,0,0,1,1.83.68,2.55,2.55,0,0,1,.21,3.15,10.55,10.55,0,0,1-1,1.16,33.32,33.32,0,0,1-2.58,2.23,0.09,0.09,0,0,1-.13,0,28.57,28.57,0,0,1-2.93-2.59,6.26,6.26,0,0,1-.79-1,2.38,2.38,0,0,1-.16-2.23,2.21,2.21,0,0,1,1.4-1.35,2.1,2.1,0,0,1,2.31.73Z" transform="translate(-886.03 -126.16)"/>
+        
+        <text id="like-1" class="like-text" transform="translate(107.8 224.66)">1</text>
+        <text id="like-2" opacity="0" class="like-text" transform="translate(107.8 224.66)">2</text>
+        <text id="like-3" opacity="0" class="like-text" transform="translate(107.8 224.66)">3</text>
+        <text id="like-4" opacity="0" class="like-text" transform="translate(107.8 224.66)">4</text>
+        <text id="like-5" opacity="0" class="like-text" transform="translate(107.8 224.66)">5</text>
+        <text id="like-6" opacity="0" class="like-text" transform="translate(107.8 224.66)">6</text>
+        <text id="like-7" opacity="0" class="like-text" transform="translate(107.8 224.66)">7</text>
+        <text id="like-8" opacity="0" class="like-text" transform="translate(107.8 224.66)">8</text>
+        <text id="like-9" opacity="0" class="like-text" transform="translate(107.8 224.66)">9</text>
+      </g>
+    </g>
+  </g>
+
+  <g id="phone-gallery" opacity="0">
+    <g id="gallery-title">
+      <g id="all-photos">
+        <text class="white text" transform="translate(55.64 58.01)">В<tspan x="5.22" y="0">с</tspan><tspan x="9.04" y="0">е ф</tspan><tspan x="22.04" y="0">от</tspan><tspan x="30.1" y="0">о</tspan></text>
+        <rect class="white" x="322.14" y="181.1" width="0.65" height="2.98" transform="translate(-262.88 154.87) rotate(-45.01)"/>
+        <rect class="white" x="323.81" y="181.11" width="0.64" height="2.98" transform="translate(-4.17 -302.38) rotate(45)"/>
+      </g>
+      
+      <g id="cancel">
+        <text class="white text" transform="translate(10.47 58.01)">Отмена</text>
+      </g>
+
+      <g id="next-button">
+        <text id="next" class="white text" transform="translate(118.19 58.01)">Дал<tspan x="14.9" y="0">е</tspan><tspan x="19.34" y="0">е</tspan></text>
+      </g>
+    </g>
+    <g id="photo-group">
+      <g id="first-photo" class="path-1">
+        
+        <rect class="violet" x="4.37" y="176.18" width="34.58" height="35.85"/>
+        <path class="pink" d="M263.18,324.59l0.15,0.42a0.16,0.16,0,0,0,.11.1l0.43,0.11a0.16,0.16,0,0,1,.06.28l-0.35.27a0.16,0.16,0,0,0-.06.14l0,0.44a0.16,0.16,0,0,1-.25.14l-0.37-.25a0.16,0.16,0,0,0-.15,0l-0.41.16a0.16,0.16,0,0,1-.21-0.2l0.12-.43a0.16,0.16,0,0,0,0-.15l-0.28-.34a0.16,0.16,0,0,1,.12-0.26h0.44a0.16,0.16,0,0,0,.13-0.07l0.24-.37A0.16,0.16,0,0,1,263.18,324.59Z" transform="translate(-228.22 -126.66)"/>
+        <path class="yellow" d="M236.22,306l0.15,0.42a0.16,0.16,0,0,0,.11.1l0.43,0.11a0.16,0.16,0,0,1,.06.28l-0.35.27a0.16,0.16,0,0,0-.06.14l0,0.44a0.16,0.16,0,0,1-.25.14l-0.37-.25a0.16,0.16,0,0,0-.15,0l-0.41.16a0.16,0.16,0,0,1-.21-0.2l0.12-.43a0.16,0.16,0,0,0,0-.15L235,306.7a0.16,0.16,0,0,1,.12-0.26h0.44a0.16,0.16,0,0,0,.13-0.07l0.24-.37A0.16,0.16,0,0,1,236.22,306Z" transform="translate(-228.22 -126.66)"/>
+        <path class="white" d="M263.76,308.89l0.57,2.18a0.16,0.16,0,0,0,.27.06l0.55-.71,0.68,1.64-0.44-2.29a0.16,0.16,0,0,0-.27-0.07l-0.62.75Z" transform="translate(-228.22 -126.66)"/>
+        <ellipse class="peach" cx="249.18" cy="316.61" rx="10.1" ry="6.58" transform="translate(-274.77 -83.7) rotate(-9.02)"/>
+        <path class="white" d="M251.76,320.42a6.18,6.18,0,0,0,1.9,0,2.64,2.64,0,0,0,1.37-1,1.86,1.86,0,0,1-1.16,1.83A1.72,1.72,0,0,1,251.76,320.42Z" transform="translate(-228.22 -126.66)"/>
+        <ellipse class="peach2" cx="249.21" cy="321.23" rx="1.56" ry="0.67" transform="translate(-274.25 -84.95) rotate(-8.76)"/>
+        <ellipse class="peach2" cx="256.9" cy="318.6" rx="1.27" ry="0.54" transform="translate(-273.75 -83.82) rotate(-8.76)"/>
+        <polygon class="peach" points="22.73 196.22 22.84 198.89 24.59 198.75 24.49 195.38 22.73 196.22"/>
+        <path class="blue" d="M245,329.81l0.05-1.24a6.68,6.68,0,0,0,1.69-1.24,23.87,23.87,0,0,1,2-2.14,3.87,3.87,0,0,1,2.32-.53,1,1,0,0,0,.89.33c1-.13.91-0.64,0.91-0.64A5.17,5.17,0,0,0,255,324a9.19,9.19,0,0,0,2.19-1.32l1.44,0.95s-1.58,1.29-2.29,2a4,4,0,0,1-1.62.81,6.8,6.8,0,0,1,1.09,3.31c0,1.62-.11,2.36-0.11,2.36s-1.3,1.37-4,.67-2.95-1.63-2.95-1.63a8,8,0,0,0,1-2.07,7.43,7.43,0,0,0-.23-1.86,19.08,19.08,0,0,0-1.5,1.37C246.45,330.29,245,329.81,245,329.81Z" transform="translate(-228.22 -126.66)"/>
+        <path class="aqua" d="M245.67,328l0.67,2a0.21,0.21,0,0,1-.16.27,32.69,32.69,0,0,1-5.55.55c-2.68,0-4.62-.19-4.68-1.31s2.14-.73,2.14-0.73a0.85,0.85,0,0,1-.53-0.53c0.11-.22,2.57,1.09,3.58,1a23.12,23.12,0,0,0,4.24-1.44A0.21,0.21,0,0,1,245.67,328Z" transform="translate(-228.22 -126.66)"/>
+        <path class="aqua" d="M257.1,322.45l1.32,1.67a0.21,0.21,0,0,0,.32,0,32.68,32.68,0,0,0,3.51-4.33c1.45-2.25,2.38-4,1.48-4.63s-1.79,1.39-1.79,1.39a0.85,0.85,0,0,0-.15-0.74c-0.25,0-.5,2.75-1.1,3.56a23.11,23.11,0,0,1-3.53,2.76A0.21,0.21,0,0,0,257.1,322.45Z" transform="translate(-228.22 -126.66)"/>
+        <path class="blue" d="M246.45,335.79a1.44,1.44,0,0,0,1.08.22c0.37-.21.5-1.24,0.84-2.85s0.45-2.08.45-2.08l3.53,1.19,3.38-.4a20.48,20.48,0,0,1-.55,2.43c-0.32,1-2.72,7.72-2.72,7.72l-1.32-.52,1.66-5.59s-0.05.13-1.48-.16-1.48-.55-1.48-0.55-1,2.2-1.93,2.39a3.67,3.67,0,0,1-2.11-.49Z" transform="translate(-228.22 -126.66)"/>
+        <path class="dirty-blue" d="M249.22,330.18A16.27,16.27,0,0,0,253,331a6.38,6.38,0,0,0,2.88-.11,2.07,2.07,0,0,1,0,.75,2.23,2.23,0,0,1-.16.87,8,8,0,0,1-3.06.05c-2-.26-4-0.75-4-0.75a2.78,2.78,0,0,1,.18-0.87A3,3,0,0,1,249.22,330.18Z" transform="translate(-228.22 -126.66)"/>
+        <path class="dirty-blue" d="M251.09,341.46l1.45,0.49a0.21,0.21,0,0,1,.12.3,4.83,4.83,0,0,0-.77,1.93c0.16,0.37,1.46,1.12,1,1.69s-2.65-.71-2.76-1.36a11.08,11.08,0,0,1,.72-2.92A0.21,0.21,0,0,1,251.09,341.46Z" transform="translate(-228.22 -126.66)"/>
+        <path class="dirty-blue" d="M246.49,335.84l-0.59,1.41a0.21,0.21,0,0,1-.31.09,4.83,4.83,0,0,0-1.87-.91c-0.38.13-1.23,1.38-1.76,0.85s0.91-2.59,1.56-2.65a11.08,11.08,0,0,1,2.86.94A0.21,0.21,0,0,1,246.49,335.84Z" transform="translate(-228.22 -126.66)"/>
+        <path class="white" d="M252.67,325.48l-0.89,2.67a0.19,0.19,0,0,0,.25.25l1.07-.36-0.41,2.17,1.11-2.69a0.19,0.19,0,0,0-.24-0.26l-1.16.35Z" transform="translate(-228.22 -126.66)"/>
+        <path class="brown" d="M239.88,320.07a7.12,7.12,0,0,1-1-2.47c-0.3-1.44.48-3.7,0-4a17.64,17.64,0,0,0-1.94-.74,8.8,8.8,0,0,1,1.2-.39l0.76-.2-1.94-1.21a4.08,4.08,0,0,1,1.84-.75,5.54,5.54,0,0,1,1.55.18,3.58,3.58,0,0,1-.35-1.2,5.24,5.24,0,0,1,.29-1.36,6.55,6.55,0,0,0,3.48.88,31.37,31.37,0,0,0,9.06-2.49c1.73-1,4.54-1.93,6.64-1.34s3.09,2.66,2.14,3.69a1.64,1.64,0,0,1-2,.44s1.53-.2,1.2-1.33a1.12,1.12,0,0,0-1.7-.61,2.77,2.77,0,0,0-1.41,1.93,12.05,12.05,0,0,0,.48,3.73,24.3,24.3,0,0,0-9.76,1.66A28.13,28.13,0,0,0,239.88,320.07Z" transform="translate(-228.22 -126.66)"/>
+        <path class="brown2" d="M255.29,312.93a3.4,3.4,0,0,1-.16-2.65,9,9,0,0,1,1.19-2.14,5.45,5.45,0,0,0-2.32,1.23,4.16,4.16,0,0,0-1.06,1.68l-0.79-1.47a2.76,2.76,0,0,1-.27,1.32c-0.27.23-1.88-.37-3.55-0.52a13,13,0,0,0-3.4.22l2,1.51a9.37,9.37,0,0,0-1.92,0,2,2,0,0,0-1.26.64l0.93,0.77-3.35.56a5.84,5.84,0,0,0,.93,1.71,19.2,19.2,0,0,0,1.53,1.67,34.47,34.47,0,0,1,5.82-2.93C252,313.71,255.29,312.93,255.29,312.93Z" transform="translate(-228.22 -126.66)"/>
+        <path class="dirty-blue" d="M240.33,320a3.44,3.44,0,0,0-3.11-1.52c-2.18.09-3.59,2.85-3.59,2.85a6.13,6.13,0,0,0,3.59-.76A4,4,0,0,1,240.33,320Z" transform="translate(-228.22 -126.66)"/>
+        <path class="blue" d="M240.46,319.78a3.44,3.44,0,0,0-3.41.6c-1.7,1.36-1.22,4.41-1.22,4.41a6.13,6.13,0,0,0,2.45-2.73A4,4,0,0,1,240.46,319.78Z" transform="translate(-228.22 -126.66)"/>
+        <path class="peach" d="M241,320.14s-0.39-.56-1.44,0,0.18,2.43,1.34,2.71,1.62,0.11,1.76-.32S241,320.14,241,320.14Z" transform="translate(-228.22 -126.66)"/>
+        <circle class="peach2" cx="12.37" cy="194.62" r="0.55"/>
+        <path class="blue" d="M257,312.59c2.92-.14,2.8,2.77,1.6,4.18s-3,1.13-5.45,1.69-1.27,1.23-4.68,2-5.1.21-7.85-.1c-3.12-.35,2.91-4.21,5.7-5.14S254,312.73,257,312.59Z" transform="translate(-228.22 -126.66)"/>
+        <ellipse class="peach" cx="256.25" cy="315.73" rx="1.71" ry="1.67" transform="translate(-377.82 163.9) rotate(-47.39)"/>
+        <ellipse class="black" cx="257.17" cy="315.29" rx="0.69" ry="0.76" transform="translate(-377.2 164.43) rotate(-47.39)"/>
+        <ellipse class="peach" cx="248.6" cy="317.7" rx="1.71" ry="1.67" transform="translate(-381.75 158.92) rotate(-47.39)"/>
+        <ellipse class="black" cx="249.53" cy="317.27" rx="0.69" ry="0.76" transform="translate(-381.13 159.48) rotate(-47.39)"/>
+        <text class="mini-text white" transform="translate(28.58 210.96)">1:00</text>
+      </g>
+      <rect class="yellow" x="40.48" y="176.17" width="35.71" height="35.71"/>
+      <rect class="blue" x="77.74" y="176.17" width="34.59" height="35.71"/>
+      <rect class="yellow" x="4.37" y="213.41" width="34.59" height="35.71"/>
+      <rect class="pink" x="113.86" y="176.17" width="34.59" height="35.71"/>
+      <rect class="yellow" x="113.86" y="213.41" width="34.59" height="35.71"/>
+      <rect class="blue" x="40.48" y="213.41" width="35.71" height="35.71"/>
+      <rect class="pink" x="77.74" y="213.41" width="34.59" height="35.71"/>
+    </g>
+    <g id="main-photo" class="path-2">
+      <rect class="violet" x="4.37" y="63.6" width="144.08" height="111.01"/><path class="pink" d="M360,280.88l0.62,1.74a0.67,0.67,0,0,0,.46.42l1.78,0.47a0.67,0.67,0,0,1,.24,1.18l-1.46,1.13a0.67,0.67,0,0,0-.26.57l0.1,1.84a0.67,0.67,0,0,1-1.05.59l-1.53-1a0.67,0.67,0,0,0-.62-0.07l-1.72.67a0.67,0.67,0,0,1-.89-0.82l0.52-1.77a0.67,0.67,0,0,0-.12-0.61l-1.17-1.43a0.67,0.67,0,0,1,.5-1.1l1.84-.06a0.67,0.67,0,0,0,.55-0.31l1-1.55A0.67,0.67,0,0,1,360,280.88Z" transform="translate(-228.22 -126.66)"/><path class="yellow" d="M247.7,203.48l0.62,1.74a0.67,0.67,0,0,0,.46.42l1.78,0.47a0.67,0.67,0,0,1,.24,1.18l-1.46,1.13a0.67,0.67,0,0,0-.26.57l0.1,1.84a0.67,0.67,0,0,1-1.05.59l-1.53-1a0.67,0.67,0,0,0-.62-0.07l-1.72.67a0.67,0.67,0,0,1-.89-0.82l0.52-1.77a0.67,0.67,0,0,0-.12-0.61l-1.17-1.43a0.67,0.67,0,0,1,.5-1.1l1.84-.06a0.67,0.67,0,0,0,.54-0.31l1-1.55A0.67,0.67,0,0,1,247.7,203.48Z" transform="translate(-228.22 -126.66)"/><path class="white" d="M362.41,215.45l2.39,9.07a0.65,0.65,0,0,0,1.14.23l2.31-3,2.83,6.81L369.25,219a0.65,0.65,0,0,0-1.14-.29l-2.59,3.11Z" transform="translate(-228.22 -126.66)"/><ellipse class="peach" cx="301.22" cy="239.23" rx="37.09" ry="24.16" transform="matrix(0.99, -0.16, 0.16, 0.99, -262, -76.5)"/><path class="white" d="M310.72,253.21a22.69,22.69,0,0,0,7,0c3-.65,5-3.62,5-3.62a6.84,6.84,0,0,1-4.26,6.71C313.69,258.5,310.72,253.21,310.72,253.21Z" transform="translate(-228.22 -126.66)"/><ellipse class="peach2" cx="301.36" cy="256.17" rx="5.75" ry="2.45" transform="translate(-263.73 -77.77) rotate(-8.76)"/><ellipse class="peach2" cx="329.59" cy="246.52" rx="4.68" ry="2" transform="translate(-261.93 -73.59) rotate(-8.76)"/><polygon class="peach" points="79.53 135.58 79.91 145.39 86.37 144.88 85.98 132.48 79.53 135.58"/><path class="blue" d="M285.9,287.68l0.19-4.55a24.52,24.52,0,0,0,6.2-4.55c1.92-1.93,5.3-6.61,7.17-7.84A14.2,14.2,0,0,1,308,268.8a3.54,3.54,0,0,0,3.28,1.19c3.6-.47,3.36-2.36,3.36-2.36a19,19,0,0,0,8.13-1.26,33.73,33.73,0,0,0,8-4.84l5.29,3.49s-5.81,4.75-8.42,7.17a14.68,14.68,0,0,1-5.94,3s4.13,6.2,4,12.14-0.39,8.65-.39,8.65-4.78,5-14.85,2.45-10.81-6-10.81-6,3.41-5.28,3.66-7.6-0.86-6.83-.86-6.83a70,70,0,0,0-5.52,5C291.22,289.42,285.9,287.68,285.9,287.68Z" transform="translate(-228.22 -126.66)"/><path class="aqua" d="M288.36,280.95l2.46,7.41a0.77,0.77,0,0,1-.59,1,120,120,0,0,1-20.36,2c-9.84-.09-17-0.68-17.17-4.8s7.87-2.69,7.87-2.69-2.35-1.14-2-2,9.43,4,13.14,3.82c3.16-.17,12.78-4.1,15.58-5.27A0.77,0.77,0,0,1,288.36,280.95Z" transform="translate(-228.22 -126.66)"/><path class="aqua" d="M330.31,260.67l4.84,6.12a0.77,0.77,0,0,0,1.17.06,120,120,0,0,0,12.87-15.9c5.33-8.27,8.75-14.55,5.42-17s-6.57,5.1-6.57,5.1,0.34-2.59-.56-2.71-1.83,10.09-4,13.08c-1.88,2.55-10.45,8.42-13,10.12A0.77,0.77,0,0,0,330.31,260.67Z" transform="translate(-228.22 -126.66)"/><path class="blue" d="M291.22,309.63s2.61,1.58,4,.81,1.84-4.55,3.1-10.46,1.65-7.65,1.65-7.65l13,4.36,12.4-1.45a75.17,75.17,0,0,1-2,8.91c-1.16,3.58-10,28.34-10,28.34l-4.84-1.9,6.1-20.53s-0.19.48-5.42-.58-5.42-2-5.42-2-3.68,8.07-7.07,8.78-7.75-1.81-7.75-1.81Z" transform="translate(-228.22 -126.66)"/><path class="dirty-blue" d="M301.39,289a59.73,59.73,0,0,0,13.75,2.91c8.3,0.74,10.59-.42,10.59-0.42s0.16,0.13,0,2.74-0.58,3.2-.58,3.2-3.87,1.16-11.23.19-14.59-2.74-14.59-2.74a10.2,10.2,0,0,1,.65-3.2A11,11,0,0,1,301.39,289Z" transform="translate(-228.22 -126.66)"/><path class="dirty-blue" d="M308.25,330.43l5.31,1.78a0.77,0.77,0,0,1,.43,1.11c-1,1.79-3.28,6-2.83,7.08,0.58,1.36,5.37,4.12,3.58,6.2s-9.73-2.61-10.12-5c-0.32-2,1.89-8.52,2.65-10.71A0.77,0.77,0,0,1,308.25,330.43Z" transform="translate(-228.22 -126.66)"/><path class="dirty-blue" d="M291.36,309.82L289.19,315a0.77,0.77,0,0,1-1.14.35c-1.71-1.14-5.76-3.72-6.85-3.34-1.4.48-4.5,5.05-6.45,3.11s3.33-9.51,5.73-9.72c2-.17,8.36,2.51,10.48,3.44A0.77,0.77,0,0,1,291.36,309.82Z" transform="translate(-228.22 -126.66)"/><path class="white" d="M314,271.78l-3.28,9.79a0.72,0.72,0,0,0,.91.9l3.92-1.34-1.52,8,4.09-9.89a0.72,0.72,0,0,0-.87-1l-4.26,1.3Z" transform="translate(-228.22 -126.66)"/><path class="brown" d="M267.1,251.93a26.16,26.16,0,0,1-3.8-9.08c-1.09-5.3,1.75-13.6,0-14.57a64.75,64.75,0,0,0-7.13-2.72,32.32,32.32,0,0,1,4.4-1.44l2.79-.73-7.13-4.44s3.63-2.67,6.74-2.76a20.34,20.34,0,0,1,5.69.66,13.14,13.14,0,0,1-1.3-4.39,19.22,19.22,0,0,1,1.08-5,24,24,0,0,0,12.79,3.25c7.23-.31,26.92-5.46,33.28-9.13s16.65-7.07,24.38-4.94,11.36,9.78,7.87,13.56a6,6,0,0,1-7.33,1.63s5.62-.75,4.4-4.87-4.89-2.73-6.25-2.23-4.29,3-5.16,7.08,1.75,13.7,1.75,13.7a89.23,89.23,0,0,0-35.82,6.09A103.27,103.27,0,0,0,267.1,251.93Z" transform="translate(-228.22 -126.66)"/><path class="brown2" d="M323.66,225.69s-2.59-4.77-.6-9.73a32.85,32.85,0,0,1,4.36-7.87s-5.34,1.25-8.52,4.52a15.27,15.27,0,0,0-3.91,6.18l-2.9-5.4s0,4-1,4.84-6.92-1.34-13-1.9a47.62,47.62,0,0,0-12.47.82l7.27,5.55a34.41,34.41,0,0,0-7.06-.16,7.26,7.26,0,0,0-4.61,2.35l3.43,2.83-12.29,2.07a21.45,21.45,0,0,0,3.43,6.27,70.47,70.47,0,0,0,5.63,6.12s12.57-7.87,21.37-10.74S323.66,225.69,323.66,225.69Z" transform="translate(-228.22 -126.66)"/><path class="dirty-blue" d="M268.73,251.75a12.63,12.63,0,0,0-11.4-5.6c-8,.34-13.18,10.45-13.18,10.45a22.52,22.52,0,0,0,13.18-2.8C263.81,250,268.73,251.75,268.73,251.75Z" transform="translate(-228.22 -126.66)"/><path class="blue" d="M269.22,250.85a12.63,12.63,0,0,0-12.51,2.2c-6.25,5-4.48,16.21-4.48,16.21a22.51,22.51,0,0,0,9-10C264.24,252.37,269.22,250.85,269.22,250.85Z" transform="translate(-228.22 -126.66)"/><path class="peach" d="M271.34,252.17s-1.42-2.07-5.29-.13S266.69,261,271,262s5.94,0.39,6.46-1.16S271.34,252.17,271.34,252.17Z" transform="translate(-228.22 -126.66)"/><circle class="peach2" cx="41.5" cy="129.71" r="2"/><path class="blue" d="M329.76,224.44c10.72-.52,10.26,10.18,5.87,15.34s-10.85,4.13-20,6.2-4.65,4.52-17.17,7.49-18.71.79-28.8-.35c-11.47-1.3,10.68-15.47,20.93-18.89C301.19,230.68,319,225,329.76,224.44Z" transform="translate(-228.22 -126.66)"/><ellipse class="peach" cx="327.18" cy="235.97" rx="6.26" ry="6.13" transform="translate(-296.21 190.35) rotate(-47.39)"/><ellipse class="black" cx="330.59" cy="234.36" rx="2.52" ry="2.78" transform="translate(-293.93 192.34) rotate(-47.39)"/><ellipse class="peach" cx="299.1" cy="243.23" rx="6.26" ry="6.13" transform="translate(-310.63 172.02) rotate(-47.39)"/><ellipse class="black" cx="302.5" cy="241.63" rx="2.52" ry="2.78" transform="translate(-308.35 174.01) rotate(-47.39)"/>
+    </g>
+  </g>
+
+  <g id="phone-add" opacity="0">
+    <g id="add-title">
+      <g id="new">
+        <text class="text white" transform="translate(20.89 58.01)">Новая пу<tspan x="35.26" y="0">б</tspan><tspan x="39.99" y="0">ликация</tspan></text>
+        <rect class="white" x="426.62" y="177.85" width="0.84" height="5.05" transform="translate(-163.69 -375.8) rotate(45)"/>
+        <rect class="white" x="426.62" y="180.85" width="0.86" height="5.05" transform="translate(442.38 -115.58) rotate(135)"/>
+      </g>
+
+      <g >
+        <text id="share" class="text white" transform="translate(97.83 58.01)">П<tspan x="5.89" y="0">о</tspan><tspan x="10.62" y="0">д</tspan><tspan x="15.46" y="0">е</tspan><tspan x="19.8" y="0">лит</tspan><tspan x="32.73" y="0">ь</tspan><tspan x="36.78" y="0">ся</tspan></text>
+      </g>
+    </g>
+
+    <g id="screen-bottom">
+      <text class="white text medium" transform="translate(12.7 122.91)">Отметит<tspan x="26.63" y="0">ь</tspan><tspan class="pre" x="29.83" y="0"> п</tspan><tspan x="35.8" y="0">о</tspan><tspan x="39.75" y="0">льзова</tspan><tspan x="61.63" y="0">т</tspan><tspan x="64.48" y="0">е</tspan><tspan x="68.09" y="0">лей</tspan></text>
+      <text class="white text medium" transform="translate(12.7 139.79)">У<tspan x="3.73" y="0">кажи</tspan><tspan x="19.96" y="0">т</tspan><tspan x="22.8" y="0">е м</tspan><tspan x="33.37" y="0">е</tspan><tspan x="37.07" y="0">ст</tspan><tspan x="43.16" y="0">о</tspan></text>
+
+      <rect class="white" x="556.55" y="244.26" width="0.7" height="4.23" transform="translate(708.56 -99.93) rotate(134.99)"/>
+      <rect class="white" x="556.53" y="246.77" width="0.72" height="4.23" transform="translate(-77.15 -447.57) rotate(45.01)"/>
+      <rect class="white" x="556.55" y="259.89" width="0.7" height="4.23" transform="translate(719.62 -73.23) rotate(134.99)"/>
+      <rect class="white" x="556.53" y="262.41" width="0.72" height="4.23" transform="translate(-66.09 -442.99) rotate(45.01)"/>
+
+      <line class="line" x1="4.37" y1="112.24" x2="148.46" y2="112.24"/>
+      <line class="line" x1="4.37" y1="129.12" x2="148.46" y2="129.12"/>
+      <line class="line" x1="4.37" y1="156.92" x2="148.46" y2="156.92"/>
+
+      <rect class="white" x="13.34" y="144.01" width="33" height="9.68" rx="0.75" ry="0.75"/>
+      <rect class="white" x="51.56" y="144.01" width="33" height="9.68" rx="0.75" ry="0.75"/>
+      <rect class="white" x="89.29" y="144.01" width="33" height="9.68" rx="0.75" ry="0.75"/>
+    
+      <path class="white" d="M554.61,289a4.84,4.84,0,0,1,0,9.68H541.83a4.84,4.84,0,0,1,0-9.68h12.78m0-.75H541.83a5.59,5.59,0,0,0,0,11.17h12.78a5.59,5.59,0,0,0,0-11.17h0Z" transform="translate(-416.31 -126.66)"/>
+      <path class="white" d="M542.39,298.72h-0.56a4.85,4.85,0,0,1-4.84-4.84h0a4.85,4.85,0,0,1,4.84-4.84h0.56a4.85,4.85,0,0,1,4.84,4.84h0A4.85,4.85,0,0,1,542.39,298.72Z" transform="translate(-416.31 -126.66)"/>
+      <path class="white" d="M554.61,302.44a4.84,4.84,0,0,1,0,9.68H541.83a4.84,4.84,0,0,1,0-9.68h12.78m0-.75H541.83a5.59,5.59,0,0,0,0,11.17h12.78a5.59,5.59,0,0,0,0-11.17h0Z" transform="translate(-416.31 -126.66)"/>
+      <path class="white" d="M542.39,312.12h-0.56a4.85,4.85,0,0,1-4.84-4.84h0a4.85,4.85,0,0,1,4.84-4.84h0.56a4.85,4.85,0,0,1,4.84,4.84h0A4.85,4.85,0,0,1,542.39,312.12Z" transform="translate(-416.31 -126.66)"/>
+      <path class="white" d="M554.61,315.73a4.85,4.85,0,0,1,4.84,4.84h0a4.85,4.85,0,0,1-4.84,4.84H541.83a4.85,4.85,0,0,1-4.84-4.84h0a4.85,4.85,0,0,1,4.84-4.84h12.78m0-.75H541.83a5.59,5.59,0,0,0,0,11.17h12.78a5.59,5.59,0,0,0,0-11.17h0Z" transform="translate(-416.31 -126.66)"/>
+      <path class="white" d="M542.39,325.41h-0.56a4.85,4.85,0,0,1-4.84-4.84h0a4.85,4.85,0,0,1,4.84-4.84h0.56a4.85,4.85,0,0,1,4.84,4.84h0A4.85,4.85,0,0,1,542.39,325.41Z" transform="translate(-416.31 -126.66)"/>
+      <path class="white" d="M554.61,329.06a4.84,4.84,0,0,1,0,9.68H541.83a4.84,4.84,0,0,1,0-9.68h12.78m0-.75H541.83a5.59,5.59,0,0,0,0,11.17h12.78a5.59,5.59,0,0,0,0-11.17h0Z" transform="translate(-416.31 -126.66)"/>
+      <path class="white" d="M542.39,338.74h-0.56A4.85,4.85,0,0,1,537,333.9h0a4.85,4.85,0,0,1,4.84-4.84h0.56a4.85,4.85,0,0,1,4.84,4.84h0A4.85,4.85,0,0,1,542.39,338.74Z" transform="translate(-416.31 -126.66)"/>
+      <path class="white" d="M554.61,342.47a4.84,4.84,0,0,1,0,9.68H541.83a4.84,4.84,0,0,1,0-9.68h12.78m0-.75H541.83a5.59,5.59,0,0,0,0,11.17h12.78a5.59,5.59,0,0,0,0-11.17h0Z" transform="translate(-416.31 -126.66)"/>
+      <path class="white" d="M542.39,352.15h-0.56a4.85,4.85,0,0,1-4.84-4.84h0a4.85,4.85,0,0,1,4.84-4.84h0.56a4.85,4.85,0,0,1,4.84,4.84h0A4.85,4.85,0,0,1,542.39,352.15Z" transform="translate(-416.31 -126.66)"/>
+    
+
+      <text class="white text medium" transform="translate(12.7 169.47)">В<tspan x="4.35" y="0">К</tspan><tspan x="8.41" y="0">онтак</tspan><tspan x="26.63" y="0">т</tspan><tspan x="29.48" y="0">е</tspan></text>
+      <text class="white text medium" transform="translate(12.7 182.87)">ОК.ru</text>
+      <text class="white text medium" transform="translate(12.7 196.16)">Fa<tspan x="7.54" y="0">c</tspan><tspan x="10.73" y="0">eboo</tspan><tspan x="26.52" y="0">k</tspan></text>
+      <text class="white text medium" transform="translate(12.7 209.49)">T<tspan x="3.18" y="0">wit</tspan><tspan x="13.17" y="0">t</tspan><tspan x="15.61" y="0">er</tspan></text>
+      <text class="white text medium" transform="translate(12.7 222.89)">T<tspan x="3.35" y="0">umblr</tspan></text>
+    </g>
+
+    <g id="mask" opacity="0">
+      <rect xmlns="http://www.w3.org/2000/svg" class="mask" x="4.37" y="68" width="144.08" height="181"/>
+    </g>
+
+    <g id="screen-middle">
+      <rect xmlns="http://www.w3.org/2000/svg" class="gray" x="4.37" y="65" width="144.08" height="40"/>
+      <circle class="white" cx="19.41" cy="79.28" r="10.26"/>
+
+      
+
+      <text id="sign-step" transform="translate(36.78 78.61)">
+        <tspan id="letter-1" fill="#e6e6e6" class="text medium">И</tspan>
+        <tspan id="letter-2" fill="#e6e6e6" class="text medium">м</tspan>
+        <tspan id="letter-3" fill="#e6e6e6" class="text medium">я </tspan>
+        <tspan id="letter-4" fill="#e6e6e6" class="text medium">р</tspan>
+        <tspan id="letter-5" fill="#e6e6e6" class="text medium">е</tspan>
+        <tspan id="letter-6" fill="#e6e6e6" class="text medium">б</tspan>
+        <tspan id="letter-7" fill="#e6e6e6" class="text medium">е</tspan>
+        <tspan id="letter-8" fill="#e6e6e6" class="text medium">н</tspan>
+        <tspan id="letter-9" fill="#e6e6e6" class="text medium">к</tspan>
+        <tspan id="letter-10" fill="#e6e6e6" class="text medium">а, </tspan> 
+        <tspan id="letter-11" fill="#e6e6e6" class="text medium"> в</tspan>
+        <tspan id="letter-12" fill="#e6e6e6" class="text medium">о</tspan> 
+        <tspan id="letter-13" fill="#e6e6e6" class="text medium">з</tspan> 
+        <tspan id="letter-14" fill="#e6e6e6" class="text medium">р</tspan> 
+        <tspan id="letter-15" fill="#e6e6e6" class="text medium">а</tspan>
+        <tspan id="letter-16" fill="#e6e6e6" class="text medium">с</tspan>
+        <tspan id="letter-17" fill="#e6e6e6" class="text medium">т, </tspan>
+        <tspan id="letter-18" fill="#e6e6e6" class="text medium" x="0" y="8.94">н</tspan>
+        <tspan id="letter-19" fill="#e6e6e6" class="text medium">а</tspan>
+        <tspan id="letter-20" fill="#e6e6e6" class="text medium">з</tspan>
+        <tspan id="letter-21" fill="#e6e6e6" class="text medium">в</tspan>
+        <tspan id="letter-22" fill="#e6e6e6" class="text medium">а</tspan>
+        <tspan id="letter-23" fill="#e6e6e6" class="text medium">н</tspan>
+        <tspan id="letter-24" fill="#e6e6e6" class="text medium">и</tspan>
+        <tspan id="letter-25" fill="#e6e6e6" class="text medium">е </tspan>
+        <tspan id="letter-26" fill="#e6e6e6" class="text medium"> л</tspan>
+        <tspan id="letter-27" fill="#e6e6e6" class="text medium">ю</tspan>
+        <tspan id="letter-28" fill="#e6e6e6" class="text medium">б</tspan>
+        <tspan id="letter-29" fill="#e6e6e6" class="text medium">и</tspan>
+        <tspan id="letter-30" fill="#e6e6e6" class="text medium">м</tspan>
+        <tspan id="letter-31" fill="#e6e6e6" class="text medium">о</tspan>
+        <tspan id="letter-32" fill="#e6e6e6" class="text medium">й</tspan>
+        <tspan id="letter-33" fill="#e6e6e6" class="text medium" x="0" y="17.87">к</tspan>
+        <tspan id="letter-34" fill="#e6e6e6" class="text medium">н</tspan>
+        <tspan id="letter-35" fill="#e6e6e6" class="text medium">и</tspan>
+        <tspan id="letter-36" fill="#e6e6e6" class="text medium">г</tspan>
+        <tspan id="letter-37" fill="#e6e6e6" class="text medium">и </tspan>
+        <tspan id="letter-38" fill="#e6e6e6" class="text medium"> #читайагент</tspan>
+      </text>
+
+      <text id="add-sign" class="text medium white" transform="translate(36.78 78.61)">
+          Добавить  подпись...
+      </text>
+
+
+      <!--<text class="text medium violet" transform="translate(36.78 78.61)">И</text>-->
+
+      <polygon class="gray" points="19.41 72.21 21.7 76.86 26.84 77.61 23.12 81.23 24 86.34 19.41 83.93 14.82 86.34 15.7 81.23 11.98 77.61 17.11 76.86 19.41 72.21"/>
+
+      <g id="add-photo" class="path-3">
+        <rect class="violet" x="111.86" y="70.19" width="31.21" height="32.35"/>
+        <path class="pink" d="M555.78,216.49l0.14,0.38a0.15,0.15,0,0,0,.1.09l0.39,0.1a0.15,0.15,0,0,1,.05.26l-0.32.24a0.15,0.15,0,0,0-.06.12l0,0.4a0.15,0.15,0,0,1-.23.13l-0.33-.22a0.15,0.15,0,0,0-.13,0l-0.37.14a0.15,0.15,0,0,1-.19-0.18l0.11-.38a0.15,0.15,0,0,0,0-.13l-0.25-.31a0.15,0.15,0,0,1,.11-0.24h0.4a0.15,0.15,0,0,0,.12-0.07l0.22-.34A0.15,0.15,0,0,1,555.78,216.49Z" transform="translate(-416.31 -126.66)"/>
+        <path class="yellow" d="M531.45,199.72l0.14,0.38a0.15,0.15,0,0,0,.1.09l0.39,0.1a0.15,0.15,0,0,1,.05.26l-0.32.24a0.15,0.15,0,0,0-.06.12l0,0.4a0.15,0.15,0,0,1-.23.13l-0.33-.22a0.15,0.15,0,0,0-.13,0l-0.37.14a0.15,0.15,0,0,1-.19-0.18l0.11-.38a0.15,0.15,0,0,0,0-.13l-0.25-.31a0.15,0.15,0,0,1,.11-0.24h0.4A0.15,0.15,0,0,0,531,200l0.22-.34A0.15,0.15,0,0,1,531.45,199.72Z" transform="translate(-416.31 -126.66)"/>
+        <path class="white" d="M556.3,202.31l0.52,2a0.14,0.14,0,0,0,.25.05l0.5-.64,0.61,1.48-0.4-2.07a0.14,0.14,0,0,0-.25-0.06l-0.56.67Z" transform="translate(-416.31 -126.66)"/>
+        <ellipse class="peach" cx="543.14" cy="209.29" rx="9.12" ry="5.94" transform="translate(-442.4 -38.95) rotate(-9.02)"/>
+        <path class="white" d="M545.48,212.72a5.58,5.58,0,0,0,1.71,0,2.38,2.38,0,0,0,1.24-.89,1.68,1.68,0,0,1-1,1.65A1.55,1.55,0,0,1,545.48,212.72Z" transform="translate(-416.31 -126.66)"/>
+        <ellipse class="peach2" cx="543.17" cy="213.45" rx="1.41" ry="0.6" transform="translate(-442.49 -41.43) rotate(-8.76)"/>
+        <ellipse class="peach2" cx="550.11" cy="211.08" rx="1.15" ry="0.49" transform="translate(-442.04 -40.42) rotate(-8.76)"/>
+        <polygon class="peach" points="128.43 88.28 128.53 90.69 130.12 90.57 130.02 87.52 128.43 88.28"/>
+        <path class="blue" d="M539.37,221.2l0-1.12a6,6,0,0,0,1.52-1.12,21.54,21.54,0,0,1,1.76-1.93,3.49,3.49,0,0,1,2.09-.48,0.87,0.87,0,0,0,.81.29c0.88-.12.83-0.58,0.83-0.58a4.66,4.66,0,0,0,2-.31,8.29,8.29,0,0,0,2-1.19l1.3,0.86s-1.43,1.17-2.07,1.76a3.61,3.61,0,0,1-1.46.73,6.13,6.13,0,0,1,1,3c0,1.46-.1,2.13-0.1,2.13s-1.17,1.24-3.65.6-2.66-1.47-2.66-1.47a7.26,7.26,0,0,0,.9-1.87,6.71,6.71,0,0,0-.21-1.68,17.22,17.22,0,0,0-1.36,1.24C540.68,221.63,539.37,221.2,539.37,221.2Z" transform="translate(-416.31 -126.66)"/>
+        <path class="aqua" d="M540,219.54l0.6,1.82a0.19,0.19,0,0,1-.15.25,29.49,29.49,0,0,1-5,.5c-2.42,0-4.17-.17-4.22-1.18s1.93-.66,1.93-0.66a0.77,0.77,0,0,1-.48-0.48c0.1-.2,2.32,1,3.23.94a20.86,20.86,0,0,0,3.83-1.3A0.19,0.19,0,0,1,540,219.54Z" transform="translate(-416.31 -126.66)"/>
+        <path class="aqua" d="M550.29,214.56l1.19,1.51a0.19,0.19,0,0,0,.29,0,29.5,29.5,0,0,0,3.16-3.91c1.31-2,2.15-3.58,1.33-4.17s-1.62,1.25-1.62,1.25a0.77,0.77,0,0,0-.14-0.67c-0.22,0-.45,2.48-1,3.22a20.87,20.87,0,0,1-3.19,2.49A0.19,0.19,0,0,0,550.29,214.56Z" transform="translate(-416.31 -126.66)"/>
+        <path class="blue" d="M540.68,226.59a1.3,1.3,0,0,0,1,.2c0.33-.19.45-1.12,0.76-2.57s0.4-1.88.4-1.88l3.19,1.07,3-.36a18.49,18.49,0,0,1-.5,2.19c-0.29.88-2.45,7-2.45,7l-1.19-.47,1.5-5s0,0.12-1.33-.14-1.33-.5-1.33-0.5-0.9,2-1.74,2.16a3.32,3.32,0,0,1-1.9-.44Z" transform="translate(-416.31 -126.66)"/>
+        <path class="dirty-blue" d="M543.18,221.53a14.69,14.69,0,0,0,3.38.71,5.76,5.76,0,0,0,2.6-.1,1.87,1.87,0,0,1,0,.67,2,2,0,0,1-.14.79,7.26,7.26,0,0,1-2.76,0c-1.81-.24-3.59-0.67-3.59-0.67a2.51,2.51,0,0,1,.16-0.79A2.71,2.71,0,0,1,543.18,221.53Z" transform="translate(-416.31 -126.66)"/>
+        <path class="dirty-blue" d="M544.87,231.71l1.3,0.44a0.19,0.19,0,0,1,.11.27,4.36,4.36,0,0,0-.69,1.74c0.14,0.33,1.32,1,.88,1.52s-2.39-.64-2.49-1.23a10,10,0,0,1,.65-2.63A0.19,0.19,0,0,1,544.87,231.71Z" transform="translate(-416.31 -126.66)"/><path class="dirty-blue" d="M540.72,226.64l-0.53,1.27a0.19,0.19,0,0,1-.28.08,4.36,4.36,0,0,0-1.68-.82c-0.34.12-1.11,1.24-1.58,0.77s0.82-2.34,1.41-2.39a10,10,0,0,1,2.58.85A0.19,0.19,0,0,1,540.72,226.64Z" transform="translate(-416.31 -126.66)"/>
+        <path class="white" d="M546.29,217.29l-0.81,2.41a0.18,0.18,0,0,0,.22.22l1-.33-0.37,2,1-2.43a0.18,0.18,0,0,0-.21-0.24l-1,.32Z" transform="translate(-416.31 -126.66)"/>
+        <path class="brown" d="M534.75,212.41a6.43,6.43,0,0,1-.93-2.23c-0.27-1.3.43-3.34,0-3.58a15.93,15.93,0,0,0-1.75-.67,7.93,7.93,0,0,1,1.08-.35l0.69-.18-1.75-1.09a3.69,3.69,0,0,1,1.66-.68,5,5,0,0,1,1.4.16,3.23,3.23,0,0,1-.32-1.08,4.72,4.72,0,0,1,.27-1.23,5.91,5.91,0,0,0,3.14.8,28.32,28.32,0,0,0,8.18-2.24c1.56-.9,4.09-1.74,6-1.21s2.79,2.4,1.93,3.33a1.48,1.48,0,0,1-1.8.4s1.38-.19,1.08-1.2a1,1,0,0,0-1.54-.55,2.5,2.5,0,0,0-1.27,1.74,10.88,10.88,0,0,0,.43,3.37,21.93,21.93,0,0,0-8.81,1.5A25.39,25.39,0,0,0,534.75,212.41Z" transform="translate(-416.31 -126.66)"/>
+        <path class="brown2" d="M548.66,206a3.07,3.07,0,0,1-.15-2.39,8.08,8.08,0,0,1,1.07-1.94,4.91,4.91,0,0,0-2.09,1.11,3.75,3.75,0,0,0-1,1.52l-0.71-1.33a2.49,2.49,0,0,1-.24,1.19c-0.24.2-1.7-.33-3.2-0.47a11.71,11.71,0,0,0-3.07.2l1.79,1.36a8.46,8.46,0,0,0-1.73,0,1.78,1.78,0,0,0-1.13.58l0.84,0.7-3,.51a5.27,5.27,0,0,0,.84,1.54,17.33,17.33,0,0,0,1.38,1.51,31.11,31.11,0,0,1,5.25-2.64C545.69,206.67,548.66,206,548.66,206Z" transform="translate(-416.31 -126.66)"/>
+        <path class="dirty-blue" d="M535.15,212.37a3.11,3.11,0,0,0-2.8-1.38c-2,.08-3.24,2.57-3.24,2.57a5.54,5.54,0,0,0,3.24-.69A3.59,3.59,0,0,1,535.15,212.37Z" transform="translate(-416.31 -126.66)"/>
+        <path class="blue" d="M535.27,212.15a3.11,3.11,0,0,0-3.08.54c-1.54,1.23-1.1,4-1.1,4a5.53,5.53,0,0,0,2.21-2.47A3.59,3.59,0,0,1,535.27,212.15Z" transform="translate(-416.31 -126.66)"/>
+        <path class="peach" d="M535.79,212.47s-0.35-.51-1.3,0,0.16,2.19,1.21,2.44,1.46,0.1,1.59-.29S535.79,212.47,535.79,212.47Z" transform="translate(-416.31 -126.66)"/>
+        <circle class="peach2" cx="119.09" cy="86.84" r="0.49"/>
+        <path class="blue" d="M550.16,205.65c2.63-.13,2.52,2.5,1.44,3.77s-2.67,1-4.92,1.52-1.14,1.11-4.22,1.84-4.6.19-7.08-.09c-2.82-.32,2.63-3.8,5.14-4.64S547.52,205.78,550.16,205.65Z" transform="translate(-416.31 -126.66)"/>
+        <ellipse class="peach" cx="549.52" cy="208.49" rx="1.54" ry="1.51" transform="translate(-392.26 345.1) rotate(-47.39)"/>
+        <ellipse class="black" cx="550.36" cy="208.09" rx="0.62" ry="0.68" transform="translate(-391.72 345.57) rotate(-47.39)"/>
+        <ellipse class="peach" cx="542.62" cy="210.27" rx="1.54" ry="1.51" transform="translate(-395.8 340.62) rotate(-47.39)"/>
+        <ellipse class="black" cx="543.46" cy="209.88" rx="0.62" ry="0.68" transform="translate(-395.24 341.1) rotate(-47.39)"/>
+      </g>
+    </g>
+
+    <g class="path-5">
+      <g id="letters" transform="translate(0, 82)">
+        <rect class="gray" x="4.37" y="168.43" width="144.08" height="80.68"/>
+        <rect class="white" x="7.91" y="173.55" width="10.45" height="15.74" rx="1.16" ry="1.16"/>
+        <rect class="white" x="20.68" y="173.55" width="10.45" height="15.74" rx="1.16" ry="1.16"/><rect class="white" x="33.19" y="173.55" width="10.45" height="15.74" rx="1.16" ry="1.16"/><rect class="white" x="45.97" y="173.55" width="10.45" height="15.74" rx="1.16" ry="1.16"/><rect class="white" x="58.61" y="173.55" width="10.45" height="15.74" rx="1.16" ry="1.16"/><rect class="white" x="71.38" y="173.55" width="10.45" height="15.74" rx="1.16" ry="1.16"/><rect class="white" x="83.9" y="173.55" width="10.45" height="15.74" rx="1.16" ry="1.16"/><rect class="white" x="96.67" y="173.55" width="10.45" height="15.74" rx="1.16" ry="1.16"/><rect class="white" x="109.18" y="173.55" width="10.45" height="15.74" rx="1.16" ry="1.16"/><rect class="white" x="121.7" y="173.55" width="10.45" height="15.74" rx="1.16" ry="1.16"/><rect class="white" x="134.47" y="173.55" width="10.45" height="15.74" rx="1.16" ry="1.16"/><rect class="white" x="7.91" y="192.04" width="10.45" height="15.74" rx="1.16" ry="1.16"/><rect class="white" x="20.68" y="192.04" width="10.45" height="15.74" rx="1.16" ry="1.16"/><rect class="white" x="33.19" y="192.04" width="10.45" height="15.74" rx="1.16" ry="1.16"/><rect class="white" x="45.97" y="192.04" width="10.45" height="15.74" rx="1.16" ry="1.16"/><rect class="white" x="58.61" y="192.04" width="10.45" height="15.74" rx="1.16" ry="1.16"/><rect class="white" x="71.38" y="192.04" width="10.45" height="15.74" rx="1.16" ry="1.16"/><rect class="white" x="83.9" y="192.04" width="10.45" height="15.74" rx="1.16" ry="1.16"/><rect class="white" x="96.67" y="192.04" width="10.45" height="15.74" rx="1.16" ry="1.16"/><rect class="white" x="109.18" y="192.04" width="10.45" height="15.74" rx="1.16" ry="1.16"/><rect class="white" x="121.7" y="192.04" width="10.45" height="15.74" rx="1.16" ry="1.16"/><rect class="white" x="134.47" y="192.04" width="10.45" height="15.74" rx="1.16" ry="1.16"/><rect class="white" x="7.91" y="210.53" width="10.45" height="15.74" rx="1.16" ry="1.16"/><rect class="white" x="20.68" y="210.53" width="10.45" height="15.74" rx="1.16" ry="1.16"/><rect class="white" x="33.19" y="210.53" width="10.45" height="15.74" rx="1.16" ry="1.16"/><rect class="white" x="45.97" y="210.53" width="10.45" height="15.74" rx="1.16" ry="1.16"/><rect class="white" x="58.61" y="210.53" width="10.45" height="15.74" rx="1.16" ry="1.16"/><rect class="white" x="71.38" y="210.53" width="10.45" height="15.74" rx="1.16" ry="1.16"/><rect class="white" x="83.9" y="210.53" width="10.45" height="15.74" rx="1.16" ry="1.16"/><rect class="white" x="96.67" y="210.53" width="10.45" height="15.74" rx="1.16" ry="1.16"/><rect class="white" x="109.18" y="210.53" width="10.45" height="15.74" rx="1.16" ry="1.16"/><rect class="white" x="121.7" y="210.53" width="10.45" height="15.74" rx="1.16" ry="1.16"/><rect class="white" x="134.47" y="210.53" width="10.45" height="15.74" rx="1.16" ry="1.16"/><rect class="white" x="7.91" y="228.96" width="32.84" height="15.74" rx="2.06" ry="2.06"/><rect class="white" x="42.62" y="228.96" width="65.9" height="15.74" rx="1.86" ry="1.86"/><rect class="white" x="128.99" y="228.96" width="15.93" height="15.74" rx="1.43" ry="1.43"/><rect class="white" x="110.75" y="228.96" width="15.93" height="15.74" rx="1.43" ry="1.43"/>
+        
+        
+        <text id="key-17" class="gray text" transform="translate(10.69 184.12)">й</text>
+        <text class="gray text letter" transform="translate(17.94 239.2)">123</text>
+        <text class="gray text" transform="translate(23.46 184.12)">ц</text>
+        <text class="gray text" transform="translate(36.38 184.12)">у</text>
+        <text id="key-8" class="gray text" transform="translate(49.06 184.12)">к</text>
+        <text id="key-5" class="gray text" transform="translate(61.57 184.12)">е</text>
+        <text id="key-7" class="gray text" transform="translate(74.19 184.12)">н</text>
+        <text id="key-18" class="gray text" transform="translate(87.47 184.12)">г</text>
+        <text class="gray text" transform="translate(98.61 184.12)">ш</text>
+        <text class="gray text" transform="translate(111.04 184.12)">щ</text>
+        <text id="key-12" class="gray text" transform="translate(124.95 184.12)">з</text>
+        <text class="gray text" transform="translate(137.51 184.12)">х</text>
+        <text class="gray text" transform="translate(9.95 202.38)">ф</text>
+        <text class="gray text" transform="translate(22.71 202.38)">ы</text>
+        <text id="key-10" class="gray text" transform="translate(36.01 202.38)">в</text>
+        <text id="key-9" class="gray text" transform="translate(49.06 202.38)">а</text>
+        <text class="gray text" transform="translate(61.57 202.38)">п</text>
+        <text id="key-4" class="gray text" transform="translate(74.19 202.38)">р</text>
+        <text id="key-11" class="gray text" transform="translate(86.36 202.38)">о</text>
+        <text id="key-15" class="gray text" transform="translate(99.57 202.38)">л</text>
+        <text class="gray text" transform="translate(111.82 202.38)">д</text>
+        <text class="gray text" transform="translate(123.89 202.38)">ж</text>
+        <text class="gray text" transform="translate(137.8 202.38)">э</text>
+        <text id="key-3" class="gray text" transform="translate(23.78 220.99)">я</text>
+        <text class="gray text" transform="translate(35.86 220.99)">ч</text>
+        <text id="key-13" class="gray text" transform="translate(49.06 220.99)">с</text>
+        <text id="key-2" class="gray text" transform="translate(60.82 220.99)">м</text>
+        <text id="key-1" class="gray text" transform="translate(74.19 220.99)">и</text>
+        <text class="gray text" transform="translate(61 239.54)">Пробел</text>
+        <text class="gray text" transform="translate(114.05 238.98)">@</text>
+        <text class="gray text" transform="translate(133.97 240.09)">#</text>
+        <text id="key-14" class="gray text" transform="translate(87.47 220.99)">т</text>
+        <text class="gray text" transform="translate(99.95 220.99)">ь</text>
+        <text id="key-6" class="gray text" transform="translate(112.19 220.99)">б</text>
+        <text id="key-16" class="gray text" transform="translate(123.52 220.99)">ю</text>
+      </g>
+    </g>
+
+  </g>
+
+  <g id="tap" transform="translate(250, 200)" opacity="0">
+    <circle id="tap-circle" fill="#333333" r="7" cx="0" cy="0" opacity="0.7"></circle>
+  </g>
+
+  
+  
+
+
+
+  <!--Нажатие на + -->
+    <!--tap position-->
+    <animateTransform id="tapcenter"
+      href="#tap" attributeName="transform" attributeType="XML" type="translate"
+      to="77 239"
+      dur="0.01s" begin="0s;hideactive.end + 3s" fill="freeze"
+    />
+    <!--tap view-->
+    <animate id="tapcenterview"
+      href="#tap" attributeName="opacity"
+      to="1"
+      dur="0.01s" begin="tapcenter.end" fill="freeze" />
+    <!--tap opacity-->
+    <animate id="tapcenteractivate"
+      href="#tap" attributeName="opacity"
+      to="0.7"
+      dur="0.3s" begin="tapcenterview.end" fill="freeze" />
+    <!--tap radius-->
+    <animate 
+      href="#tap-circle" attributeName="r"
+      to="11"
+      dur="0.3s" begin="tapcenteractivate.begin" fill="freeze" />
+    <!--tap opacity-->
+    <animate 
+      href="#tap" attributeName="opacity"
+      to="1"
+      dur="0.3s" begin="tapcenteractivate.end" fill="freeze" />
+    <!--tap radius-->
+    <animate 
+      href="#tap-circle" attributeName="r"
+      to="7"
+      dur="0.3s" begin="tapcenteractivate.end" fill="freeze" />
+    
+    <!--tap hide-->
+    <animate id="tapcenterdeactivate"
+      href="#tap" attributeName="opacity"
+      to="0"
+      dur="0.3s" begin="tapcenteractivate.end + 0.3s" fill="freeze" />
+
+
+    <animate id="fillcenter"
+      href="#menu-center" attributeName="fill"
+      to="#e6e6e6"
+      dur="0.2s" begin="tapcenterdeactivate.end" fill="freeze" />
+
+    <animate id="strokecenter"
+      href="#menu-center" attributeName="stroke"
+      to="#4f33a3"
+      dur="0.2s" begin="tapcenteractivate.begin" fill="freeze"
+    />
+  <!-- / Нажатие на + -->
+
+
+  <!-- Открытие галереи -->
+    <animate id="hideprofile" 
+      href="#phone-profile" attributeName="opacity"
+      to="0" 
+      dur="0.5s" begin="fillcenter.end + 0.3s" fill="freeze"
+    />
+
+    <animate id="showgallery" 
+      href="#phone-gallery" attributeName="opacity"
+      from="0" to="1"
+      dur="0.5s" begin="hideprofile.end" fill="freeze"
+    />
+
+    <animate id="fillcenter"
+      href="#menu-center" attributeName="fill"
+      to="white"
+      dur="1s" begin="showgallery.end" fill="freeze" />
+
+    <animate id="strokecenter"
+      href="#menu-center" attributeName="stroke"
+      to="#e6e6e6"
+      dur="1s" begin="showgallery.end" fill="freeze"
+    />
+  <!-- /Открытие галереи -->
+
+  <!-- Нажатие на Далее -->
+    <!--tap position-->
+    <animateTransform id="tapnext"
+      href="#tap" attributeName="transform" attributeTyp="XML" type="translate"
+      to="127 56"
+      dur="0.01s" begin="showgallery.end" fill="freeze"
+    />
+
+    <!--tap view-->
+    <animate id="tapnextview"
+      href="#tap" attributeName="opacity"
+      to="1"
+      dur="0.01s" begin="tapnext.end" fill="freeze" />
+    <!--tap opacity-->
+    <animate id="tapnextactivate"
+      href="#tap" attributeName="opacity"
+      to="0.7"
+      dur="0.3s" begin="tapnextview.end" fill="freeze"/>
+    <!--tap radius-->
+    <animate 
+      href="#tap-circle" attributeName="r"
+      to="11"
+      dur="0.3s" begin="tapnextactivate.begin" fill="freeze" />
+    
+    
+     <!--tap opacity-->
+    <animate 
+      href="#tap" attributeName="opacity"
+      to="1"
+      dur="0.3s" begin="tapnextactivate.end" fill="freeze" />
+    <!--tap radius-->
+    <animate 
+      href="#tap-circle" attributeName="r"
+      to="7"
+      dur="0.3s" begin="tapnextactivate.end" fill="freeze" />
+
+    <!--tap hide-->
+    <animate id="tapnextdeactivate"
+      href="#tap" attributeName="opacity"
+      to="0"
+      dur="0.3s" begin="tapnextactivate.end + 0.3s" fill="freeze" />
+  <!-- /Нажатие на Далее -->
+
+    <animate id="clicknext" 
+      href="#next" attributeName="fill"
+      to="#4f33a3" 
+      dur="0.4s" begin="tapnextactivate.begin + 0.2s" fill="freeze"
+    />
+
+ 
+    
+    
+
+  <!-- Открытие страницы добавления -->
+    <animate id="hidegallery"
+      href="#phone-gallery" attributeName="opacity"
+      to="0"
+      dur="1s" begin="clicknext.end" fill="freeze"
+    />
+    <animate id="showadd"
+      href="#phone-add" attributeName="opacity"
+      to="1"
+      dur="1s" begin="hidegallery.end" fill="freeze"
+    />
+    <animate id="uncolornext" 
+      href="#next" attributeName="fill"
+      to="white" 
+      dur="1s" begin="hidegallery.end" fill="freeze"
+    />
+  <!-- /Открытие страницы добавления -->
+
+  <!-- Появление клавиатуры -->
+    <!--tap position-->
+    <animateTransform id="tapsign"
+      href="#tap" attributeName="transform" attributeTyp="XML" type="translate"
+      to="50 78"
+      dur="0.1s" begin="showadd.end" fill="freeze"
+    />
+
+    <!--tap view-->
+    <animate id="tapsignview"
+      href="#tap" attributeName="opacity"
+      to="1"
+      dur="0.01s" begin="tapsign.end" fill="freeze" />
+
+
+    <!--tap opacity-->
+    <animate id="tapsignactivate"
+      href="#tap" attributeName="opacity"
+      to="0.7"
+      dur="0.3s" begin="tapsignview.end" fill="freeze" />
+
+    <!--tap radius-->
+    <animate 
+      href="#tap-circle" attributeName="r"
+      to="11"
+      dur="0.3s" begin="tapsignactivate.begin" fill="freeze" />
+
+    <!--tap opacity-->
+    <animate 
+      href="#tap" attributeName="opacity"
+      to="1"
+      dur="0.3s" begin="tapsignactivate.end" fill="freeze" />
+    <!--tap radius-->
+    <animate 
+      href="#tap-circle" attributeName="r"
+      to="7"
+      dur="0.3s" begin="tapsignactivate.end" fill="freeze" />
+
+    <!--tap hide-->
+    <animate id="tapsigndeactivate"
+      href="#tap" attributeName="opacity"
+      to="0"
+      dur="0.3s" begin="tapsignactivate.end + 0.3s" fill="freeze" />
+    <animate id="clicknext" 
+      href="#next" attributeName="fill"
+      to="#4f33a3" 
+      dur="0.4s" begin="tapnextactivate.begin + 0.2s" fill="freeze"
+    />
+    
+    <animate id="colorsign"
+      href="#add-sign" attributeName="fill"
+      to="#4f33a3"
+      dur="0.1s" begin="tapsignactivate.end - 0.3s" fill="freeze"
+    />
+
+    <animate id="removesign"
+      href="#add-sign" attributeName="opacity"
+      to="0"
+      dur="0.2s" begin="colorsign.end + 1s" fill="freeze"
+    />
+
+    <animate id="uncolorsign"
+      href="#add-sign" attributeName="fill"
+      to="white"
+      dur="0.1s" begin="removesign.end" fill="freeze"
+    />
+
+    <animate id="showmask"
+      href="#mask" attributeName="opacity"
+      to="0.7"
+      dur="1.3s" begin="colorsign.begin + 0.2s" fill="freeze"
+    />
+
+    <animateTransform id="slidekeyboard"
+      href="#letters" attributeName="transform" attributeTyp="XML" type="translate"
+      to="0 0"
+      dur="0.6s" begin="showmask.end" fill="freeze"
+    />
+  <!-- / Появление клавиатуры -->
+
+  <!--Набор подписи-->
+
+    <!--и-->
+      <!--<animateTransform id="tapletter1"
+        href="#tap" attributeName="transform" attributeTyp="XML" type="translate"
+        to="77 218"
+        dur="1s" begin="slidekeyboard.end" fill="freeze"
+      />
+
+      <animate id="tapletter1activate"
+        href="#tap" attributeName="opacity"
+        to="1"
+        dur="0.6s" begin="tapletter1.end" fill="freeze" />
+
+      <animate id="tapletter1deactivate"
+        href="#tap" attributeName="opacity"
+        to="0.7"
+        dur="0.3s" begin="tapletter1activate.end" fill="freeze" />
+
+      <animate id="click1key"
+        href="#key-1" attributeName="fill"
+        to="#4f33a3"
+        dur="0.5s" begin="tapletter1activate.end - 0.3s"
+      />-->
+
+      <animate id="show1letter"
+        href="#letter-1" attributeName="fill"
+        to="#4f33a3"
+        dur="0.1s" begin="slidekeyboard.end + 0.1s" fill="freeze"
+      />
+
+    <!--м-->
+      <!--<animateTransform id="tapletter2"
+        href="#tap" attributeName="transform" attributeTyp="XML" type="translate"
+        to="64 218"
+        dur="0.2s" begin="click1key.end" fill="freeze"
+      />
+
+      <animate id="tapletter2activate"
+        href="#tap" attributeName="opacity"
+        to="1"
+        dur="0.3s" begin="tapletter2.end" fill="freeze" />
+
+      <animate id="tapletter2deactivate"
+        href="#tap" attributeName="opacity"
+        to="0.7"
+        dur="0.3s" begin="tapletter2activate.end" fill="freeze" />
+
+      <animate id="click2key"
+        href="#key-2" attributeName="fill"
+        to="#4f33a3"
+        dur="0.5s" begin="tapletter2activate.end - 0.1s"
+      />-->
+
+      <animate id="show2letter"
+        href="#letter-2" attributeName="fill"
+        to="#4f33a3"
+        dur="0.1s" begin="show1letter.end + 0.3s" fill="freeze"
+      />
+
+    <!--я-->
+      <!--<animateTransform id="tapletter3"
+        href="#tap" attributeName="transform" attributeTyp="XML" type="translate"
+        to="27 218"
+        dur="0.3s" begin="click2key.end" fill="freeze"
+      />
+
+      <animate id="tapletter3activate"
+        href="#tap" attributeName="opacity"
+        to="1"
+        dur="0.3s" begin="tapletter3.end" fill="freeze" />
+
+      <animate id="tapletter3deactivate"
+        href="#tap" attributeName="opacity"
+        to="0.7"
+        dur="0.2s" begin="tapletter3activate.end" fill="freeze" />
+
+      <animate id="click3key"
+        href="#key-3" attributeName="fill"
+        to="#4f33a3"
+        dur="0.5s" begin="tapletter3activate.end - 0.2s"
+      />-->
+      <animate id="show3letter"
+        href="#letter-3" attributeName="fill"
+        to="#4f33a3"
+        dur="0.1s" begin="show2letter.end + 0.3s" fill="freeze"
+      />
+
+    <!--р-->
+      <animate id="show4letter"
+        href="#letter-4" attributeName="fill"
+        to="#4f33a3"
+        dur="0.1s" begin="show3letter.end + 0.2s" fill="freeze"
+      />
+
+    
+    <!--е-->
+      <animate id="show5letter"
+        href="#letter-5" attributeName="fill"
+        to="#4f33a3"
+        dur="0.1s" begin="show4letter.end + 0.2s" fill="freeze"
+      />
+
+    <!--б-->
+    <animate id="show6letter"
+      href="#letter-6" attributeName="fill"
+      to="#4f33a3"
+      dur="0.1s" begin="show5letter.end + 0.2s" fill="freeze"
+    />
+
+    <!--е-->
+    <animate id="show7letter"
+      href="#letter-7" attributeName="fill"
+      to="#4f33a3"
+      dur="0.1s" begin="show6letter.end + 0.1s" fill="freeze"
+    />
+
+    <!--н-->
+    <animate id="show8letter"
+      href="#letter-8" attributeName="fill"
+      to="#4f33a3"
+      dur="0.1s" begin="show7letter.end + 0.1s" fill="freeze"
+    />
+
+    <!--к-->
+    <animate id="show9letter"
+      href="#letter-9" attributeName="fill"
+      to="#4f33a3"
+      dur="0.1s" begin="show8letter.end + 0.1s" fill="freeze"
+    />
+
+    <!--а-->
+    <animate id="show10letter"
+      href="#letter-10" attributeName="fill"
+      to="#4f33a3"
+      dur="0.1s" begin="show9letter.end + 0.1s" fill="freeze"
+    />
+
+    <!--в-->
+    <animate id="show11letter"
+      href="#letter-11" attributeName="fill"
+      to="#4f33a3"
+      dur="0.1s" begin="show10letter.end" fill="freeze"
+    />
+
+    <!--о-->
+    <animate id="show12letter"
+      href="#letter-12" attributeName="fill"
+      to="#4f33a3"
+      dur="0.1s" begin="show11letter.end" fill="freeze"
+    />
+
+    <!--з-->
+    <animate id="show13letter"
+      href="#letter-13" attributeName="fill"
+      to="#4f33a3"
+      dur="0.1s" begin="show12letter.end" fill="freeze"
+    />
+
+    <!--р-->
+    <animate id="show14letter"
+      href="#letter-14" attributeName="fill"
+      to="#4f33a3"
+      dur="0.1s" begin="show13letter.end" fill="freeze"
+    />
+
+    <!--а-->
+    <animate id="show15letter"
+      href="#letter-15" attributeName="fill"
+      to="#4f33a3"
+      dur="0.1s" begin="show14letter.end" fill="freeze"
+    />
+
+    <!--с-->
+    <animate id="show16letter"
+      href="#letter-16" attributeName="fill"
+      to="#4f33a3"
+      dur="0.1s" begin="show15letter.end" fill="freeze"
+    />
+
+    <!--т-->
+    <animate id="show17letter"
+      href="#letter-17" attributeName="fill"
+      to="#4f33a3"
+      dur="0.1s" begin="show16letter.end" fill="freeze"
+    />
+
+    <!--н-->
+    <animate id="show18letter"
+      href="#letter-18" attributeName="fill"
+      to="#4f33a3"
+      dur="0.1s" begin="show17letter.end" fill="freeze"
+    />
+
+    <!--а-->
+    <animate id="show19letter"
+      href="#letter-19" attributeName="fill"
+      to="#4f33a3"
+      dur="0.1s" begin="show18letter.end" fill="freeze"
+    />
+
+    <!--з-->
+    <animate id="show20letter"
+      href="#letter-20" attributeName="fill"
+      to="#4f33a3"
+      dur="0.1s" begin="show19letter.end" fill="freeze"
+    />
+
+    <!--в-->
+    <animate id="show21letter"
+      href="#letter-21" attributeName="fill"
+      to="#4f33a3"
+      dur="0.1s" begin="show20letter.end" fill="freeze"
+    />
+
+    <!--а-->
+    <animate id="show22letter"
+      href="#letter-22" attributeName="fill"
+      to="#4f33a3"
+      dur="0.1s" begin="show21letter.end" fill="freeze"
+    />
+
+    <!--н-->
+    <animate id="show23letter"
+      href="#letter-23" attributeName="fill"
+      to="#4f33a3"
+      dur="0.1s" begin="show22letter.end" fill="freeze"
+    />
+
+    <!--и-->
+    <animate id="show24letter"
+      href="#letter-24" attributeName="fill"
+      to="#4f33a3"
+      dur="0.1s" begin="show23letter.end" fill="freeze"
+    />
+
+    <!--е-->
+    <animate id="show25letter"
+      href="#letter-25" attributeName="fill"
+      to="#4f33a3"
+      dur="0.1s" begin="show24letter.end" fill="freeze"
+    />
+
+    <!--л-->
+    <animate id="show26letter"
+      href="#letter-26" attributeName="fill"
+      to="#4f33a3"
+      dur="0.1s" begin="show25letter.end" fill="freeze"
+    />
+
+    <!--ю-->
+    <animate id="show27letter"
+      href="#letter-27" attributeName="fill"
+      to="#4f33a3"
+      dur="0.1s" begin="show26letter.end" fill="freeze"
+    />
+
+    <!--б-->
+    <animate id="show28letter"
+      href="#letter-28" attributeName="fill"
+      to="#4f33a3"
+      dur="0.1s" begin="show27letter.end" fill="freeze"
+    />
+
+    <!--и-->
+    <animate id="show29letter"
+      href="#letter-29" attributeName="fill"
+      to="#4f33a3"
+      dur="0.1s" begin="show28letter.end" fill="freeze"
+    />
+
+    <!--м-->
+    <animate id="show30letter"
+      href="#letter-30" attributeName="fill"
+      to="#4f33a3"
+      dur="0.1s" begin="show29letter.end" fill="freeze"
+    />
+
+    <!--о-->
+    <animate id="show31letter"
+      href="#letter-31" attributeName="fill"
+      to="#4f33a3"
+      dur="0.1s" begin="show30letter.end" fill="freeze"
+    />
+
+    <!--й-->
+    <animate id="show32letter"
+      href="#letter-32" attributeName="fill"
+      to="#4f33a3"
+      dur="0.1s" begin="show31letter.end" fill="freeze"
+    />
+
+    <!--к-->
+    <animate id="show33letter"
+      href="#letter-33" attributeName="fill"
+      to="#4f33a3"
+      dur="0.1s" begin="show32letter.end" fill="freeze"
+    />
+
+    <!--н-->
+    <animate id="show34letter"
+      href="#letter-34" attributeName="fill"
+      to="#4f33a3"
+      dur="0.1s" begin="show33letter.end" fill="freeze"
+    />
+
+    <!--и-->
+    <animate id="show35letter"
+      href="#letter-35" attributeName="fill"
+      to="#4f33a3"
+      dur="0.1s" begin="show34letter.end" fill="freeze"
+    />
+
+    <!--г-->
+    <animate id="show36letter"
+      href="#letter-36" attributeName="fill"
+      to="#4f33a3"
+      dur="0.1s" begin="show35letter.end" fill="freeze"
+    />
+
+    <!--и-->
+    <animate id="show37letter"
+      href="#letter-37" attributeName="fill"
+      to="#4f33a3"
+      dur="0.1s" begin="show36letter.end" fill="freeze"
+    />
+
+    <animate id="show38letter"
+    href="#letter-38" attributeName="fill"
+    to="#4f33a3"
+    dur="0.1s" begin="show37letter.end" fill="freeze"
+  />
+  <!--/набор подписи-->
+
+  <!-- нажатие на Поделиться -->
+    <!--tap position-->
+    <animateTransform id="tapshare"
+      href="#tap" attributeName="transform" attributeTyp="XML" type="translate"
+      to="127 56"
+      dur="0.1s" begin="show38letter.end" fill="freeze"
+    />
+
+    <!--tap view-->
+    <animate id="tapshareview"
+      href="#tap" attributeName="opacity"
+      to="1"
+      dur="0.01s" begin="tapshare.end" fill="freeze" />
+
+
+    <!--tap opacity-->
+    <animate id="tapshareactivate"
+      href="#tap" attributeName="opacity"
+      to="0.7"
+      dur="0.3s" begin="tapshareview.end" fill="freeze"/>
+
+    <!--tap radius-->
+    <animate 
+      href="#tap-circle" attributeName="r"
+      to="11"
+      dur="0.3s" begin="tapshareactivate.begin" fill="freeze" />
+
+    <!--tap opacity-->
+    <animate 
+      href="#tap" attributeName="opacity"
+      to="1"
+      dur="0.3s" begin="tapshareactivate.end" fill="freeze" />
+    <!--tap radius-->
+    <animate 
+      href="#tap-circle" attributeName="r"
+      to="7"
+      dur="0.3s" begin="tapshareactivate.end" fill="freeze" />
+
+
+    <!--tap hide-->
+    <animate id="tapsharedeactivate"
+      href="#tap" attributeName="opacity"
+      to="0"
+      dur="0.3s" begin="tapshareactivate.end + 0.3s" fill="freeze" />
+
+
+
+    
+
+
+    <animate id="sharevideo"
+      href="#share" attributeName="fill"
+      to="#4f33a3"
+      dur="0.2s" begin="tapshareactivate.end - 0.3s" fill="freeze"
+    />
+  <!-- /нажатие на Поделиться -->
+
+  <!-- возврат к профилю -->
+    <animate id="hideadd" 
+      href="#phone-add" attributeName="opacity"
+      to="0" 
+      dur="1s" begin="sharevideo.end " fill="freeze"
+    />
+
+    <animate id="hidetap"
+      href="#tap" attributeName="opacity"
+      to="0"
+      dur="0.4s" begin="hideadd.end" fill="freeze" />
+
+    <animate id="sharevideo"
+      href="#share" attributeName="fill"
+      to="white"
+      dur="0.2s" begin="hideadd.end" fill="freeze"
+    />
+
+    <animate id="hidemask"
+      href="#mask" attributeName="opacity"
+      to="0"
+      dur="0.1s" begin="hideadd.end" fill="freeze"
+    />
+
+    <animateTransform id="slidedownkeyboard"
+      href="#letters" attributeName="transform" attributeTyp="XML" type="translate"
+      to="0 82"
+      dur="0.1s" begin="hideadd.end" fill="freeze"
+    />
+
+    <animate id="showprofile" 
+      href="#phone-profile" attributeName="opacity"
+      from="0" to="1"
+      dur="1s" begin="hideadd.end" fill="freeze"
+    />
+
+    <animate id="showactive" 
+      href="#active-item" attributeName="opacity"
+      from="0" to="1"
+      dur="1s" begin="showprofile.end" fill="freeze"
+    />
+
+    <animate id="colorheart" 
+      href="#heart" attributeName="fill"
+      to="#ee5ba0"
+      dur="0.1s" begin="showactive.end" fill="freeze"
+    />
+
+    <!--heartmotion-->
+      <animate id="showheart"
+        href="#heart-clone" attributeName="opacity"
+        to="1"
+        dur="0.001s" begin="colorheart.end" fill="freeze" />
+
+      <!--<animateMotion id="heartmotion"
+        href="#heart-clone"
+        dur="2s"
+        begin="showheart.end; heartmotion.end"
+        end="showheart.begin + 4s; showheart.begin + 4s"
+        fill="freeze"
+        path="M0,0 L-100,-450" />-->
+
+      <animateMotion id="heartmotion"
+        href="#heart-clone"
+        dur="1.5s"
+        begin="showheart.end"
+        repeatCount="14"
+        fill="freeze"
+        path="M0,0 L-100,-450" />
+
+      <animate 
+        href="#heart-clone" attributeName="opacity"
+        to="0"
+        dur="1.51s" begin="heartmotion.begin; heartmotion.repeat(1); heartmotion.repeat(2); heartmotion.repeat(3); heartmotion.repeat(4); heartmotion.repeat(5); heartmotion.repeat(6); heartmotion.repeat(7); heartmotion.repeat(8); heartmotion.repeat(9); heartmotion.repeat(10); heartmotion.repeat(11); heartmotion.repeat(12); heartmotion.repeat(13); " />
+      
+      <animateTransform
+          href="#heart-clone-scale" attributeName="transform" attributeType="XML" type="scale"
+          to="2"
+          dur="1.51s" begin="heartmotion.begin; heartmotion.repeat(1); heartmotion.repeat(2); heartmotion.repeat(3); heartmotion.repeat(4); heartmotion.repeat(5); heartmotion.repeat(6); heartmotion.repeat(7); heartmotion.repeat(8); heartmotion.repeat(9); heartmotion.repeat(10); heartmotion.repeat(11); heartmotion.repeat(12); heartmotion.repeat(13); " 
+        />
+    <!--/heartmotion-->
+
+
+
+    <!-- like counter 
+      <animate id="showlike" 
+        href="#like" attributeName="opacity"
+        to="1"
+        dur="0.1s" begin="colorheart.end" fill="freeze"
+      />
+
+      <animate id="hidelike1" 
+        href="#like-1" attributeName="opacity"
+        to="0"
+        dur="0.1s" begin="showlike.end + 0.2s" fill="freeze"
+      />
+
+      <animate id="uplike2" 
+        href="#like-2" attributeName="opacity"
+        to="1"
+        dur="0.1s" begin="hidelike1.end" fill="freeze"
+      />
+
+      <animate id="hidelike2" 
+        href="#like-2" attributeName="opacity"
+        to="0"
+        dur="0.1s" begin="uplike2.end + 0.2s" fill="freeze"
+      />
+
+      <animate id="uplike3" 
+        href="#like-3" attributeName="opacity"
+        to="1"
+        dur="0.1s" begin="hidelike2.end" fill="freeze"
+      />
+
+      <animate id="hidelike3" 
+        href="#like-3" attributeName="opacity"
+        to="0"
+        dur="0.1s" begin="uplike3.end + 0.2s" fill="freeze"
+      />
+
+      <animate id="uplike4" 
+        href="#like-4" attributeName="opacity"
+        to="1"
+        dur="0.1s" begin="hidelike3.end" fill="freeze"
+      />
+      <animate id="hidelike4" 
+        href="#like-4" attributeName="opacity"
+        to="0"
+        dur="0.1s" begin="uplike4.end + 0.2s" fill="freeze"
+      />
+
+      <animate id="uplike5" 
+        href="#like-5" attributeName="opacity"
+        to="1"
+        dur="0.1s" begin="hidelike4.end" fill="freeze"
+      />
+
+      <animate id="hidelike5" 
+        href="#like-5" attributeName="opacity"
+        to="0"
+        dur="0.1s" begin="uplike5.end + 0.2s" fill="freeze"
+      />
+
+      <animate id="uplike6" 
+        href="#like-6" attributeName="opacity"
+        to="1"
+        dur="0.1s" begin="hidelike5.end" fill="freeze"
+      />
+
+      <animate id="hidelike6" 
+        href="#like-6" attributeName="opacity"
+        to="0"
+        dur="0.1s" begin="uplike6.end + 0.2s" fill="freeze"
+      />
+
+      <animate id="uplike7" 
+        href="#like-7" attributeName="opacity"
+        to="1"
+        dur="0.1s" begin="hidelike6.end" fill="freeze"
+      />
+
+      <animate id="hidelike7" 
+        href="#like-7" attributeName="opacity"
+        to="0"
+        dur="0.1s" begin="uplike7.end + 0.2s" fill="freeze"
+      />
+
+      <animate id="uplike8" 
+        href="#like-8" attributeName="opacity"
+        to="1"
+        dur="0.1s" begin="hidelike7.end" fill="freeze"
+      />
+
+      <animate id="hidelike8" 
+        href="#like-8" attributeName="opacity"
+        to="0"
+        dur="0.1s" begin="uplike8.end + 0.2s" fill="freeze"
+      />
+
+      <animate id="endlikecount" 
+        href="#like-9" attributeName="opacity"
+        to="1"
+        dur="0.1s" begin="hidelike8.end" fill="freeze"
+      />
+    -->
+
+
+    <!--hideletters-->
+      <animate id="hideletter1" 
+        href="#letter-1" attributeName="fill"
+        to="#e6e6e6"
+        dur="0.1s" begin="hideadd.end" fill="freeze"
+      />
+      <animate id="hideletter2" 
+        href="#letter-2" attributeName="fill"
+        to="#e6e6e6"
+        dur="0.1s" begin="hideadd.end" fill="freeze"
+      />
+      <animate id="hideletter3" 
+        href="#letter-3" attributeName="fill"
+        to="#e6e6e6"
+        dur="0.1s" begin="hideadd.end" fill="freeze"
+      />
+      <animate id="hideletter4" 
+        href="#letter-4" attributeName="fill"
+        to="#e6e6e6"
+        dur="0.1s" begin="hideadd.end" fill="freeze"
+      />
+      <animate id="hideletter5" 
+        href="#letter-5" attributeName="fill"
+        to="#e6e6e6"
+        dur="0.1s" begin="hideadd.end" fill="freeze"
+      />
+      <animate id="hideletter6" 
+        href="#letter-6" attributeName="fill"
+        to="#e6e6e6"
+        dur="0.1s" begin="hideadd.end" fill="freeze"
+      />
+      <animate id="hideletter7" 
+        href="#letter-7" attributeName="fill"
+        to="#e6e6e6"
+        dur="0.1s" begin="hideadd.end" fill="freeze"
+      />
+      <animate id="hideletter8" 
+        href="#letter-8" attributeName="fill"
+        to="#e6e6e6"
+        dur="0.1s" begin="hideadd.end" fill="freeze"
+      />
+      <animate id="hideletter9" 
+        href="#letter-9" attributeName="fill"
+        to="#e6e6e6"
+        dur="0.1s" begin="hideadd.end" fill="freeze"
+      />
+      <animate id="hideletter10" 
+        href="#letter-10" attributeName="fill"
+        to="#e6e6e6"
+        dur="0.1s" begin="hideadd.end" fill="freeze"
+      />
+      <animate id="hideletter11" 
+        href="#letter-11" attributeName="fill"
+        to="#e6e6e6"
+        dur="0.1s" begin="hideadd.end" fill="freeze"
+      />
+      <animate id="hideletter12" 
+        href="#letter-12" attributeName="fill"
+        to="#e6e6e6"
+        dur="0.1s" begin="hideadd.end" fill="freeze"
+      />
+      <animate id="hideletter13" 
+        href="#letter-13" attributeName="fill"
+        to="#e6e6e6"
+        dur="0.1s" begin="hideadd.end" fill="freeze"
+      />
+      <animate id="hideletter14" 
+        href="#letter-14" attributeName="fill"
+        to="#e6e6e6"
+        dur="0.1s" begin="hideadd.end" fill="freeze"
+      />
+      <animate id="hideletter15" 
+        href="#letter-15" attributeName="fill"
+        to="#e6e6e6"
+        dur="0.1s" begin="hideadd.end" fill="freeze"
+      />
+      <animate id="hideletter16" 
+        href="#letter-16" attributeName="fill"
+        to="#e6e6e6"
+        dur="0.1s" begin="hideadd.end" fill="freeze"
+      />
+      <animate id="hideletter17" 
+        href="#letter-17" attributeName="fill"
+        to="#e6e6e6"
+        dur="0.1s" begin="hideadd.end" fill="freeze"
+      />
+      <animate id="hideletter18" 
+        href="#letter-18" attributeName="fill"
+        to="#e6e6e6"
+        dur="0.1s" begin="hideadd.end" fill="freeze"
+      />
+      <animate id="hideletter19" 
+        href="#letter-19" attributeName="fill"
+        to="#e6e6e6"
+        dur="0.1s" begin="hideadd.end" fill="freeze"
+      />
+      <animate id="hideletter20" 
+        href="#letter-20" attributeName="fill"
+        to="#e6e6e6"
+        dur="0.1s" begin="hideadd.end" fill="freeze"
+      />
+      <animate id="hideletter21" 
+        href="#letter-21" attributeName="fill"
+        to="#e6e6e6"
+        dur="0.1s" begin="hideadd.end" fill="freeze"
+      />
+      <animate id="hideletter22" 
+        href="#letter-22" attributeName="fill"
+        to="#e6e6e6"
+        dur="0.1s" begin="hideadd.end" fill="freeze"
+      />
+      <animate id="hideletter23" 
+        href="#letter-23" attributeName="fill"
+        to="#e6e6e6"
+        dur="0.1s" begin="hideadd.end" fill="freeze"
+      />
+      <animate id="hideletter24" 
+        href="#letter-24" attributeName="fill"
+        to="#e6e6e6"
+        dur="0.1s" begin="hideadd.end" fill="freeze"
+      />
+      <animate id="hideletter25" 
+        href="#letter-25" attributeName="fill"
+        to="#e6e6e6"
+        dur="0.1s" begin="hideadd.end" fill="freeze"
+      />
+      <animate id="hideletter26" 
+        href="#letter-26" attributeName="fill"
+        to="#e6e6e6"
+        dur="0.1s" begin="hideadd.end" fill="freeze"
+      />
+      <animate id="hideletter27" 
+        href="#letter-27" attributeName="fill"
+        to="#e6e6e6"
+        dur="0.1s" begin="hideadd.end" fill="freeze"
+      />
+      <animate id="hideletter28" 
+        href="#letter-28" attributeName="fill"
+        to="#e6e6e6"
+        dur="0.1s" begin="hideadd.end" fill="freeze"
+      />
+      <animate id="hideletter29" 
+        href="#letter-29" attributeName="fill"
+        to="#e6e6e6"
+        dur="0.1s" begin="hideadd.end" fill="freeze"
+      />
+      <animate id="hideletter30" 
+        href="#letter-30" attributeName="fill"
+        to="#e6e6e6"
+        dur="0.1s" begin="hideadd.end" fill="freeze"
+      />
+      <animate id="hideletter31" 
+        href="#letter-31" attributeName="fill"
+        to="#e6e6e6"
+        dur="0.1s" begin="hideadd.end" fill="freeze"
+      />
+      <animate id="hideletter32" 
+        href="#letter-32" attributeName="fill"
+        to="#e6e6e6"
+        dur="0.1s" begin="hideadd.end" fill="freeze"
+      />
+      <animate id="hideletter33" 
+        href="#letter-33" attributeName="fill"
+        to="#e6e6e6"
+        dur="0.1s" begin="hideadd.end" fill="freeze"
+      />
+      <animate id="hideletter34" 
+        href="#letter-34" attributeName="fill"
+        to="#e6e6e6"
+        dur="0.1s" begin="hideadd.end" fill="freeze"
+      />
+      <animate id="hideletter35" 
+        href="#letter-35" attributeName="fill"
+        to="#e6e6e6"
+        dur="0.1s" begin="hideadd.end" fill="freeze"
+      />
+      <animate id="hideletter36" 
+        href="#letter-36" attributeName="fill"
+        to="#e6e6e6"
+        dur="0.1s" begin="hideadd.end" fill="freeze"
+      />
+      <animate id="hideletter37" 
+        href="#letter-37" attributeName="fill"
+        to="#e6e6e6"
+        dur="0.1s" begin="hideadd.end" fill="freeze"
+      />
+      <animate id="hideletter38" 
+        href="#letter-38" attributeName="fill"
+        to="#e6e6e6"
+        dur="0.1s" begin="hideadd.end" fill="freeze"
+      />
+    <!--hide letters-->
+
+
+    <animate id="setsign"
+      href="#add-sign" attributeName="opacity"
+      to="1"
+      dur="0.2s" begin="hideadd.end" fill="freeze"
+    />
+
+  <!-- /возврат к профилю -->
+
+  <!-- скрытие лишнего -->
+    <animate id="hidelikeblock" 
+      href="#like" attributeName="opacity"
+      to="0"
+      dur="0.1s" begin="endlikecount.end + 3s" fill="freeze"
+    />
+
+    <animate id="hidelike9" 
+      href="#like-9" attributeName="opacity"
+      to="0"
+      dur="0.1s" begin="hidelikeblock.end" fill="freeze"
+    />
+
+    <animate id="setlike1" 
+      href="#like-1" attributeName="opacity"
+      to="1"
+      dur="0.1s" begin="hidelikeblock.end" fill="freeze"
+    />
+
+
+    <animate id="uncolorheart" 
+      href="#heart" attributeName="fill"
+      to="white"
+      dur="0.01s" begin="heartmotion.end + 2s" fill="freeze"
+    />
+
+    <animate id="hideactive" 
+      href="#active-item" attributeName="opacity"
+      to="0"
+      dur="1s" begin="uncolorheart.end - 1s" fill="freeze"
+    />
+
+  
+  <!-- /скрытие лишнего -->
+
+  
+
+
+
+
+</svg>
