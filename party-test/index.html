@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=1200, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+
+    <title>Тест: Какой вы читатель?</title>
+    <meta name="description" content="Пройдите тест на сайте «Читай-города» и узнайте, насколько хорошо вы разбираетесь в книгах."/>
+
+    <link rel="stylesheet" href="./test.css"/>
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+  </head>
+  <body>
+
+    <div class="landing party party-test" data-day="4">
+
+
+
+      <main>
+        <!-- header -->
+          <div class="test-header party-header">
+            <div class="party-header__card party-purple">
+              <h1 class="party-header__title"> <img src="test/title.svg" alt="Какой вы читатель?" width="547" height="42"/></h1>
+              <div class="test-play">
+                <p class="party-description">Тест для книголюбов! С 10 по 15 мая каждый день отвечайте на вопросы и получайте скидку от 5 до 15%</p>
+                <p class="party-description">Чем больше правильных ответов, тем больше скидка.</p>
+                <div class="party-big party-green">Тема дня: <span class="test-name"></span></div>
+                <div class="party-button bg_pink to-scroller">Пройти тест и получить скидку</div>
+              </div>
+              <div class="test-finished">
+                <p class="party-description">Каждый день с 10 по 15 мая книголюбы отвечали<br>на вопросы теста и получали скидки.</p>
+                <p class="party-description">Тест больше не работает. </p>
+                <p class="party-description">До встречи в следующих играх!</p>
+                <div class="party-button bg_pink to-scroller">Перейти к результатам</div>
+              </div>
+            </div>
+          </div>
+        <!-- /header -->
+
+        <a id="scroller"></a>
+
+        <!-- playground -->
+          <div class="test-playground test-play bg_pink color-white" id="party-test" style="display: none;" data-current="1">
+            <div class="container">
+              <div class="party-huge text-center test-playground__name"><span class="test-name"></span></div>
+              <div class="test-not-auth text-center">
+                <div class="party-description">Тесты могут проходить только авторизованные участники. Присоединяйтесь :)</div>
+                <button class="party-button bg_green js__showPopupLogin" type="button">Участвовать</button>
+              </div>
+              <div class="test-auth test-progress party-big">
+                <div class="test-progress__item" data-index="1">
+                  <svg class="party-icon" width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="white" stroke-width="3">
+                    <path class="icon-path" id="fail" d="M 15,15 L 32,33 M 32,15 L 15,33"></path>
+                    <path class="icon-path" id="check" d="M 12,22 L 22,31 L 36,13" transform="translate(0, 2)"></path>
+                  </svg>
+                </div>
+                <div class="test-progress__item" data-index="2">
+                  <svg class="party-icon" width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="white" stroke-width="3">
+                    <path class="icon-path" id="fail" d="M 15,15 L 32,33 M 32,15 L 15,33"></path>
+                    <path class="icon-path" id="check" d="M 12,22 L 22,31 L 36,13" transform="translate(0, 2)"></path>
+                  </svg>
+                </div>
+                <div class="test-progress__item" data-index="3">
+                  <svg class="party-icon" width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="white" stroke-width="3">
+                    <path class="icon-path" id="fail" d="M 15,15 L 32,33 M 32,15 L 15,33"></path>
+                    <path class="icon-path" id="check" d="M 12,22 L 22,31 L 36,13" transform="translate(0, 2)"></path>
+                  </svg>
+                </div>
+                <div class="test-progress__item" data-index="4">
+                  <svg class="party-icon" width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="white" stroke-width="3">
+                    <path class="icon-path" id="fail" d="M 15,15 L 32,33 M 32,15 L 15,33"></path>
+                    <path class="icon-path" id="check" d="M 12,22 L 22,31 L 36,13" transform="translate(0, 2)"></path>
+                  </svg>
+                </div>
+                <div class="test-progress__item" data-index="5">
+                  <svg class="party-icon" width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="white" stroke-width="3">
+                    <path class="icon-path" id="fail" d="M 15,15 L 32,33 M 32,15 L 15,33"></path>
+                    <path class="icon-path" id="check" d="M 12,22 L 22,31 L 36,13" transform="translate(0, 2)"></path>
+                  </svg>
+                </div>
+                <div class="test-progress__item" data-index="6">
+                  <svg class="party-icon" width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="white" stroke-width="3">
+                    <path class="icon-path" id="fail" d="M 15,15 L 32,33 M 32,15 L 15,33"></path>
+                    <path class="icon-path" id="check" d="M 12,22 L 22,31 L 36,13" transform="translate(0, 2)"></path>
+                  </svg>
+                </div>
+              </div>
+              <div class="test-auth test-question party-description">
+                <div class="test-question__text"></div>
+                <div class="test-question__options">
+                  <div class="test-option" data-option="1">
+                    <svg class="party-icon" width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="white" stroke-width="3">
+                      <path class="icon-path" id="fail" d="M 15,15 L 32,33 M 32,15 L 15,33"></path>
+                      <path class="icon-path" id="check" d="M 12,22 L 22,31 L 36,13" transform="translate(0, 2)"></path>
+                    </svg><span class="text"></span>
+                  </div>
+                  <div class="test-option" data-option="2">
+                    <svg class="party-icon" width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="white" stroke-width="3">
+                      <path class="icon-path" id="fail" d="M 15,15 L 32,33 M 32,15 L 15,33"></path>
+                      <path class="icon-path" id="check" d="M 12,22 L 22,31 L 36,13" transform="translate(0, 2)"></path>
+                    </svg><span class="text"></span>
+                  </div>
+                  <div class="test-option" data-option="3">
+                    <svg class="party-icon" width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="white" stroke-width="3">
+                      <path class="icon-path" id="fail" d="M 15,15 L 32,33 M 32,15 L 15,33"></path>
+                      <path class="icon-path" id="check" d="M 12,22 L 22,31 L 36,13" transform="translate(0, 2)"></path>
+                    </svg><span class="text"></span>
+                  </div>
+                </div>
+                <div class="test-question__note"></div>
+                <div class="test-next text-center">
+                  <button class="party-button bg_green" type="button"> </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="test-error text-center bg_pink color-white" style="display: none; padding: 80px 0;">
+              <div class="container">
+                <div class="party-huge">Что-то пошло не так :(</div>
+                <br>
+                <div class="party-description">Не удалось загрузить тест. Обновите, пожалуйста, страницу.</div>
+              </div>
+          </div>
+        <!-- /playground -->
+
+
+
+        <!-- achievements -->
+          <div class="test-auth test-achievements text-center party-purple" id="test-results">
+            <div class="container">
+              <div class="party-huge test-achievements__title"></div>
+              <p class="party-description test-achievements__message">Вы пока не набрали ни одного балла. Пройдите тест целиком, и здесь появятся ваши результаты.</p>
+              <div class="scheme">
+                <div class="scheme__ranges">
+                  <div class="scheme-block scheme__range" data-day="romantic" data-index="0" data-range="0"></div>
+                  <div class="scheme-block scheme__range" data-day="fantastic" data-index="1" data-range="0"></div>
+                  <div class="scheme-block scheme__range" data-day="detectives" data-index="2" data-range="0"></div>
+                  <div class="scheme-block scheme__range" data-day="classic" data-index="3" data-range="0"></div>
+                  <div class="scheme-block scheme__range" data-day="fairy" data-index="4" data-range="0"></div>
+                  <div class="scheme-block scheme__range" data-day="poetry" data-index="5" data-range="0"></div>
+                </div>
+                <div class="scheme__basis"></div>
+                <div class="scheme__dates">
+                  <div class="scheme-block scheme__date" data-day="romantic" data-index="0">10 мая</div>
+                  <div class="scheme-block scheme__date" data-day="fantastic" data-index="1">11 мая</div>
+                  <div class="scheme-block scheme__date" data-day="detectives" data-index="2">12 мая</div>
+                  <div class="scheme-block scheme__date" data-day="classic" data-index="3">13 мая</div>
+                  <div class="scheme-block scheme__date" data-day="fairy" data-index="4">14 мая</div>
+                  <div class="scheme-block scheme__date" data-day="poetry" data-index="5">15 мая</div>
+                </div>
+              </div>
+              <div class="test-achievements__blocks">
+                <div class="achievement-block" data-day="romantic" data-index="0">
+                  <div class="achievement-block__date">10 мая</div>
+                  <div class="achievement-block__title">Романтика</div>
+                  <div class="achievement-block__result"><span class="current">0</span>/<span class="total">6</span></div>
+                </div>
+                <div class="achievement-block" data-day="fantastic" data-index="1">
+                  <div class="achievement-block__date">11 мая</div>
+                  <div class="achievement-block__title">Фантастика и фэнтези</div>
+                  <div class="achievement-block__result"><span class="current">0</span>/<span class="total">6</span></div>
+                </div>
+                <div class="achievement-block" data-day="detectives" data-index="2">
+                  <div class="achievement-block__date">12 мая</div>
+                  <div class="achievement-block__title">Детективы</div>
+                  <div class="achievement-block__result"><span class="current">0</span>/<span class="total">6</span></div>
+                </div>
+                <div class="achievement-block" data-day="classic" data-index="3">
+                  <div class="achievement-block__date">13 мая</div>
+                  <div class="achievement-block__title">Отечественая классика</div>
+                  <div class="achievement-block__result"><span class="current">0</span>/<span class="total">6</span></div>
+                </div>
+                <div class="achievement-block" data-day="fairy" data-index="4">
+                  <div class="achievement-block__date">14 мая</div>
+                  <div class="achievement-block__title">Сказки</div>
+                  <div class="achievement-block__result"><span class="current">0</span>/<span class="total">6</span></div>
+                </div>
+                <div class="achievement-block" data-day="poetry" data-index="5">
+                  <div class="achievement-block__date">15 мая</div>
+                  <div class="achievement-block__title">Поэзия</div>
+                  <div class="achievement-block__result"><span class="current">0</span>/<span class="total">6</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <!-- /achievements -->
+
+
+      </main>
+
+
+    </div>
+
+
+    <script src="./test.js"></script>
+    <script>
+      var config = {
+        dataUrl: 'tests.json',
+        onFirstClick: function(userID) {
+          console.log('first click handler, userID - ', userID);
+        },
+        onFinishGame: function(data) {
+          console.log('finish game handler', data);
+        }
+      };
+      var data = {
+        "userID": 123456,
+        "status": 1,
+        "current_test": 1,
+        "total_points": 4,
+        "results": {
+          "romantic": {
+            "passed": true,
+            "points": 4
+          },
+          "fantastic": {
+            "passed": false,
+            "points": 6
+          },
+          "detectives": {
+            "passed": true,
+            "points": 6
+          },
+          "classic": {
+            "passed": false,
+            "points": 6
+          },
+          "fairy": {
+            "passed": false,
+            "points": 6
+          },
+          "poetry": {
+            "passed": false,
+            "points": 6
+          }
+        }
+      };
+      setPartyTest(data, config);
+    </script>
+  </body>
+</html>

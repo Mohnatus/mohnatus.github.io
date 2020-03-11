@@ -1,0 +1,25 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="725.3px" height="725.301px" viewBox="0 0 725.3 725.301" style="enable-background:new 0 0 725.3 725.301;" xml:space="preserve">
+    <g>
+        <style>
+            .st0{ fill: none; stroke: #000000; stroke-width: 5; stroke-miterlimit: 5; }
+            .st0 {
+                stroke-dasharray: 1000;
+                stroke-dashoffset: 1000;
+                animation: dash 7s linear forwards;
+            }
+
+            @keyframes dash {
+                from{
+                    stroke-dashoffset: 1000;
+                }
+                to {
+                  stroke-dashoffset: 0;
+                }
+            }
+            
+        </style>
+        
+        
+        <path class="st0" d="m 38.415077,45.934734 c 11.069026,16.389914 11.069026,16.389914 11.069026,16.389914 6.037651,-38.63337 6.037651,-38.63337 6.037651,-38.63337" />
+    </g>
+</svg>

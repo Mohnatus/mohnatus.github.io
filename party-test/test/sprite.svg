@@ -1,0 +1,41 @@
+<svg width="50" height="24" viewBox="0 0 50 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+<!--<g id="check1">
+    <rect width="2.78126" height="24.5815" rx="1.39063" transform="matrix(0.785373 0.619023 -0.595887 0.803068 23.6477 0)" fill="white"/>
+    <rect width="2.78126" height="14.9232" rx="1.39063" transform="matrix(-0.707107 0.707107 -0.727401 -0.686213 12.8218 19.3999)" fill="white"/>
+  </g>-->
+
+   <g id="check" fill="none" transform="translate(10)">
+    <style>
+
+    </style>
+    <path id="check-path" d="M 1,10 L 11,19 L 25,1" stroke="red" stroke-width="3"/>
+  </g>
+
+  <g id="fail" transform="translate(40, 2)">
+    <rect width="2.78126" height="24.5815" rx="1.39063" transform="matrix(0.707107 0.707107 -0.686213 0.727401 16.8682 0)" fill="white"/>
+    <rect width="2.78126" height="24.5815" rx="1.39063" transform="matrix(-0.707107 0.707107 0.686213 0.727401 1.96655 0)" fill="white"/>
+  </g>
+
+  <!--<g id="check" fill="none">
+  <style>
+            .st0{ fill: none; stroke: #000000; stroke-width: 5; stroke-miterlimit: 5; }
+            .st0 {
+                
+                stroke-dashoffset: 1000;
+                animation: dash 7s linear forwards;
+            }
+
+            @keyframes dash {
+                from{
+                    stroke-dashoffset: 1000;
+                }
+                to {
+                  stroke-dashoffset: 0;
+                }
+            }
+            
+        </style>
+    <path class="" d="m 38.415077,45.934734 c 11.069026,16.389914 11.069026,16.389914 11.069026,16.389914 6.037651,-38.63337 6.037651,-38.63337 6.037651,-38.63337" />
+  </g>-->
+</svg>
