@@ -1,0 +1,85 @@
+body{ 
+    margin:0; height:100%; 
+    font-family: 'Amatic SC', cursive; 
+    color: white;
+}
+.page {
+    position: fixed; min-height: 500px;
+    top: 0; bottom: 0; left: 0; right: 0;
+    overflow: hidden;
+}
+canvas{
+    position:absolute; top:0; left:0; z-index: 1;
+    background-image: linear-gradient(bottom, rgb(105,173,212) 0%, rgb(23,82,145) 84%);
+    background-image: -o-linear-gradient(bottom, rgb(105,173,212) 0%, rgb(23,82,145) 84%);
+    background-image: -moz-linear-gradient(bottom, rgb(105,173,212) 0%, rgb(23,82,145) 84%);
+    background-image: -webkit-linear-gradient(bottom, rgb(105,173,212) 0%, rgb(23,82,145) 84%);
+    background-image: -ms-linear-gradient(bottom, rgb(105,173,212) 0%, rgb(23,82,145) 84%);
+    background-image: -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(0, rgb(105,173,212)),
+        color-stop(0.84, rgb(23,82,145))
+    );
+    min-width: 320px;
+    min-height: 750px;
+}
+
+canvas.firework {
+    background-image: linear-gradient(bottom, #4F1191 0%, rgb(18,9,40) 84%);
+    background-image: -o-linear-gradient(bottom, #4F1191 0%, rgb(18,9,40) 84%);
+    background-image: -moz-linear-gradient(bottom, #4F1191 0%, rgb(18,9,40) 84%);
+    background-image: -webkit-linear-gradient(bottom, #4F1191 0%, rgb(18,9,40) 84%);
+    background-image: -ms-linear-gradient(bottom, #4F1191 0%, rgb(18,9,40) 84%);
+    background-image: -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(0, rgb(21,9,45)),
+        color-stop(0.84, rgb(18,9,40))
+    );
+}
+#logo {
+    position: absolute;
+    bottom: 15%; text-align: center;
+    left: 0; right: 0; margin: auto;
+    z-index: 15;
+}
+
+#text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    max-width: 940px;
+    padding: 0 20px;
+    text-align: center;
+    transform: translate(-50%, -30%);
+    z-index: 10;
+    font-size: 100px;
+    font-weight: bold;
+    color: white;
+    white-space: pre-wrap;
+}
+#timer {
+    position: absolute;
+    left: 0; right: 0; margin: auto;
+    top: 15%; bottom: auto; text-align: center;
+    z-index: 10;
+    font-size: 50px;
+    color: white;
+}
+
+@media (max-width: 900px) {
+    #text { font-size: 60px; }
+}
+
+@media (max-width: 800px) {
+    #text { font-size: 40px; left: 15px; right: 15px; width: auto; transform: translateY(-70%); }
+}
+
+@media (max-width: 600px) {
+    #logo { right: 0; left: 0; text-align: center; }
+    #timer { bottom: 50px; }
+}
