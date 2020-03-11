@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "https://mohnatus.github.io/redux/precache-manifest.b6ff2d93dead6eb4d7d1fdd2d7778c80.js"
+  "https://mohnatus.github.io/redux/precache-manifest.0849fa5630db86fdb8515cb59de62962.js"
 );
 
 self.addEventListener('message', (event) => {
