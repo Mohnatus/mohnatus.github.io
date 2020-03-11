@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Филворд</title>
+	<link href="https://fonts.googleapis.com/css?family=Comfortaa&amp;subset=cyrillic" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="puzzle" data-step="add">
+		<div id="puzzle-message"></div>
+		<section id="add">
+			<div>
+				<h2 class="heading">Добавьте слова</h2>
+				<div class="flex">
+					<div class="flex column between">
+						<div class="padding">
+							<textarea class="shadow" id="add-words-input" cols="30" rows="10">привет мир котик песик</textarea>
+						</div> 
+						<div class="padding flex center">
+							<button type="button" onclick="puzzle.addWords()">Добавить слова</button>
+						</div>
+					</div>
+					
+					<div class="hidden flex column between">
+
+						<div id="add-words-list" class="list"></div>
+
+						
+						<div class="padding flex center">
+							<button type="button"  class="green"  onclick="puzzle.toStep('field')">Подтвердить</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section id="field">
+			<div>
+				<h2 class="heading">Выберите размер поля</h2>
+				<div class="options">
+					<div class="padding">
+						<div class="option shadow padding" data-option="1" data-width="0" data-height="0"
+						onclick="puzzle.setSize(this.dataset.width, this.dataset.height)">
+							<div class="option__size">
+								<span class="option__width">0</span>
+								х
+								<span class="option__height">0</span>
+							</div>
+							<footer>
+								<div>Лишних клеток: <span class="option__diff"></span></div>
+							</footer>
+						</div>
+					</div>
+					<div class="padding">
+						<div class="option shadow padding" data-option="2" data-width="0" data-height="0"
+							onclick="puzzle.setSize(this.dataset.width, this.dataset.height)">
+							<div class="option__size">
+								<span class="option__width">0</span>
+								х
+								<span class="option__height">0</span>
+							</div>
+							<footer>
+								<div>Лишних клеток: <span class="option__diff"></span></div>
+							</footer>
+						</div>
+					</div>
+					<div class="padding">
+						<div class="option shadow padding" data-option="3" data-width="0" data-height="0"
+							onclick="puzzle.setSize(this.dataset.width, this.dataset.height)">
+							<div class="option__size">
+								<span class="option__width">0</span>
+								х
+								<span class="option__height">0</span>
+							</div>
+							<footer>
+								<div>Лишних клеток: <span class="option__diff"></span></div>
+							</footer>
+						</div>
+					</div>
+					<div class="padding">
+						<div class="option shadow padding custom-option" data-custom-option data-width="1" data-height="1"
+							onclick="puzzle.setSize(this.dataset.width, this.dataset.height)">
+							<div class="option__text">Установите размер</div>
+							<div class="option__size">
+								<span class="option__width">
+									<input type="number" value="1" data-width-input class="shadow">
+								</span>
+								х
+								<span class="option__height">
+									<input type="number" value="1" data-height-input  class="shadow">
+								</span>
+							</div>
+							<footer>
+								<div>Лишних клеток: <span class="option__diff"></span></div>
+							</footer>
+						</div>
+					</div>
+				</div>
+				<div class="padding">
+					<button type="button" onclick="puzzle.toStep('add')"><&nbsp;&nbsp;К словам</button>
+				</div>
+			</div>
+		</section>
+		<section id="fill">
+			<div>
+				<h2 class="heading">Заполните поле</h2>
+				<div class="flex center">
+					<div class="list" id="not-added"></div>
+					<div class="field">
+						<div id="puzzle-field"></div>
+					</div>
+					<div class="list" id="added"></div>
+				</div>
+					
+				<div class="padding flex between">
+					<button type="button" onclick="puzzle.toStep('field')"><&nbsp;&nbsp;К размерам</button>
+
+					<div id="confirm-field">
+						<button type="button"  class="green"  onclick="puzzle.toStep('confirm')">Подтвердить</button>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section id="confirm">
+			<div>
+				<h2 class="heading">Выберите слово для примера</h2>
+				<div class="flex center">
+					<div class="list" id="words-list"></div>
+					<div class="field">
+						<div id="filled-field"></div>
+					</div>
+				</div>
+				<div class="padding flex between">
+					<button type="button" onclick="puzzle.toStep('fill')"><&nbsp;&nbsp;К полю</button>
+					<button type="button" onclick="puzzle.save()" class="green">Сохранить</button>
+				</div>
+			</div>
+		</section>
+	</div>
+	<script src="script.js"></script>
+</body>
+</html>

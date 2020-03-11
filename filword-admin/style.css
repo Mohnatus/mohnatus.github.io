@@ -1,0 +1,264 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+:root {
+	--green-color: teal;
+	--lightgreen-color: #9DFB9D;
+	--lightgray-color: rgba(0, 0, 0, 0.1);
+	--mediumgray-color: rgba(0, 0, 0, 0.3);
+	--gray-color: rgba(0, 0, 0, 0.8);
+	--delete-color: #bc0000;
+	--lightdelete-color: #F96868;
+	--font-family: 'Comfortaa', Arial, sans-serif;
+	--cell-size: 40px;
+	--label-height: 45px;
+	--label-width: 200px;
+	--option-width: 250px;
+	--option-height: 160px;
+	--item-height: 600px;
+	--shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+	--shadow-hover: 0 0 8px rgba(0,0,0,.18), 0 8px 16px rgba(0,0,0,.36);
+	--input-font: 1.25rem;
+	--button-font: 0.9rem;
+	--padding: 1rem;
+}
+
+html {
+	font-size: 16px;
+	font-family: var(--font-family);
+}
+
+#puzzle-message {
+	position: fixed;
+	top: 0; left: 0; right: 0;
+	padding: 15px 20px;
+	text-align: center;
+	color: var(--delete-color);
+}
+
+.heading {
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+section {
+	display: none;
+	height: 100vh;
+	min-height: 600px;
+	min-width: 1000px;
+	justify-content: center;
+	align-items: center;
+}
+
+[data-step="add"] #add,
+[data-step="field"] #field,
+[data-step="fill"] #fill,
+[data-step="confirm"] #confirm {
+	display: flex;
+}
+
+#add-words-input { /* поле ввода слов */
+	width: 250px;
+	height: var(--item-height);
+	padding: 20px;
+	border: 0;
+	outline: 0;
+	resize: none;
+	font-family: inherit;
+	font-size: var(--input-font);
+}
+
+button, .word {
+	height: var(--label-height);
+	width: var(--label-width);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 10px 20px;
+	border: none;
+	outline: none;
+	border-radius: 4px;
+	font-family: inherit;
+	font-size: var(--button-font);
+}
+
+.word {
+	position: relative;
+	margin-bottom: 1rem;
+	margin-right: 1rem;
+	white-space: nowrap;
+	overflow: hidden;
+	-o-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+	page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.word.active {
+	background-color: var(--green-color);
+	color: white;
+}
+
+#add-words-list .word:hover,
+#added .word:hover {
+	background: var(--delete-color);
+	color: white;
+}
+
+#add-words-list .word:hover:after,
+#added .word:hover:after {
+	content: '+';
+
+	position: absolute;
+	right: 0;
+	top: 50%;
+	margin: auto;
+
+	display: inline-block;
+	width: 1.4em;
+	height: 1.4em;
+	font-size: 1.4em;
+
+	transform: translateY(-25%) rotate(45deg);
+
+	font-weight: bold;
+}
+
+.options {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	min-height: var(--item-height);
+}
+
+.option {
+	width: var(--option-width);
+	height: var(--option-height);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+	flex-shrink: 0;
+	transition: all 300ms;
+}
+
+.option:hover {
+	background: var(--green-color);
+	color: white;
+}
+
+.option__size {
+	font-size: 2.5rem;
+	font-weight: bold;
+	padding: 10px 0;
+}
+
+.option__size input {
+	width: 70px;
+	height: 50px;
+	padding: 7px 10px;
+	border: none;
+	outline: none;
+	font-family: inherit;
+	font-size: 1.9rem;
+	font-weight: bold;
+}
+
+.option footer {
+	height: 1rem;
+}
+
+.list {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	align-content: space-between;
+	align-items: center;
+	height: var(--item-height);
+	width: 350px;
+	overflow: auto;
+	padding: var(--padding);
+}
+
+.field {
+	padding: var(--padding) 8rem;
+}
+
+
+.row {
+	display: flex;
+}
+
+.cell {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid var(--lightgray-color);
+	padding: 5px;
+	width: var(--cell-size);
+	height: var(--cell-size);
+	user-select: none;
+}
+
+.cell.select {
+	background: var(--lightgray-color);
+}
+
+.cell.empty {
+	background: var(--mediumgray-color);
+}
+
+.cell.hover,
+.word.hover {
+	background: var(--lightgreen-color);
+}
+
+.cell.delete {
+	background: var(--lightdelete-color);
+}
+
+
+
+.padding {
+	padding: var(--padding);
+}
+
+.shadow, button, .word {
+	-webkit-box-shadow: var(--shadow);
+	box-shadow: var(--shadow);
+	cursor: pointer;
+}
+
+.shadow:hover, button:hover, .word:hover {
+	-webkit-box-shadow: var(--shadow-hover);
+	box-shadow: var(--shadow-hover);
+}
+
+.flex {
+	display: flex;
+}
+
+.flex.column {
+	flex-direction: column;
+}
+
+.flex.between {
+	justify-content: space-between;
+}
+
+.flex.center {
+	justify-content: center;
+}
+
+.green {
+	background-color: var(--green-color);
+	color: white;
+}
+
+.hidden {
+	display: none;
+}
+
