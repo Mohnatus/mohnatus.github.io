@@ -1,0 +1,360 @@
+
+@keyframes blink-passive {
+    from { opacity: 0; }
+    25% { opacity: 1; }
+    50% { opacity: 0; }
+    75% { opacity: 1; }
+    to { opacity: 0; }
+}
+@keyframes blink-active {
+    from { opacity: 1; }
+    25% { opacity: 0; }
+    50% { opacity: 1; }
+    75% { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes show {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'PT Sans', sans-serif; color: rgba(0, 0, 0, 0.8); line-height: 1.4; }
+
+main { 
+    background-color: #26A9E0; 
+    height: 100vh; min-height: 800px; overflow: hidden;
+}
+
+.question { padding-top: 100px; padding-bottom: 100px; font-size: 20px; position: relative; z-index: 2; }
+.question .button { margin-top: 50px; }
+
+.playground { 
+    height: 100%;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; 
+}
+.playground .container { display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 2; }
+.playground-side { width: 460px; flex-grow: 0; flex-shrink: 0; }
+.playground-helper { position: absolute; top: 0; bottom: 0; left: 50%; z-index: 1; width: 100%; transform: translateX(-50%); }
+.playground-helper .helper { display: none; position: absolute; }
+
+.playground, .playground[data-type="nude"] { background-position: center; background-size: cover; }
+
+/* usual bg */
+.playground[data-type="usual"] { background-image: url("snowman/usual-bg.png"); }
+.playground[data-type="usual"] .container:after { 
+    content: ''; position: absolute; width: 20px; height: 20px; left: 185px; 
+    animation: to-basket 1700ms forwards ease-out; 
+    background: url('snowman/snow.png') center / 100% 100% no-repeat; z-index: 20;
+}
+.playground[data-type="usual"] .helper { 
+    display: block; width: 20px; height: 20px; top: -20px; z-index: 20;
+    background: url('snowman/snow.png') center / 100% 100% no-repeat;
+    animation-name: snowfall, snowvibrate; animation-timing-function: linear, ease-in-out; animation-iteration-count: infinite, infinite; animation-duration: 5000ms, 2300ms;  
+}
+.playground[data-type="usual"] .helper.small { width: 10px; height: 10px; }
+.playground[data-type="usual"] .helper.big { width: 30px; height: 30px; }
+.playground[data-type="usual"] .helper-1 { left: 6%; animation-delay: 600ms; animation-duration: 4500ms, 2800ms; }
+.playground[data-type="usual"] .helper-2 { left: 12%; animation-delay: 3700ms; }
+.playground[data-type="usual"] .helper-3 { left: 18%; animation-delay: 0ms; animation-duration: 5700ms, 3300ms; }
+.playground[data-type="usual"] .helper-4 { left: 24%; animation-delay: 900ms; }
+.playground[data-type="usual"] .helper-5 { left: 30%; animation-delay: 2800ms; }
+.playground[data-type="usual"] .helper-6 { left: 36%; animation-delay: 700ms; animation-duration: 6600ms, 2600ms; }
+.playground[data-type="usual"] .helper-7 { left: 42%; animation-delay: 1400ms; }
+.playground[data-type="usual"] .helper-8 { left: 48%; animation-delay: 0ms; }
+.playground[data-type="usual"] .helper-9 { left: 54%; animation-delay: 1500ms; animation-duration: 6200ms, 3100ms; }
+.playground[data-type="usual"] .helper-10 { left: 60%; animation-delay: 400ms; animation-duration: 5300ms, 2700ms; }
+.playground[data-type="usual"] .helper-11 { left: 66%; animation-delay: 2800ms; }
+.playground[data-type="usual"] .helper-12 { left: 72%; animation-delay: 50ms; }
+.playground[data-type="usual"] .helper-13 { left: 78%; animation-delay: 3500ms; animation-duration: 6900ms, 3300ms;  }
+.playground[data-type="usual"] .helper-14 { left: 85%; animation-delay: 1300ms; }
+.playground[data-type="usual"] .helper-15 { left: 95%; animation-delay: 2100ms; animation-duration: 7400ms, 2900ms; }
+
+@keyframes snowfall {
+    from { top: -10px; }
+    to { top: 100%; }
+}
+@keyframes snowvibrate {
+    from { margin-left: 0px; }
+    50% { margin-left: -35px; }
+    100% { margin-right: 0px; }
+}
+
+@keyframes to-basket {
+    from { top: -150px; }
+    to { top: 90px; } 
+}
+
+/* magic bg */
+.playground[data-type="magic"] { background-color: #FF8D27; background-image: url("snowman/magic-bg.png"); }
+.playground[data-type="magic"] .playground-helper { width: 1920px; }
+.playground[data-type="magic"] .bat { display: block; position: absolute; width: 62px; height: 33px; background: url('snowman/bat-body.png') no-repeat; }
+.playground[data-type="magic"] .bat:before, 
+.playground[data-type="magic"] .bat:after { content: ''; position: absolute; top: 0; left: 0; bottom: 0; right: 0; }
+.playground[data-type="magic"] .bat:before {
+    background: url('snowman/bat-left.png') no-repeat;
+    transform-origin: 28px 22px; animation-name: bat-left; animation-iteration-count: infinite;
+}
+.playground[data-type="magic"] .bat:after {
+    background: url('snowman/bat-right.png') no-repeat;
+    transform-origin: 39px 18px; animation-name: bat-right; animation-iteration-count: infinite;
+}
+.playground[data-type="magic"] .bat.helper-1 { top: 75%; left: 25%; }
+.playground[data-type="magic"] .bat.helper-2 { top: 20%;  left: 52%; }
+.playground[data-type="magic"] .bat.helper-3 { top: 85%; left: 50%; transform: rotate(47deg); }
+.playground[data-type="magic"] .bat.helper-4 { top: 55%; left: 80%; transform: rotate(47deg); }
+.playground[data-type="magic"] .bat.helper-5 { top: 25%; left: 23%; }
+.playground[data-type="magic"] .bat.helper-1:before, .bat.helper-1:after { animation-duration: 1000ms; }
+.playground[data-type="magic"] .bat.helper-2:before, .bat.helper-2:after { animation-delay: 300ms; animation-duration: 600ms; }
+.playground[data-type="magic"] .bat.helper-3:before, .bat.helper-3:after { animation-duration: 2000ms; animation-delay: 200ms; }
+.playground[data-type="magic"] .bat.helper-4:before, .bat.helper-4:after { animation-duration: 1000ms; }
+.playground[data-type="magic"] .bat.helper-5:before, .bat.helper-5:after { animation-duration: 1400ms; animation-delay: 500ms; }
+
+@keyframes bat-left {
+    from { transform: rotate(0deg); }
+    50% { transform: rotate(-60deg); }
+    to { transform: rotate(0deg); }
+}
+@keyframes bat-right {
+    from { transform: rotate(0deg); }
+    50% { transform: rotate(60deg); }
+    to { transform: rotate(0deg); }
+}
+
+/* astro bg */
+.playground[data-type="astro"] { background-color: #120928; background-image: url("snowman/astro-bg.png"); }
+.playground[data-type="astro"] .playground-helper { position: absolute; }
+.playground[data-type="astro"] .star { 
+    display: block; position: absolute; width: 0; height: 0; opacity: 0; z-index: 20; 
+    animation-name: shine; animation-duration: 2800ms; animation-iteration-count: infinite;
+}
+.playground[data-type="astro"] .star div {
+    position: absolute; width: 5px; height: 5px;border-radius: 50%; background: #C3EAE6;
+    box-shadow: 0 0 14px 6px rgba(195,234,230,1);
+}
+.playground[data-type="astro"] .star div:before,
+.playground[data-type="astro"] .star div:after {
+    content: ''; display: block; position: absolute; height: 2px; background: #C3EAE6; border-radius: 50%;
+}
+.playground[data-type="astro"] .star div:before { margin: 0 0 0 -11px; width: 27px; box-shadow: 0 0 3px 1px rgba(195,234,230,1);}
+.playground[data-type="astro"] .star div:after { margin: 0 0 0 -18px; width: 40px; box-shadow: 0 0 4px 0px rgba(195,234,230,1); transform: rotate(80deg); }
+.playground[data-type="astro"] .star div span {
+    display: block; position: absolute; margin: 0 0 0 -12px; width: 30px; height: 2px;
+    background: #C3EAE6; border-radius: 50%; box-shadow: 0 0 19px 1px rgba(195,234,230,1); transform: rotate(-56deg);
+}
+.playground[data-type="astro"] .star.small div:before { width: 20px; margin-left: -6px; }
+.playground[data-type="astro"] .star.small div:after { width: 27px; margin-left: -10px; }
+.playground[data-type="astro"] .star.small div span { width: 23px; margin-left: -8px; }
+.playground[data-type="astro"] .star.small div { box-shadow: 0 0 14px 5px rgba(195,234,230,1); }
+
+.playground[data-type="astro"] .star.big div:before { width: 31px; margin-left: -11px; }
+.playground[data-type="astro"] .star.big div:after { width: 37px; margin-left: -15px; }
+.playground[data-type="astro"] .star.big div:after span { width: 34px; margin-left: -12px; }
+
+.playground[data-type="astro"] .star.helper-1 { left: 10%; top: 413px; animation-delay: 300ms; animation-duration: 3000ms; }
+.playground[data-type="astro"] .star.helper-2 { left: 24%; top: 600px; animation-delay: 400ms; }
+.playground[data-type="astro"] .star.helper-3 { left: 41%; top: 640px; animation-delay: 300ms; animation-duration: 3600ms; }
+.playground[data-type="astro"] .star.helper-4 { left: 23%; top: 280px; animation-delay: 1600ms; }
+.playground[data-type="astro"] .star.helper-5 { left: 48%; top: 40px; animation-delay: 0ms; }
+.playground[data-type="astro"] .star.helper-6 { left: 63%; top: 697px; animation-delay: 1900ms; animation-duration: 3200ms; }
+.playground[data-type="astro"] .star.helper-7 { left: 66%; top: 333px; animation-delay: 800ms; }
+.playground[data-type="astro"] .star.helper-8 { left: 72%; top: 60px; animation-delay: 50ms; }
+.playground[data-type="astro"] .star.helper-9 { left: 82%; top: 340px; animation-delay: 450ms; animation-duration: 5000ms;  }
+.playground[data-type="astro"] .star.helper-10 { left: 95%; top: 600px; animation-delay: 2100ms; animation-duration: 4400ms; }
+@keyframes shine {
+    0% { opacity: 1; transform: scale(0,0); } 
+    50% { opacity: 1; }
+    100% { opacity: 0; transform: scale(1,1); }
+}
+
+
+
+#snowman { width: 460px; height: 500px; position: relative; }
+.snowman-section { position: absolute; background-repeat: no-repeat; animation-fill-mode: forwards; animation-timing-function: linear; }
+.snowman-body-helper { top: 0; bottom: 0; right: 0; left: 0; }
+.snowman-section:after, .snowman-section:before { content: ''; position: absolute; animation-fill-mode: forwards; }
+
+.snowman-base { z-index: 3; }
+.snowman-left-hand { z-index: 2; }
+.snowman-right-hand { z-index: 10; }
+.snowman-head { z-index: 6; }
+.snowman-head[data-type="astro"] { z-index: 11; }
+.snowman-body { z-index: 7; }
+.snowman-body-helper { z-index: 10; }
+.snowman-body[data-type="astro"] { z-index: 1; }
+.snowman-hands { z-index: 15; }
+.snowman-hands-helper { z-index: 16; }
+
+.snowman-base { background: url('snowman/snowman-base.png'); width: 248px; height: 322px; top: 100px; left: 100px; }
+.snowman-left-hand { background: url('snowman/snowman-left-hand.png'); width: 68px; height: 102px; top: 149px; right: 101px; }
+.snowman-right-hand { background: url('snowman/snowman-right-hand.png'); width: 78px; height: 101px; top: 142px; left: 79px;  }
+
+
+/* snowman head */
+.snowman-head[data-type="usual"] { 
+    background: url('snowman/usual-head.png'); width: 87px; height: 94px;
+    animation-name: usual-head; animation-duration: 700ms;
+}
+@keyframes usual-head {
+    from { top: -95px; left: 160px; transform: rotate(40deg); }
+    40% { top: 50px; left: 160px; transform: rotate(40deg); }
+    to { top: 68px; left: 134px; transform: rotate(0deg); }
+}
+
+.snowman-head[data-type="magic"] { 
+    background: url('snowman/magic-head.png'); width: 145px; height: 122px; 
+    animation-name: magic-head; animation-duration: 700ms;
+}
+@keyframes magic-head {
+    from { top: -125px; left: 160px; transform: rotate(40deg); }
+    40% { top: 20px; left: 160px; transform: rotate(40deg); }
+    to { top: 46px; left: 129px; transform: rotate(0deg); }
+}
+
+.snowman-head[data-type="astro"] { 
+    background: url('snowman/astro-head.png'); width: 178px; height: 140px;
+    left: 135px; animation-name: astro-head; animation-duration: 400ms; 
+}
+.snowman-head[data-type="astro"]:after { 
+    top: 28px; left: 164px; width: 15px; height: 15px; 
+    background: red; opacity: 0; border-radius: 50%; 
+    animation-delay: 400ms; animation-name: blink-passive; animation-duration: 1500ms; animation-iteration-count: infinite;
+}
+@keyframes astro-head {
+    from { top: -142px; }
+    to { top: 82px; }
+}
+
+/* snowman body */
+.snowman-body[data-type="usual"] { 
+    background: url('snowman/usual-body.png'); width: 125px; height: 119px; 
+    top: 192px; left: 161px;
+}
+.snowman-body[data-type="usual"]:after, 
+.snowman-body[data-type="usual"] + .snowman-body-helper:before, 
+.snowman-body[data-type="usual"] + .snowman-body-helper:after { 
+    width: 15px; height: 15px; background: url('snowman/usual-body-snow.png') center no-repeat; 
+    animation-name: show; animation-duration: 800ms; opacity: 0; 
+} 
+.snowman-body[data-type="usual"]:after { top: 72px; left: 17px; }
+.snowman-body[data-type="usual"] + .snowman-body-helper:after { top: 277px; left: 170px; animation-delay: 400ms; }
+.snowman-body[data-type="usual"] + .snowman-body-helper:before { top: 277px; left: 187px; animation-delay: 800ms; }
+
+.snowman-body[data-type="magic"] { 
+    background: url('snowman/magic-body.png'); width: 346px; height: 182px; 
+    top: 187px; left: 49px;
+}
+.snowman-body[data-type="magic"]:before, 
+.snowman-body[data-type="magic"]:after, 
+.snowman-body[data-type="magic"] + .snowman-body-helper { 
+    width: 328px; height: 135px; animation-name: blink-active; animation-duration: 5s; animation-iteration-count: infinite; 
+}
+.snowman-body[data-type="magic"]:before { 
+    background: url('snowman/magic-body-stars-1.png'); top: 6px; left: 10px; opacity: 0;
+}
+.snowman-body[data-type="magic"]:after { 
+    background: url('snowman/magic-body-stars-2.png'); top: 6px; left: 10px; opacity: 0;
+    animation-delay: 500ms; 
+}
+.snowman-body[data-type="magic"] + .snowman-body-helper { 
+    background: url('snowman/magic-body-stars-3.png'); top: 194px; left: 59px; 
+    animation-delay: 1000ms; 
+} 
+
+.snowman-body[data-type="astro"] { 
+    background: url('snowman/astro-body-back.png'); width: 235px; height: 158px; 
+    top: 118px; left: 90px;
+}
+.snowman-body[data-type="astro"] + .snowman-body-helper { 
+    background: url('snowman/astro-body-front.png'); width: 254px; height: 195px; 
+    top: 209px; left: 125px;
+}
+.snowman-body[data-type="astro"] + .snowman-body-helper:after,
+.snowman-body[data-type="astro"] + .snowman-body-helper:before {
+    width: 12px; height: 12px; border-radius: 50%; background: red;
+    animation-name: blink-passive; animation-duration: 1500ms; animation-iteration-count: infinite;
+    opacity: 0;
+}
+.snowman-body[data-type="astro"] + .snowman-body-helper:after {
+    animation-delay: 600ms;
+    top: 66px; left: 152px;
+}
+.snowman-body[data-type="astro"] + .snowman-body-helper:before { top: 66px; left: 166px; }
+
+/* snowman hands */
+
+.snowman-hands[data-type="usual"] {  
+    background: url('snowman/usual-hands-right.png'); width: 62px; height: 65px;
+    animation: usual-hands-right 1500ms linear forwards;
+}
+.snowman-hands[data-type="usual"] + .snowman-hands-helper { 
+    background: url('snowman/usual-hands-left.png'); width: 59px; height: 66px; top: 130px; right: 92px; 
+    animation: usual-hands-left 1500ms linear forwards;
+}
+.snowman-hands[data-type="usual"]:after,
+.snowman-hands[data-type="usual"] + .snowman-hands-helper:after { 
+    width: 25px; height: 25px; background: url('snowman/snow.png') center no-repeat;
+}
+.snowman-hands[data-type="usual"]:after { top: 12px; left: 12px; }
+.snowman-hands[data-type="usual"] + .snowman-hands-helper:after { top: 13px; left: 23px; }
+@keyframes usual-hands-right {
+    from { top: -65px; left: 70px; transform: rotate(40deg); }
+    25% { top: 126px; left:70px; transform: rotate(40deg); }
+    40% { top: 131px; left: 65px; transform: rotate(0deg); }
+    70% { top: 125px; left: 70px; transform: rotate(60deg); }
+    100% { top: 131px; left: 65px; transform: rotate(0deg); }
+}
+@keyframes usual-hands-left {
+    from { top: -66px; right: 92px; transform: rotate(-30deg); }
+    25% { top: 126px; right: 92px; transform: rotate(-30deg); }
+    40% { top: 130px; right: 92px; transform: rotate(0deg); }
+    70% { top: 125px; right: 96px; transform: rotate(-47deg); }
+    100% { top: 130px; right: 92px; transform: rotate(0deg); }
+}
+
+.snowman-hands[data-type="magic"] { 
+    background: url('snowman/magic-hands-stars.png'); width: 86px; height: 85px; top: 78px; left: 50px;
+    animation: magic-hands 1500ms forwards;
+}
+.snowman-hands[data-type="magic"] + .snowman-hands-helper { 
+    background: url('snowman/magic-hands.png'); width: 93px; height: 338px; top: 90px; left: 63px;
+}
+@keyframes magic-hands {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(720deg); }
+}
+
+.snowman-hands[data-type="astro"] { 
+    background: url('snowman/astro-hands.png'); background-size: contain;  
+    animation: astro-hands 1400ms forwards ease-in;
+}
+@keyframes astro-hands {
+    from { width: 243px; height: 593px; top: 0px; right: -20px; }
+    to { width: 82px; height: 198px; top: 23px; right: 75px; }
+}
+
+#inventory { width: 460px; display: flex; justify-content: center; }
+.inventory-section { display: flex; flex-direction: column; justify-content: center; }
+.inventory-item { width: 100px; height: 100px; background-color: rgba(255, 255, 255, 0.1); display: flex; justify-content: center; align-items: center; margin: 5px; border-radius: 4px; }
+.inventory-item svg { fill: rgba(255, 255, 255, 0.5); }
+.inventory-item.current { border: 2px solid white; }
+.inventory-item.current svg { fill: white; }
+.inventory-item.active { background-image: url('snowman/inventory-sprite.png'); background-repeat: no-repeat; cursor: pointer; border: none; }
+.inventory-item.active svg { display: none; }
+.inventory-item.active.selected { background-color: rgba(255, 255, 255, 0.3); }
+.inventory-item[data-type="usual"][data-place="head"].active { background-position: 9px 18px; }
+.inventory-item[data-type="usual"][data-place="body"].active { background-position: -101px 18px; }
+.inventory-item[data-type="usual"][data-place="hands"].active { background-position: -211px 18px; }
+.inventory-item[data-type="magic"][data-place="head"].active { background-position: 9px -92px; }
+.inventory-item[data-type="magic"][data-place="body"].active { background-position: -101px -92px; }
+.inventory-item[data-type="magic"][data-place="hands"].active { background-position: -211px -92px; }
+.inventory-item[data-type="astro"][data-place="head"].active { background-position: 9px -202px; }
+.inventory-item[data-type="astro"][data-place="body"].active { background-position: -101px -202px; }
+.inventory-item[data-type="astro"][data-place="hands"].active { background-position: -211px -202px; }
+
+
+@media (orientation: landscape) {
+    .playground { background-attachment: fixed; }
+    .playground[data-type="magic"] .playground-helper { position: fixed; }
+}
+
