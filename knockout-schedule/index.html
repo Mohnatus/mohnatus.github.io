@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="app.css" />
+  </head>
+
+  <body>
+    <div style="display: none;" hidden>
+      <svg>
+        <symbol id="marked-icon" viewBox="0 0 15 10" fill="none">
+          <path
+            d="M5.26573 9.68389C4.8752 9.29336 4.8752 8.6602 5.26573 8.26967L13.0858 0.44951C13.4763 0.0589853 14.1095 0.058985 14.5 0.449509C14.8905 0.840034 14.8905 1.4732 14.5 1.86372L6.67994 9.68389C6.28942 10.0744 5.65625 10.0744 5.26573 9.68389Z"
+            fill="#12C971"
+          />
+          <path
+            d="M6.67994 9.68389C7.07047 9.29336 7.07041 8.6602 6.67988 8.26967L2.49995 4.08977C2.10943 3.69925 1.47626 3.69925 1.08574 4.08977C0.695216 4.4803 0.695216 5.11346 1.08574 5.50398L5.26573 9.68389C5.65625 10.0744 6.28942 10.0744 6.67994 9.68389Z"
+            fill="#12C971"
+          />
+        </symbol>
+        <symbol id="delete-icon" viewBox="0 0 12 12" fill="none">
+          <path
+            d="M1.2553 11.4588C0.864771 11.0683 0.864771 10.4351 1.2553 10.0446L10.2928 1.00566C10.6833 0.615137 11.3165 0.615138 11.707 1.00566C12.0975 1.39619 12.0975 2.02935 11.707 2.41988L2.66951 11.4588C2.27898 11.8493 1.64582 11.8493 1.2553 11.4588Z"
+            fill="#FF238D"
+          />
+          <path
+            d="M11.6132 11.3963C12.0038 11.0058 12.0038 10.3726 11.6132 9.9821L2.63679 1.00566C2.24627 0.615137 1.6131 0.615138 1.22258 1.00566C0.832056 1.39619 0.832056 2.02935 1.22258 2.41988L10.199 11.3963C10.5896 11.7868 11.2227 11.7868 11.6132 11.3963Z"
+            fill="#FF238D"
+          />
+        </symbol>
+        <symbol id="support-icon" viewBox="0 0 20 20" fill="none">
+          <path
+            d="M10 18C12.1217 18 14.1566 17.1571 15.6569 15.6569C17.1571 14.1566 18 12.1217 18 10C18 7.87827 17.1571 5.84344 15.6569 4.34315C14.1566 2.84285 12.1217 2 10 2C7.87827 2 5.84344 2.84285 4.34315 4.34315C2.84285 5.84344 2 7.87827 2 10C2 12.1217 2.84285 14.1566 4.34315 15.6569C5.84344 17.1571 7.87827 18 10 18ZM10 20C4.477 20 0 15.523 0 10C0 4.477 4.477 0 10 0C15.523 0 20 4.477 20 10C20 15.523 15.523 20 10 20ZM13.446 7.968C13.1017 7.38474 12.6153 6.89826 12.032 6.554L15.657 2.929L17.071 4.343L13.446 7.968ZM7.968 13.446L4.343 17.071L2.929 15.657L6.554 12.032C6.89826 12.6153 7.38474 13.1017 7.968 13.446ZM7.968 6.554C7.38474 6.89826 6.89826 7.38474 6.554 7.968L2.929 4.343L4.343 2.93L7.968 6.555V6.554ZM12.704 12.948C11.9332 13.655 10.9162 14.032 9.87079 13.9981C8.82541 13.9643 7.83488 13.5223 7.11142 12.767C6.38797 12.0116 5.98916 11.0029 6.00044 9.95706C6.01172 8.9112 6.4322 7.91136 7.17178 7.17178C7.91136 6.4322 8.9112 6.01172 9.95706 6.00044C11.0029 5.98916 12.0116 6.38797 12.767 7.11142C13.5223 7.83488 13.9643 8.82541 13.9981 9.87079C14.032 10.9162 13.655 11.9332 12.948 12.704C13.141 12.494 13.307 12.269 13.446 12.032L16.32 14.906C15.9093 15.4343 15.4343 15.9093 14.906 16.32L12.032 13.446C12.269 13.306 12.494 13.141 12.704 12.948ZM10 12C10.5304 12 11.0391 11.7893 11.4142 11.4142C11.7893 11.0391 12 10.5304 12 10C12 9.46957 11.7893 8.96086 11.4142 8.58579C11.0391 8.21071 10.5304 8 10 8C9.46957 8 8.96086 8.21071 8.58579 8.58579C8.21071 8.96086 8 9.46957 8 10C8 10.5304 8.21071 11.0391 8.58579 11.4142C8.96086 11.7893 9.46957 12 10 12Z"
+            fill="#8E9CBB"
+          />
+        </symbol>
+      </svg>
+    </div>
+
+    <div class="page">
+      <header class="page__header">
+        <div class="container">
+          <nav class="progress">
+            <ul class="progress__list">
+              <li class="progress-item passed">
+                <span class="progress-item__label">Тип предприятия</span>
+                <span class="progress-item__index">1</span>
+              </li>
+              <li class="progress-item passed">
+                <span class="progress-item__label">Категории</span>
+                <span class="progress-item__index">2</span>
+              </li>
+              <li class="progress-item current">
+                <span class="progress-item__label">График работы</span>
+                <span class="progress-item__index">3</span>
+              </li>
+              <li class="progress-item">
+                <a href="#" class="progress-item__label">Оборот и нагрузка</a>
+                <a href="#" class="progress-item__index">4</a>
+              </li>
+              <li class="progress-item">
+                <a href="#" class="progress-item__label">Должности</a>
+                <a href="#" class="progress-item__index">5</a>
+              </li>
+              <li class="progress-item">
+                <a href="#" class="progress-item__label">Тип нагрузки</a>
+                <a href="#" class="progress-item__index">6</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <main class="page__main">
+        <div class="container">
+          <div class="page__content">
+            <h1>График работы предприятия</h1>
+
+            <div class="my-6">
+              <span class="mr-3">Задать интервал таблицы</span>
+              <span>
+                <input
+                  class="input input--time"
+                  type="text"
+                  data-input="time"
+                  data-bind="value:startTime,
+                      event: { change: updateStartTimeHandler }"
+                />
+              </span>
+              <span class="color-secondary mx-2">—</span>
+              <span>
+                <input
+                  class="input input--time"
+                  type="text"
+                  data-input="time"
+                  data-bind="value:endTime,
+                      event: { change: updateEndTimeHandler }"
+                />
+              </span>
+            </div>
+
+            <div class="schedule">
+              <div class="schedule__caption" data-bind="foreach: locale.days">
+                <div class="cell cell--middle" data-bind="text: $data"></div>
+              </div>
+              <div class="schedule__table">
+                <div data-bind="style: $root.offset().table">
+                  <div
+                    class="schedule__time schedule__row"
+                    data-bind="foreach: {data: list()[0], as: 'hour'}"
+                  >
+                    <!-- ko if: $index() % 2 -->
+                    <div class="cell cell--empty"></div>
+                    <!-- /ko -->
+                    <!-- ko ifnot: $index() % 2 -->
+                    <div class="cell">
+                      <!-- ko ifnot: $index -->
+                      <div class="time" data-bind="style: $root.offset().time">
+                        <span
+                          class="hour"
+                          data-bind="text: $root.timeFormat(hour.index)"
+                        ></span>
+                        <sup
+                          data-bind="text: $root.timeFormat($root.startMin())"
+                        ></sup>
+                      </div>
+                      <!-- /ko -->
+                      <!-- ko if: $index -->
+                      <div class="time">
+                        <span
+                          class="hour"
+                          data-bind="text: $root.timeFormat(hour.index)"
+                        ></span>
+
+                        <sup>00</sup>
+
+                      </div>
+                      <!-- /ko -->
+                    </div>
+                    <!-- /ko -->
+                  </div>
+                  <div
+                    class="schedule__days"
+                    data-bind="foreach: { data: list, as: 'day' }"
+                  >
+                    <div
+                      class="schedule__day schedule__row"
+                      data-bind="foreach: {data: day, as: 'hour'}"
+                    >
+                      <div
+                        class="schedule__hour cell"
+                        data-bind="css: {active: hour.active},
+                        click: function() { $root.toggleHour($parentContext.$index(), hour.index) }"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="text-right mt-4">
+              <button
+                class="btn btn-sm"
+                type="button"
+                data-bind="click: fillSchedule"
+              >
+                <span class="ico">
+                  <svg width="15" height="10">
+                    <use xlink:href="#marked-icon" href="#marked-icon"></use>
+                  </svg>
+                </span>
+                Заполнить автоматически
+              </button>
+              <button
+                class="btn btn-sm"
+                type="button"
+                data-bind="click: resetSchedule"
+              >
+                <span class="ico">
+                  <svg width="12" height="12">
+                    <use xlink:href="#delete-icon" href="#delete-icon"></use>
+                  </svg>
+                </span>
+                Очистить
+              </button>
+            </div>
+          </div>
+
+          <div class="page__pagination text-center">
+            <a href="#" class="btn">Назад</a>
+            <a href="#" class="btn btn-primary">Далее</a>
+          </div>
+        </div>
+      </main>
+      <footer class="page__footer">
+        <div class="container">
+          <div class="flex justify-between">
+            <div class="flex">
+              <a href="#" class="logo mr-4">
+                <img src="img/logo.png" alt="Lookin logo" />
+              </a>
+              <div class="copyright">
+                &copy; Lookin, 2020
+              </div>
+            </div>
+            <div>
+              <a href="#" class="support flex align-center">
+                <span class="ico color-secondary mr-2">
+                  <svg width="20" height="20">
+                    <use xlink:href="#support-icon" href="#support-icon"></use>
+                  </svg>
+                </span>
+                <span>Техническая поддержка</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="vendors/inputmask.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
