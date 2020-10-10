@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "https://mohnatus.github.io/i18next/static/css/main.eab24d3c.chunk.css",
-    "main.js": "https://mohnatus.github.io/i18next/static/js/main.2718be15.chunk.js",
-    "main.js.map": "https://mohnatus.github.io/i18next/static/js/main.2718be15.chunk.js.map",
-    "runtime-main.js": "https://mohnatus.github.io/i18next/static/js/runtime-main.f8fd797c.js",
-    "runtime-main.js.map": "https://mohnatus.github.io/i18next/static/js/runtime-main.f8fd797c.js.map",
-    "static/js/2.45def8dc.chunk.js": "https://mohnatus.github.io/i18next/static/js/2.45def8dc.chunk.js",
-    "static/js/2.45def8dc.chunk.js.map": "https://mohnatus.github.io/i18next/static/js/2.45def8dc.chunk.js.map",
-    "index.html": "https://mohnatus.github.io/i18next/index.html",
-    "precache-manifest.ddf95f32f2de760f1fe38faf978a9ea3.js": "https://mohnatus.github.io/i18next/precache-manifest.ddf95f32f2de760f1fe38faf978a9ea3.js",
-    "service-worker.js": "https://mohnatus.github.io/i18next/service-worker.js",
-    "static/css/main.eab24d3c.chunk.css.map": "https://mohnatus.github.io/i18next/static/css/main.eab24d3c.chunk.css.map",
-    "static/js/2.45def8dc.chunk.js.LICENSE.txt": "https://mohnatus.github.io/i18next/static/js/2.45def8dc.chunk.js.LICENSE.txt",
-    "static/media/getFetch.cjs": "https://mohnatus.github.io/i18next/static/media/getFetch.013f0b90.cjs"
+    "main.css": "/i18next/static/css/main.eab24d3c.chunk.css",
+    "main.js": "/i18next/static/js/main.67056a95.chunk.js",
+    "main.js.map": "/i18next/static/js/main.67056a95.chunk.js.map",
+    "runtime-main.js": "/i18next/static/js/runtime-main.194c9f3a.js",
+    "runtime-main.js.map": "/i18next/static/js/runtime-main.194c9f3a.js.map",
+    "static/js/2.45def8dc.chunk.js": "/i18next/static/js/2.45def8dc.chunk.js",
+    "static/js/2.45def8dc.chunk.js.map": "/i18next/static/js/2.45def8dc.chunk.js.map",
+    "index.html": "/i18next/index.html",
+    "precache-manifest.a9321173959fe40bcb5d0d541d4cdbb3.js": "/i18next/precache-manifest.a9321173959fe40bcb5d0d541d4cdbb3.js",
+    "service-worker.js": "/i18next/service-worker.js",
+    "static/css/main.eab24d3c.chunk.css.map": "/i18next/static/css/main.eab24d3c.chunk.css.map",
+    "static/js/2.45def8dc.chunk.js.LICENSE.txt": "/i18next/static/js/2.45def8dc.chunk.js.LICENSE.txt",
+    "static/media/getFetch.cjs": "/i18next/static/media/getFetch.013f0b90.cjs"
   },
   "entrypoints": [
-    "static/js/runtime-main.f8fd797c.js",
+    "static/js/runtime-main.194c9f3a.js",
     "static/js/2.45def8dc.chunk.js",
     "static/css/main.eab24d3c.chunk.css",
-    "static/js/main.2718be15.chunk.js"
+    "static/js/main.67056a95.chunk.js"
   ]
 }
