@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/i18next/static/css/main.eab24d3c.chunk.css",
+    "main.js": "/i18next/static/js/main.67056a95.chunk.js",
+    "main.js.map": "/i18next/static/js/main.67056a95.chunk.js.map",
+    "runtime-main.js": "/i18next/static/js/runtime-main.194c9f3a.js",
+    "runtime-main.js.map": "/i18next/static/js/runtime-main.194c9f3a.js.map",
+    "static/js/2.45def8dc.chunk.js": "/i18next/static/js/2.45def8dc.chunk.js",
+    "static/js/2.45def8dc.chunk.js.map": "/i18next/static/js/2.45def8dc.chunk.js.map",
+    "index.html": "/i18next/index.html",
+    "precache-manifest.a235cc5683602879a202ed51c205b4a0.js": "/i18next/precache-manifest.a235cc5683602879a202ed51c205b4a0.js",
+    "service-worker.js": "/i18next/service-worker.js",
+    "static/css/main.eab24d3c.chunk.css.map": "/i18next/static/css/main.eab24d3c.chunk.css.map",
+    "static/js/2.45def8dc.chunk.js.LICENSE.txt": "/i18next/static/js/2.45def8dc.chunk.js.LICENSE.txt",
+    "static/media/getFetch.cjs": "/i18next/static/media/getFetch.013f0b90.cjs"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.194c9f3a.js",
+    "static/js/2.45def8dc.chunk.js",
+    "static/css/main.eab24d3c.chunk.css",
+    "static/js/main.67056a95.chunk.js"
+  ]
+}
