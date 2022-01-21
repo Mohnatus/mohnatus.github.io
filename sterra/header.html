@@ -1,11 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>
+    </title><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="./css/style.css" rel="stylesheet">
+    <style>
+      .t-content {
+        background: var(--grey);
+        height: 200vh;
+      }
+    </style>
   </head>
   <body><!-- SVG SPRITE -->
 <svg style="display: none">
@@ -177,16 +186,16 @@
 </svg>
 <!-- /SVG SPRITE -->
 
-    <div class="page home-page"><!-- HEADER -->
+    <div class="page"><!-- HEADER -->
       <header class="header">
         <div class="container"><a class="header-logo" href="/"><img src="./img/logo.png"></a>
           <div class="header-navigation">
           </div>
           <div class="header-contacts"><a class="header-contact__phone" href="tel:84999409061">+7 (499) 940-90-61</a>
             <button class="header-contacts__trigger" type="button">Написать нам
-              <svg class="color-accent" width="20" height="20">
-                <use xlink:href="#i-chevron-bottom" href="#i-chevron-bottom"></use>
-              </svg>
+                        <svg width="20" height="20">
+                          <use xlink:href="#i-chevron-bottom" href="#i-chevron-bottom"></use>
+                        </svg>
             </button>
             <div class="header-contacts__pane" hidden>
               <div class="contacts-block">
@@ -217,21 +226,21 @@
           </div>
           <div class="header-search">
             <button class="btn btn-round btn-primary-inverse header-search__trigger" type="button">
-              <svg width="20" height="20">
-                <use xlink:href="#i-search" href="#i-search"></use>
-              </svg>
+                        <svg width="20" height="20">
+                          <use xlink:href="#i-search" href="#i-search"></use>
+                        </svg>
             </button>
             <div class="header-search__search" hidden><!-- SEARCH -->
               <div class="search" data-search>
                 <div class="search-field">
-                  <svg width="20" height="20">
-                    <use xlink:href="#i-search" href="#i-search"></use>
-                  </svg>
+                                <svg width="20" height="20">
+                                  <use xlink:href="#i-search" href="#i-search"></use>
+                                </svg>
                   <input class="form-control" value="" placeholder="Поиск" data-field>
                   <button class="icon-btn search-field__reset" type="button" data-reset>
-                    <svg width="20" height="20">
-                      <use xlink:href="#i-times" href="#i-times"></use>
-                    </svg>
+                                  <svg width="20" height="20">
+                                    <use xlink:href="#i-times" href="#i-times"></use>
+                                  </svg>
                   </button>
                 </div>
                 <ul class="search-list">
@@ -246,16 +255,16 @@
               </div><!-- /SEARCH -->
             </div>
           </div><a class="btn btn-round btn-primary-inverse header-account" href="#">
-            <svg width="20" height="20">
-              <use xlink:href="#i-user" href="#i-user"></use>
-            </svg></a>
+                          <svg width="20" height="20">
+                            <use xlink:href="#i-user" href="#i-user"></use>
+                          </svg></a>
           <button class="icon-btn header-toggler" type="button" data-closed>
-            <svg width="20" height="20">
-              <use xlink:href="#i-burger" href="#i-burger"></use>
-            </svg>
-            <svg class="color-accent" width="20" height="20">
-              <use xlink:href="#i-times" href="#i-times"></use>
-            </svg>
+                          <svg width="20" height="20">
+                            <use xlink:href="#i-burger" href="#i-burger"></use>
+                          </svg>
+                          <svg width="20" height="20">
+                            <use xlink:href="#i-times" href="#i-times"></use>
+                          </svg>
           </button>
         </div>
       </header><!-- /HEADER -->
@@ -265,14 +274,14 @@
           <div class="header-pane__search"><!-- SEARCH -->
             <div class="search" data-search>
               <div class="search-field">
-                <svg width="20" height="20">
-                  <use xlink:href="#i-search" href="#i-search"></use>
-                </svg>
+                            <svg width="20" height="20">
+                              <use xlink:href="#i-search" href="#i-search"></use>
+                            </svg>
                 <input class="form-control" value="" placeholder="Поиск" data-field>
                 <button class="icon-btn search-field__reset" type="button" data-reset>
-                  <svg width="20" height="20">
-                    <use xlink:href="#i-times" href="#i-times"></use>
-                  </svg>
+                              <svg width="20" height="20">
+                                <use xlink:href="#i-times" href="#i-times"></use>
+                              </svg>
                 </button>
               </div>
               <ul class="search-list">
@@ -291,9 +300,9 @@
                           <div class="header-menu-section" data-section="about">
                             <div class="header-menu-section__title"><a href="#">О компании</a>
                               <button class="icon-btn header-menu-section__toggler">
-                                <svg width="20" height="20">
-                                  <use xlink:href="#i-chevron-bottom" href="#i-chevron-bottom"></use>
-                                </svg>
+                                            <svg width="20" height="20">
+                                              <use xlink:href="#i-chevron-bottom" href="#i-chevron-bottom"></use>
+                                            </svg>
                               </button>
                             </div>
                             <div class="header-menu-section__items">
@@ -310,9 +319,9 @@
                           <div class="header-menu-section" data-section="catalog">
                             <div class="header-menu-section__title"><a href="#">Каталог</a>
                               <button class="icon-btn header-menu-section__toggler">
-                                <svg width="20" height="20">
-                                  <use xlink:href="#i-chevron-bottom" href="#i-chevron-bottom"></use>
-                                </svg>
+                                            <svg width="20" height="20">
+                                              <use xlink:href="#i-chevron-bottom" href="#i-chevron-bottom"></use>
+                                            </svg>
                               </button>
                             </div>
                             <div class="header-menu-section__items">
@@ -403,9 +412,9 @@
                           <div class="header-menu-section" data-section="support">
                             <div class="header-menu-section__title"><a href="#">Поддержка</a>
                               <button class="icon-btn header-menu-section__toggler">
-                                <svg width="20" height="20">
-                                  <use xlink:href="#i-chevron-bottom" href="#i-chevron-bottom"></use>
-                                </svg>
+                                            <svg width="20" height="20">
+                                              <use xlink:href="#i-chevron-bottom" href="#i-chevron-bottom"></use>
+                                            </svg>
                               </button>
                             </div>
                             <div class="header-menu-section__items">
@@ -440,9 +449,9 @@
                           <div class="header-menu-section" data-section="press">
                             <div class="header-menu-section__title"><a href="#">Пресс-центр</a>
                               <button class="icon-btn header-menu-section__toggler">
-                                <svg width="20" height="20">
-                                  <use xlink:href="#i-chevron-bottom" href="#i-chevron-bottom"></use>
-                                </svg>
+                                            <svg width="20" height="20">
+                                              <use xlink:href="#i-chevron-bottom" href="#i-chevron-bottom"></use>
+                                            </svg>
                               </button>
                             </div>
                             <div class="header-menu-section__items">
@@ -492,27 +501,10 @@
           </div>
         </div>
       </div><!-- /HEADER DROPDOWN -->
-      <main class="page-main">
-        <div class="home-page__jumbotrone">
-          <div class="jumbotron">
-            <div class="jumbotron-content">Обеспечиваем современными решениями для построения VPN
-              <button class="btn btn-accent" type="button">Выбрать решение</button>
-            </div>
-          </div>
+      <main>
+        <div class="container">
+          <div class="t-content"></div>
         </div>
-        <div class="home-page__stats"></div>
-        <div class="home-page__info"></div>
-        <div class="home-page__clients"></div>
-        <div class="bg-white">
-          <div class="home-page__solutions"></div>
-          <div class="home-page__tech"></div>
-          <div class="home-page__faq"></div>
-        </div>
-        <div class="home-page__cases"></div>
-        <div class="bg-white">
-          <div class="home-page__news"></div>
-        </div>
-        <div class="home-page__form"></div>
       </main>
     </div>
   </body>
