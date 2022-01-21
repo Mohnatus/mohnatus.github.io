@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./css/style.css" rel="stylesheet">
+    <style>
+      .t-content {
+        background: var(--grey);
+        height: 200vh;
+      }
+    </style>
+  </head>
+  <body><!-- SVG SPRITE -->
+<svg style="display: none">
+  <symbol
+    id="i-upload"
+    viewBox="0 0 22 21"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M11 1V17M11 17L17.5 10.5M11 17L4.5 10.5M1 20H21"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </symbol>
+  <symbol
+    id="i-link"
+    viewBox="0 0 17 17"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M8 9L16 1M16 1V6M16 1H11.0607M6 1H1V16H16V11"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </symbol>
+  <symbol
+    id="i-chevron-left"
+    viewBox="0 0 7 12"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M0.29337 6.70845C-0.0977902 6.31718 -0.0977902 5.68282 0.29337 5.29155L5.29011 0.29345C5.68127 -0.0978163 6.31547 -0.097817 6.70663 0.29345C7.09779 0.684716 7.09779 1.31908 6.70663 1.71035L1.70989 6.70845C1.31873 7.09972 0.684531 7.09972 0.29337 6.70845Z"
+      fill="currentColor"
+    />
+    <path
+      d="M0.29337 5.29155C-0.0977902 5.68282 -0.0977902 6.31718 0.29337 6.70845L5.29011 11.7066C5.68127 12.0978 6.31547 12.0978 6.70663 11.7066C7.09779 11.3153 7.09779 10.6809 6.70663 10.2896L1.70989 5.29155C1.31873 4.90028 0.684531 4.90028 0.29337 5.29155Z"
+      fill="currentColor"
+    />
+  </symbol>
+  <symbol
+    id="i-chevron-right"
+    viewBox="0 0 7 12"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M6.70663 6.70845C7.09779 6.31718 7.09779 5.68282 6.70663 5.29155L1.70989 0.29345C1.31873 -0.0978163 0.684531 -0.097817 0.29337 0.29345C-0.0977898 0.684716 -0.0977898 1.31908 0.29337 1.71035L5.29011 6.70845C5.68127 7.09972 6.31547 7.09972 6.70663 6.70845Z"
+      fill="currentColor"
+    />
+    <path
+      d="M6.70663 5.29155C7.09779 5.68282 7.09779 6.31718 6.70663 6.70845L1.70989 11.7066C1.31873 12.0978 0.68453 12.0978 0.29337 11.7066C-0.0977901 11.3153 -0.0977901 10.6809 0.29337 10.2896L5.29011 5.29155C5.68127 4.90028 6.31547 4.90028 6.70663 5.29155Z"
+      fill="currentColor"
+    />
+  </symbol>
+  <symbol
+    id="i-chevron-bottom"
+    width="12"
+    height="7"
+    viewBox="0 0 12 7"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M6.70845 6.70644C6.31718 7.09785 5.68282 7.09785 5.29155 6.70644L0.29345 1.711C-0.0978163 1.31959 -0.097817 0.684977 0.29345 0.293561C0.684716 -0.0978538 1.31908 -0.0978538 1.71035 0.293561L6.70845 5.289C7.09972 5.68041 7.09972 6.31502 6.70845 6.70644Z"
+      fill="#E42D24"
+    />
+    <path
+      d="M5.29155 6.70644C5.68282 7.09785 6.31718 7.09785 6.70845 6.70644L11.7066 1.711C12.0978 1.31959 12.0978 0.684977 11.7066 0.293561C11.3153 -0.0978538 10.6809 -0.0978538 10.2896 0.293561L5.29155 5.289C4.90028 5.68041 4.90028 6.31502 5.29155 6.70644Z"
+      fill="#E42D24"
+    />
+  </symbol>
+  <symbol
+    id="i-arrow-top"
+    viewBox="0 0 13 14"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M6.5 13V1M6.5 1L11.375 5.875M6.5 1L1.625 5.875"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </symbol>
+
+  <symbol
+    id="i-times"
+    viewBox="0 0 15 16"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M0.335186 15.071C-0.0553384 14.6805 -0.112899 14.1049 0.206621 13.7853L13.1917 0.800295C13.5112 0.480775 14.0868 0.538337 14.4773 0.928861C14.8678 1.31939 14.9254 1.89499 14.6059 2.21451L1.62083 15.1996C1.30131 15.5191 0.72571 15.4615 0.335186 15.071Z"
+      fill="currentColor"
+    />
+    <path
+      d="M14.4772 15.0711C14.8678 14.6805 14.9253 14.1049 14.6058 13.7854L1.62076 0.800349C1.30124 0.480829 0.725636 0.538391 0.335111 0.928915C-0.0554129 1.31944 -0.112975 1.89504 0.206545 2.21456L13.1916 15.1996C13.5111 15.5191 14.0867 15.4616 14.4772 15.0711Z"
+      fill="currentColor"
+    />
+  </symbol>
+  <symbol
+    id="i-burger"
+    data-burger
+    width="20"
+    height="17"
+    viewBox="0 0 20 17"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M0 1.99316C0 1.44088 0.366313 0.993164 0.818182 0.993164H19.1818C19.6337 0.993164 20 1.44088 20 1.99316C20 2.54545 19.6337 2.99316 19.1818 2.99316H0.818181C0.366312 2.99316 0 2.54545 0 1.99316Z"
+      fill="currentColor"
+    />
+    <path
+      d="M0 8.99316C0 8.44088 0.366313 7.99316 0.818182 7.99316H19.1818C19.6337 7.99316 20 8.44088 20 8.99316C20 9.54545 19.6337 9.99316 19.1818 9.99316H0.818181C0.366312 9.99316 0 9.54545 0 8.99316Z"
+      fill="currentColor"
+    />
+    <path
+      d="M0 15.9932C0 15.4409 0.366313 14.9932 0.818182 14.9932H19.1818C19.6337 14.9932 20 15.4409 20 15.9932C20 16.5454 19.6337 16.9932 19.1818 16.9932H0.818181C0.366312 16.9932 0 16.5454 0 15.9932Z"
+      fill="currentColor"
+    />
+  </symbol>
+  <symbol
+    id="i-search"
+    viewBox="0 0 14 14"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M9.41726 1.61091C10.4959 2.68958 11.0329 4.10483 11.0281 5.51859C11.0234 6.91996 10.4865 8.31987 9.41726 9.38909C7.26938 11.537 3.78697 11.537 1.63909 9.38909C-0.508796 7.2412 -0.508796 3.7588 1.63909 1.61091C3.78697 -0.536971 7.26938 -0.536971 9.41726 1.61091ZM8.71015 8.68198C6.9528 10.4393 4.10355 10.4393 2.34619 8.68198C0.588835 6.92462 0.588835 4.07538 2.34619 2.31802C4.10355 0.560661 6.9528 0.56066 8.71015 2.31802C9.59288 3.20075 10.032 4.35693 10.0281 5.51523C10.0243 6.66332 9.58518 7.80696 8.71015 8.68198Z"
+      fill="currentColor"
+    />
+    <path
+      d="M8.3566 9.03553L9.06371 8.32843L13.6599 12.9246C13.8552 13.1199 13.8552 13.4365 13.6599 13.6317C13.4646 13.827 13.1481 13.827 12.9528 13.6317L8.3566 9.03553Z"
+      fill="currentColor"
+    />
+  </symbol>
+  <symbol
+    id="i-user"
+    width="16"
+    height="16"
+    viewBox="0 0 16 16"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M8 8C10.2091 8 12 6.20914 12 4C12 1.79086 10.2091 0 8 0C5.79089 0 4 1.79086 4 4C4 6.20914 5.79089 8 8 8ZM8 7C9.65686 7 11 5.65685 11 4C11 2.34315 9.65686 1 8 1C6.34314 1 5 2.34315 5 4C5 5.65685 6.34314 7 8 7Z"
+      fill="#1E1D85"
+    />
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M8 16C10.6274 16 13.0854 15.2216 15.1848 13.8679C15.6586 13.5623 16 13.2999 16 13.2999L15.6586 12.3329C14.3508 9.19016 11.4137 7 8 7C4.58631 7 1.64919 9.19016 0.34137 12.3329L0 13.2999C0 13.2999 0.34137 13.5623 0.815213 13.8679C2.9146 15.2216 5.37264 16 8 16ZM8 15C10.3354 15 12.4092 14.4902 14.2754 13.4373C14.6966 13.1996 15 12.9955 15 12.9955L14.6966 12.2434C13.534 9.79907 11.0344 8 8 8C4.96561 8 2.46595 9.79907 1.30344 12.2434L1 12.9955C1 12.9955 1.30344 13.1996 1.72464 13.4373C3.59076 14.4902 5.66457 15 8 15Z"
+      fill="#1E1D85"
+    />
+  </symbol>
+</svg>
+<!-- /SVG SPRITE -->
+
+    <div class="page"><!-- HEADER -->
+      <header class="header">
+        <div class="container"><a class="header-logo" href="/"><img src="./img/logo.png"></a>
+          <div class="header-navigation">
+          </div>
+          <div class="header-contacts"><a class="header-contact__phone" href="tel:84999409061">+7 (499) 940-90-61</a>
+            <button class="header-contacts__trigger" type="button">Написать нам
+              <svg class="color-accent" width="20" height="20">
+                <use xlink:href="#i-chevron-bottom" href="#i-chevron-bottom"></use>
+              </svg>
+            </button>
+            <div class="header-contacts__pane" hidden>
+              <div class="contacts-block">
+                <div class="contacts-block__question">
+                  <button class="btn btn-primary-inverse" type="button">Задать вопрос</button>
+                </div>
+                <div class="contacts-block__mail">
+                  <div class="contacts-block__label">Напишите нам</div><a href="mailto:information@s-terra.ru">information@s-terra.ru</a>
+                </div>
+                <div class="contacts-block__apps">
+                  <div class="contacts-block__label">Мы в мессенджерах</div>
+                  <ul class="contacts-block__list">
+                    <li><a href="#">whatsapp</a></li>
+                    <li><a href="#">telegram</a></li>
+                  </ul>
+                </div>
+                <div class="contacts-block__socials">
+                  <div class="contacts-block__label">Мы в соцсетях</div>
+                  <ul class="contacts-block__list">
+                    <li><a href="#">fb</a></li>
+                    <li><a href="#">yt</a></li>
+                    <li><a href="#">vk</a></li>
+                    <li><a href="#">in</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="header-search">
+            <button class="btn btn-round btn-primary-inverse header-search__trigger" type="button">
+              <svg width="20" height="20">
+                <use xlink:href="#i-search" href="#i-search"></use>
+              </svg>
+            </button>
+            <div class="header-search__search" hidden><!-- SEARCH -->
+              <div class="search" data-search>
+                <div class="search-field">
+                  <svg width="20" height="20">
+                    <use xlink:href="#i-search" href="#i-search"></use>
+                  </svg>
+                  <input class="form-control" value="" placeholder="Поиск" data-field>
+                  <button class="icon-btn search-field__reset" type="button" data-reset>
+                    <svg width="20" height="20">
+                      <use xlink:href="#i-times" href="#i-times"></use>
+                    </svg>
+                  </button>
+                </div>
+                <ul class="search-list">
+                  <li><a href="#">С-Терра Шлюз 10G</a></li>
+                  <li><a href="#">С-Терра Шлюз 4.3</a></li>
+                  <li><a href="#">С-Терра Шлюз 4.2</a></li>
+                  <li><a href="#">С-Терра Шлюз 4.1</a></li>
+                  <li><a href="#">С-Терра Шлюз DP 4.3</a></li>
+                  <li><a href="#">С-Терра Шлюз DP 4.2</a></li>
+                  <li><a href="#">С-Терра Шлюз 8000</a></li>
+                </ul>
+              </div><!-- /SEARCH -->
+            </div>
+          </div><a class="btn btn-round btn-primary-inverse header-account" href="#">
+            <svg width="20" height="20">
+              <use xlink:href="#i-user" href="#i-user"></use>
+            </svg></a>
+          <button class="icon-btn header-toggler" type="button" data-closed>
+            <svg width="20" height="20">
+              <use xlink:href="#i-burger" href="#i-burger"></use>
+            </svg>
+            <svg class="color-accent" width="20" height="20">
+              <use xlink:href="#i-times" href="#i-times"></use>
+            </svg>
+          </button>
+        </div>
+      </header><!-- /HEADER -->
+<!-- HEADER DROPDOWN -->
+      <div class="header-pane" hidden>
+        <div class="container">
+          <div class="header-pane__search"><!-- SEARCH -->
+            <div class="search" data-search>
+              <div class="search-field">
+                <svg width="20" height="20">
+                  <use xlink:href="#i-search" href="#i-search"></use>
+                </svg>
+                <input class="form-control" value="" placeholder="Поиск" data-field>
+                <button class="icon-btn search-field__reset" type="button" data-reset>
+                  <svg width="20" height="20">
+                    <use xlink:href="#i-times" href="#i-times"></use>
+                  </svg>
+                </button>
+              </div>
+              <ul class="search-list">
+                <li><a href="#">С-Терра Шлюз 10G</a></li>
+                <li><a href="#">С-Терра Шлюз 4.3</a></li>
+                <li><a href="#">С-Терра Шлюз 4.2</a></li>
+                <li><a href="#">С-Терра Шлюз 4.1</a></li>
+                <li><a href="#">С-Терра Шлюз DP 4.3</a></li>
+                <li><a href="#">С-Терра Шлюз DP 4.2</a></li>
+                <li><a href="#">С-Терра Шлюз 8000</a></li>
+              </ul>
+            </div><!-- /SEARCH -->
+          </div>
+          <div class="header-pane__menu">
+            <div class="header-menu">
+                          <div class="header-menu-section" data-section="about">
+                            <div class="header-menu-section__title"><a href="#">О компании</a>
+                              <button class="icon-btn header-menu-section__toggler">
+                                <svg width="20" height="20">
+                                  <use xlink:href="#i-chevron-bottom" href="#i-chevron-bottom"></use>
+                                </svg>
+                              </button>
+                            </div>
+                            <div class="header-menu-section__items">
+                              <ul>
+                                            <li><a href="#">Основная информация</a>
+                                            </li>
+                                            <li><a href="#">Награды и благодарности</a>
+                                            </li>
+                                            <li><a href="#">Работа у нас</a>
+                                            </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div class="header-menu-section" data-section="catalog">
+                            <div class="header-menu-section__title"><a href="#">Каталог</a>
+                              <button class="icon-btn header-menu-section__toggler">
+                                <svg width="20" height="20">
+                                  <use xlink:href="#i-chevron-bottom" href="#i-chevron-bottom"></use>
+                                </svg>
+                              </button>
+                            </div>
+                            <div class="header-menu-section__items">
+                              <ul>
+                                            <li><a href="#">Продукты</a>
+                                              <ul>
+                                                            <li><a href="#">Программные средства</a>
+                                                              <ul>
+                                                                            <li><a href="#">С-Терра Клиент</a>
+                                                                            </li>
+                                                                            <li><a href="#">С-Терра Клиент А</a>
+                                                                            </li>
+                                                              </ul>
+                                                            </li>
+                                                            <li><a href="#">Шлюзы безопасности</a>
+                                                              <ul>
+                                                                            <li><a href="#">С-Терра Шлюз</a>
+                                                                            </li>
+                                                                            <li><a href="#">С-Терра Шлюз DP</a>
+                                                                            </li>
+                                                                            <li><a href="#">С-Терра Юнит</a>
+                                                                            </li>
+                                                                            <li><a href="#">С-Терра Виртуальный Шлюз</a>
+                                                                            </li>
+                                                                            <li><a href="#">С-Терра для Cisco</a>
+                                                                            </li>
+                                                                            <li><a href="#">Криптомаршрутизатор ESR-ST</a>
+                                                                            </li>
+                                                                            <li><a href="#">С-Терра Шлюз Е</a>
+                                                                            </li>
+                                                                            <li><a href="#">С-Терра Виртуальный Шлюз Е</a>
+                                                                            </li>
+                                                              </ul>
+                                                            </li>
+                                                            <li><a href="#">Специальные решения</a>
+                                                              <ul>
+                                                                            <li><a href="#">С-Терра L2</a>
+                                                                            </li>
+                                                                            <li><a href="#">С-Терра СОВ</a>
+                                                                            </li>
+                                                              </ul>
+                                                            </li>
+                                                            <li><a href="#">Система управления</a>
+                                                              <ul>
+                                                                            <li><a href="#">С-Терра КП</a>
+                                                                            </li>
+                                                              </ul>
+                                                            </li>
+                                              </ul>
+                                            </li>
+                                            <li><a href="#">Отраслевые решения</a>
+                                              <ul>
+                                                            <li><a href="#">Финансовый сектор</a>
+                                                            </li>
+                                                            <li><a href="#">Государственный сектор</a>
+                                                            </li>
+                                                            <li><a href="#">Топливно-энергетическая отрасль</a>
+                                                            </li>
+                                                            <li><a href="#">Телекоммуникационная отрасль</a>
+                                                            </li>
+                                              </ul>
+                                            </li>
+                                            <li><a href="#">Комплексные решения</a>
+                                              <ul>
+                                                            <li><a href="#">Защита канала 10 Гбит и больше</a>
+                                                            </li>
+                                                            <li><a href="#">Обнаружение вторжений</a>
+                                                            </li>
+                                                            <li><a href="#">Защита удаленного доступа</a>
+                                                            </li>
+                                                            <li><a href="#">Защита персональных данных</a>
+                                                            </li>
+                                                            <li><a href="#">Защита межфилиальных взаимодействий</a>
+                                                            </li>
+                                                            <li><a href="#">Защита виртуализации</a>
+                                                            </li>
+                                                            <li><a href="#">Защита подключения к СМЭВ</a>
+                                                            </li>
+                                                            <li><a href="#">Защита подключения к ИС ЕПТ</a>
+                                                            </li>
+                                              </ul>
+                                            </li>
+                                            <li><a href="#">Прайс-листы</a>
+                                            </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div class="header-menu-section" data-section="support">
+                            <div class="header-menu-section__title"><a href="#">Поддержка</a>
+                              <button class="icon-btn header-menu-section__toggler">
+                                <svg width="20" height="20">
+                                  <use xlink:href="#i-chevron-bottom" href="#i-chevron-bottom"></use>
+                                </svg>
+                              </button>
+                            </div>
+                            <div class="header-menu-section__items">
+                              <ul>
+                                            <li><a href="#">Техническая поддержка</a>
+                                            </li>
+                                            <li><a href="#">Часто задаваемые вопросы (FAQ)</a>
+                                            </li>
+                                            <li><a href="#">Загрузки</a>
+                                            </li>
+                                            <li><a href="#">Документация</a>
+                                              <ul>
+                                                            <li><a href="#">Сертификаты на продукцию</a>
+                                                            </li>
+                                                            <li><a href="#">Лицензии и свидетельства</a>
+                                                            </li>
+                                                            <li><a href="#">Нормативные документы</a>
+                                                            </li>
+                                              </ul>
+                                            </li>
+                                            <li><a href="#">Обучение</a>
+                                              <ul>
+                                                            <li><a href="#">Курсы</a>
+                                                            </li>
+                                                            <li><a href="#">Видеоуроки</a>
+                                                            </li>
+                                              </ul>
+                                            </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div class="header-menu-section" data-section="press">
+                            <div class="header-menu-section__title"><a href="#">Пресс-центр</a>
+                              <button class="icon-btn header-menu-section__toggler">
+                                <svg width="20" height="20">
+                                  <use xlink:href="#i-chevron-bottom" href="#i-chevron-bottom"></use>
+                                </svg>
+                              </button>
+                            </div>
+                            <div class="header-menu-section__items">
+                              <ul>
+                                            <li><a href="#">Новости</a>
+                                            </li>
+                                            <li><a href="#">Объявления</a>
+                                            </li>
+                                            <li><a href="#">Мероприятия</a>
+                                            </li>
+                                            <li><a href="#">Вебинары</a>
+                                            </li>
+                                            <li><a href="#">Публикации</a>
+                                            </li>
+                                            <li><a href="#">Маркетинговые материалы</a>
+                                            </li>
+                              </ul>
+                            </div>
+                          </div>
+            </div>
+          </div>
+          <div class="header-pane__contacts">
+            <div class="contacts-block">
+              <div class="contacts-block__question">
+                <button class="btn btn-primary-inverse" type="button">Задать вопрос</button>
+              </div>
+              <div class="contacts-block__mail">
+                <div class="contacts-block__label">Напишите нам</div><a href="mailto:information@s-terra.ru">information@s-terra.ru</a>
+              </div>
+              <div class="contacts-block__apps">
+                <div class="contacts-block__label">Мы в мессенджерах</div>
+                <ul class="contacts-block__list">
+                  <li><a href="#">whatsapp</a></li>
+                  <li><a href="#">telegram</a></li>
+                </ul>
+              </div>
+              <div class="contacts-block__socials">
+                <div class="contacts-block__label">Мы в соцсетях</div>
+                <ul class="contacts-block__list">
+                  <li><a href="#">fb</a></li>
+                  <li><a href="#">yt</a></li>
+                  <li><a href="#">vk</a></li>
+                  <li><a href="#">in</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!-- /HEADER DROPDOWN -->
+      <main>
+        <div class="container">
+          <div class="t-content"></div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

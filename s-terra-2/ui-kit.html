@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./css/style.css" rel="stylesheet">
+    <style type="text/css">
+      .block {
+        width: 100%;
+        height: 100px;
+        background: pink;
+        margin-bottom: 20px;
+        padding: 20px;
+      }
+      th {
+        padding: 10px;
+        border-bottom: 2px solid var(--border);
+      }
+      td {
+        padding: 10px;
+        border-bottom: 1px solid var(--border);
+      }
+      .color {
+        width: 50px;
+        height: 30px;
+        border: 1px solid var(--border);
+      }
+      
+    </style>
+  </head>
+  <body><!-- SVG SPRITE -->
+<svg style="display: none">
+  <symbol
+    id="i-upload"
+    viewBox="0 0 22 21"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M11 1V17M11 17L17.5 10.5M11 17L4.5 10.5M1 20H21"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </symbol>
+  <symbol
+    id="i-link"
+    viewBox="0 0 17 17"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M8 9L16 1M16 1V6M16 1H11.0607M6 1H1V16H16V11"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </symbol>
+  <symbol
+    id="i-chevron-left"
+    viewBox="0 0 7 12"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M0.29337 6.70845C-0.0977902 6.31718 -0.0977902 5.68282 0.29337 5.29155L5.29011 0.29345C5.68127 -0.0978163 6.31547 -0.097817 6.70663 0.29345C7.09779 0.684716 7.09779 1.31908 6.70663 1.71035L1.70989 6.70845C1.31873 7.09972 0.684531 7.09972 0.29337 6.70845Z"
+      fill="currentColor"
+    />
+    <path
+      d="M0.29337 5.29155C-0.0977902 5.68282 -0.0977902 6.31718 0.29337 6.70845L5.29011 11.7066C5.68127 12.0978 6.31547 12.0978 6.70663 11.7066C7.09779 11.3153 7.09779 10.6809 6.70663 10.2896L1.70989 5.29155C1.31873 4.90028 0.684531 4.90028 0.29337 5.29155Z"
+      fill="currentColor"
+    />
+  </symbol>
+  <symbol
+    id="i-chevron-right"
+    viewBox="0 0 7 12"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M6.70663 6.70845C7.09779 6.31718 7.09779 5.68282 6.70663 5.29155L1.70989 0.29345C1.31873 -0.0978163 0.684531 -0.097817 0.29337 0.29345C-0.0977898 0.684716 -0.0977898 1.31908 0.29337 1.71035L5.29011 6.70845C5.68127 7.09972 6.31547 7.09972 6.70663 6.70845Z"
+      fill="currentColor"
+    />
+    <path
+      d="M6.70663 5.29155C7.09779 5.68282 7.09779 6.31718 6.70663 6.70845L1.70989 11.7066C1.31873 12.0978 0.68453 12.0978 0.29337 11.7066C-0.0977901 11.3153 -0.0977901 10.6809 0.29337 10.2896L5.29011 5.29155C5.68127 4.90028 6.31547 4.90028 6.70663 5.29155Z"
+      fill="currentColor"
+    />
+  </symbol>
+  <symbol
+    id="i-chevron-bottom"
+    width="12"
+    height="7"
+    viewBox="0 0 12 7"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M6.70845 6.70644C6.31718 7.09785 5.68282 7.09785 5.29155 6.70644L0.29345 1.711C-0.0978163 1.31959 -0.097817 0.684977 0.29345 0.293561C0.684716 -0.0978538 1.31908 -0.0978538 1.71035 0.293561L6.70845 5.289C7.09972 5.68041 7.09972 6.31502 6.70845 6.70644Z"
+      fill="#E42D24"
+    />
+    <path
+      d="M5.29155 6.70644C5.68282 7.09785 6.31718 7.09785 6.70845 6.70644L11.7066 1.711C12.0978 1.31959 12.0978 0.684977 11.7066 0.293561C11.3153 -0.0978538 10.6809 -0.0978538 10.2896 0.293561L5.29155 5.289C4.90028 5.68041 4.90028 6.31502 5.29155 6.70644Z"
+      fill="#E42D24"
+    />
+  </symbol>
+  <symbol
+    id="i-arrow-top"
+    viewBox="0 0 13 14"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M6.5 13V1M6.5 1L11.375 5.875M6.5 1L1.625 5.875"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </symbol>
+
+  <symbol
+    id="i-times"
+    viewBox="0 0 15 16"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M0.335186 15.071C-0.0553384 14.6805 -0.112899 14.1049 0.206621 13.7853L13.1917 0.800295C13.5112 0.480775 14.0868 0.538337 14.4773 0.928861C14.8678 1.31939 14.9254 1.89499 14.6059 2.21451L1.62083 15.1996C1.30131 15.5191 0.72571 15.4615 0.335186 15.071Z"
+      fill="currentColor"
+    />
+    <path
+      d="M14.4772 15.0711C14.8678 14.6805 14.9253 14.1049 14.6058 13.7854L1.62076 0.800349C1.30124 0.480829 0.725636 0.538391 0.335111 0.928915C-0.0554129 1.31944 -0.112975 1.89504 0.206545 2.21456L13.1916 15.1996C13.5111 15.5191 14.0867 15.4616 14.4772 15.0711Z"
+      fill="currentColor"
+    />
+  </symbol>
+  <symbol
+    id="i-burger"
+    data-burger
+    width="20"
+    height="17"
+    viewBox="0 0 20 17"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M0 1.99316C0 1.44088 0.366313 0.993164 0.818182 0.993164H19.1818C19.6337 0.993164 20 1.44088 20 1.99316C20 2.54545 19.6337 2.99316 19.1818 2.99316H0.818181C0.366312 2.99316 0 2.54545 0 1.99316Z"
+      fill="currentColor"
+    />
+    <path
+      d="M0 8.99316C0 8.44088 0.366313 7.99316 0.818182 7.99316H19.1818C19.6337 7.99316 20 8.44088 20 8.99316C20 9.54545 19.6337 9.99316 19.1818 9.99316H0.818181C0.366312 9.99316 0 9.54545 0 8.99316Z"
+      fill="currentColor"
+    />
+    <path
+      d="M0 15.9932C0 15.4409 0.366313 14.9932 0.818182 14.9932H19.1818C19.6337 14.9932 20 15.4409 20 15.9932C20 16.5454 19.6337 16.9932 19.1818 16.9932H0.818181C0.366312 16.9932 0 16.5454 0 15.9932Z"
+      fill="currentColor"
+    />
+  </symbol>
+  <symbol
+    id="i-search"
+    viewBox="0 0 14 14"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M9.41726 1.61091C10.4959 2.68958 11.0329 4.10483 11.0281 5.51859C11.0234 6.91996 10.4865 8.31987 9.41726 9.38909C7.26938 11.537 3.78697 11.537 1.63909 9.38909C-0.508796 7.2412 -0.508796 3.7588 1.63909 1.61091C3.78697 -0.536971 7.26938 -0.536971 9.41726 1.61091ZM8.71015 8.68198C6.9528 10.4393 4.10355 10.4393 2.34619 8.68198C0.588835 6.92462 0.588835 4.07538 2.34619 2.31802C4.10355 0.560661 6.9528 0.56066 8.71015 2.31802C9.59288 3.20075 10.032 4.35693 10.0281 5.51523C10.0243 6.66332 9.58518 7.80696 8.71015 8.68198Z"
+      fill="currentColor"
+    />
+    <path
+      d="M8.3566 9.03553L9.06371 8.32843L13.6599 12.9246C13.8552 13.1199 13.8552 13.4365 13.6599 13.6317C13.4646 13.827 13.1481 13.827 12.9528 13.6317L8.3566 9.03553Z"
+      fill="currentColor"
+    />
+  </symbol>
+  <symbol
+    id="i-user"
+    width="16"
+    height="16"
+    viewBox="0 0 16 16"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M8 8C10.2091 8 12 6.20914 12 4C12 1.79086 10.2091 0 8 0C5.79089 0 4 1.79086 4 4C4 6.20914 5.79089 8 8 8ZM8 7C9.65686 7 11 5.65685 11 4C11 2.34315 9.65686 1 8 1C6.34314 1 5 2.34315 5 4C5 5.65685 6.34314 7 8 7Z"
+      fill="#1E1D85"
+    />
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M8 16C10.6274 16 13.0854 15.2216 15.1848 13.8679C15.6586 13.5623 16 13.2999 16 13.2999L15.6586 12.3329C14.3508 9.19016 11.4137 7 8 7C4.58631 7 1.64919 9.19016 0.34137 12.3329L0 13.2999C0 13.2999 0.34137 13.5623 0.815213 13.8679C2.9146 15.2216 5.37264 16 8 16ZM8 15C10.3354 15 12.4092 14.4902 14.2754 13.4373C14.6966 13.1996 15 12.9955 15 12.9955L14.6966 12.2434C13.534 9.79907 11.0344 8 8 8C4.96561 8 2.46595 9.79907 1.30344 12.2434L1 12.9955C1 12.9955 1.30344 13.1996 1.72464 13.4373C3.59076 14.4902 5.66457 15 8 15Z"
+      fill="#1E1D85"
+    />
+  </symbol>
+</svg>
+<!-- /SVG SPRITE -->
+
+    <div class="container">
+      <h1 class="m-b">UI Kit</h1>
+      <h2 class="m-b">Цвета</h2>
+      <div class="row m-b">
+        <div class="col col-6 col-md-4 col-lg-3">
+          <div class="d-flex m-b">
+            <div class="color m-r" style="background-color: var(--primary)"></div>
+            <div>--primary</div>
+          </div>
+        </div>
+        <div class="col col-6 col-md-4 col-lg-3">
+          <div class="d-flex m-b">
+            <div class="color m-r" style="background-color: var(--primary-contract)"></div>
+            <div>--primary-contract</div>
+          </div>
+        </div>
+        <div class="col col-6 col-md-4 col-lg-3">
+          <div class="d-flex m-b">
+            <div class="color m-r" style="background-color: var(--primary-variant)"></div>
+            <div>--primary-variant</div>
+          </div>
+        </div>
+        <div class="col col-6 col-md-4 col-lg-3">
+          <div class="d-flex m-b">
+            <div class="color m-r" style="background-color: var(--accent)"></div>
+            <div>--accent</div>
+          </div>
+        </div>
+        <div class="col col-6 col-md-4 col-lg-3">
+          <div class="d-flex m-b">
+            <div class="color m-r" style="background-color: var(--accent-contrast)"></div>
+            <div>--accent-contrast</div>
+          </div>
+        </div>
+        <div class="col col-6 col-md-4 col-lg-3">
+          <div class="d-flex m-b">
+            <div class="color m-r" style="background-color: var(--accent-variant)"></div>
+            <div>--accent-variant</div>
+          </div>
+        </div>
+        <div class="col col-6 col-md-4 col-lg-3">
+          <div class="d-flex m-b">
+            <div class="color m-r" style="background-color: var(--error)"></div>
+            <div>--error</div>
+          </div>
+        </div>
+        <div class="col col-6 col-md-4 col-lg-3">
+          <div class="d-flex m-b">
+            <div class="color m-r" style="background-color: var(--background)"></div>
+            <div>--background</div>
+          </div>
+        </div>
+        <div class="col col-6 col-md-4 col-lg-3">
+          <div class="d-flex m-b">
+            <div class="color m-r" style="background-color: var(--text)"></div>
+            <div>--text</div>
+          </div>
+        </div>
+        <div class="col col-6 col-md-4 col-lg-3">
+          <div class="d-flex m-b">
+            <div class="color m-r" style="background-color: var(--block-background)"></div>
+            <div>--block-background</div>
+          </div>
+        </div>
+        <div class="col col-6 col-md-4 col-lg-3">
+          <div class="d-flex m-b">
+            <div class="color m-r" style="background-color: var(--label)"></div>
+            <div>--label</div>
+          </div>
+        </div>
+        <div class="col col-6 col-md-4 col-lg-3">
+          <div class="d-flex m-b">
+            <div class="color m-r" style="background-color: var(--link)"></div>
+            <div>--link</div>
+          </div>
+        </div>
+        <div class="col col-6 col-md-4 col-lg-3">
+          <div class="d-flex m-b">
+            <div class="color m-r" style="background-color: var(--link-variant)"></div>
+            <div>--link-variant</div>
+          </div>
+        </div>
+        <div class="col col-6 col-md-4 col-lg-3">
+          <div class="d-flex m-b">
+            <div class="color m-r" style="background-color: var(--dark-block-background)"></div>
+            <div>--dark-block-background</div>
+          </div>
+        </div>
+        <div class="col col-6 col-md-4 col-lg-3">
+          <div class="d-flex m-b">
+            <div class="color m-r" style="background-color: var(--header)"></div>
+            <div>--header</div>
+          </div>
+        </div>
+        <div class="col col-6 col-md-4 col-lg-3">
+          <div class="d-flex m-b">
+            <div class="color m-r" style="background-color: var(--border)"></div>
+            <div>--border</div>
+          </div>
+        </div>
+        <div class="col col-6 col-md-4 col-lg-3">
+          <div class="d-flex m-b">
+            <div class="color m-r" style="background-color: var(--active-control)"></div>
+            <div>--active-control</div>
+          </div>
+        </div>
+      </div>
+      <h2 class="m-b">Кнопки</h2>
+      <div class="m-b">
+        <button class="btn btn-accent btn-lg m-b">Выбрать решение</button>
+        <button class="btn btn-accent btn-lg m-b">
+          <div class="btn-icon">
+            <svg>
+              <use xlink:href="#i-upload" href="#i-upload"></use>
+            </svg>
+          </div>Презентация о компании
+        </button>
+        <button class="btn btn-accent btn-lg m-b" disabled>
+          <div class="btn-icon">
+            <svg>
+              <use xlink:href="#i-upload" href="#i-upload"></use>
+            </svg>
+          </div>Презентация о компании
+        </button><br>
+        <button class="btn btn-accent m-b">Перейти в каталог</button>
+        <button class="btn btn-accent m-b">
+          <div class="btn-icon">
+            <svg>
+              <use xlink:href="#i-upload" href="#i-upload"></use>
+            </svg>
+          </div>Презентация о компании
+        </button>
+        <button class="btn btn-accent m-b" disabled>
+          <div class="btn-icon">
+            <svg>
+              <use xlink:href="#i-upload" href="#i-upload"></use>
+            </svg>
+          </div>Презентация о компании
+        </button><br>
+        <button class="btn btn-primary btn-lg m-b">Записаться на курс</button>
+        <button class="btn btn-primary btn-lg m-b" disabled>Записаться на курс</button><br>
+        <button class="btn btn-primary m-b">Записаться на курс</button><br>
+        <button class="btn btn-primary-inverse btn-lg m-b">
+          <div class="btn-icon">
+            <svg>
+              <use xlink:href="#i-link" href="#i-link"></use>
+            </svg>
+          </div>Программа
+        </button>
+        <button class="btn btn-primary-inverse btn-lg m-b" disabled>
+          <div class="btn-icon">
+            <svg>
+              <use xlink:href="#i-link" href="#i-link"></use>
+            </svg>
+          </div>Программа
+        </button><br>
+        <button class="btn btn-primary-inverse m-b">Подробнее</button>
+        <button class="btn btn-primary-inverse m-b">
+          <div class="btn-icon">
+            <svg>
+              <use xlink:href="#i-upload" href="#i-upload"></use>
+            </svg>
+          </div>Скачать
+        </button>
+        <button class="btn btn-primary-inverse m-b" disabled>
+          <div class="btn-icon">
+            <svg>
+              <use xlink:href="#i-upload" href="#i-upload"></use>
+            </svg>
+          </div>Скачать
+        </button>
+      </div>
+      <h2 class="m-b">Сетка</h2>
+      <p class="m-b">12 колонок</p>
+      <table class="m-b">
+        <thead>
+          <tr>
+            <th>Префикс</th>
+            <th>Разрешение</th>
+            <th>Пример</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>-</td>
+            <td>&gt;0 пикселей</td>
+            <td>.col-6</td>
+          </tr>
+          <tr>
+            <td>md</td>
+            <td>&gt;768 пикселей (tablet-up)</td>
+            <td>.col-md-6</td>
+          </tr>
+          <tr>
+            <td>lg</td>
+            <td>&gt;1280 пикселей (sm-desktop-up)</td>
+            <td>.col-lg-6</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="row">
+        <div class="col col-1">
+          <div class="block">.col-1</div>
+        </div>
+        <div class="col col-1">
+          <div class="block">.col-1</div>
+        </div>
+        <div class="col col-1">
+          <div class="block">.col-1</div>
+        </div>
+        <div class="col col-1">
+          <div class="block">.col-1</div>
+        </div>
+        <div class="col col-1">
+          <div class="block">.col-1</div>
+        </div>
+        <div class="col col-1">
+          <div class="block">.col-1</div>
+        </div>
+        <div class="col col-2">
+          <div class="block">.col-2</div>
+        </div>
+        <div class="col col-2">
+          <div class="block">.col-2</div>
+        </div>
+        <div class="col col-2">
+          <div class="block">.col-2</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col col-12 col-md-6 col-lg-3">
+          <div class="block">.col-12.col-md-6.col-lg-3</div>
+        </div>
+        <div class="col col-12 col-md-6 col-lg-3">
+          <div class="block">.col-12.col-md-6.col-lg-3</div>
+        </div>
+        <div class="col col-12 col-md-6 col-lg-3">
+          <div class="block">.col-12.col-md-6.col-lg-3</div>
+        </div>
+        <div class="col col-12 col-md-6 col-lg-3">
+          <div class="block">.col-12.col-md-6.col-lg-3</div>
+        </div>
+        <div class="col col-12 col-md-6 col-lg-3">
+          <div class="block">.col-12.col-md-6.col-lg-3</div>
+        </div>
+        <div class="col col-12 col-md-6 col-lg-3">
+          <div class="block">.col-12.col-md-6.col-lg-3</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
