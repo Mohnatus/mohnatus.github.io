@@ -575,60 +575,11 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 
 },{}],"8ZNvh":[function(require,module,exports) {
 var _db = require("./js/db");
-var _items = require("./js/db/items");
-var _periods = require("./js/db/periods");
-var _tags = require("./js/db/tags");
-var _state = require("./js/state");
+var _store = require("./js/store");
+var _view = require("./js/view");
+var _subscribe = require("./subscribe");
 var _notifier = require("./js/utils/notifier");
-var _itemForm = require("./js/view/itemForm");
-var _items1 = require("./js/view/items");
-var _periods1 = require("./js/view/periods");
-var _tagForm = require("./js/view/tagForm");
-var _tags1 = require("./js/view/tags");
-// Subscriptions
-_state.subscribe(_state.fields.tags, _state.events.update, (tags)=>{
-    (0, _tags1.renderTagsList)(tags);
-    (0, _itemForm.updateTagsSelect)();
-});
-_state.subscribe(_state.fields.tags, _state.events.add, (tag)=>{
-    (0, _tags1.addTagToList)(tag);
-    (0, _tagForm.closeNewTagForm)();
-    (0, _itemForm.updateTagsSelect)();
-    (0, _tags.addTagToDb)(tag);
-});
-_state.subscribe(_state.fields.tags, _state.events.remove, (tag)=>{
-    (0, _tags1.removeTagFromList)(tag.id);
-    (0, _itemForm.updateTagsSelect)();
-    (0, _tags.removeTagFromDb)(tag);
-});
-_state.subscribe(_state.fields.items, _state.events.update, (items)=>{
-    const periodItems = _state.getPeriodItems();
-    (0, _items1.renderItemsList)(periodItems);
-    (0, _itemForm.updateTagsSelect)();
-});
-_state.subscribe(_state.fields.items, _state.events.add, (item)=>{
-    (0, _items1.addItemToList)(item);
-    (0, _itemForm.closeNewItemForm)();
-    (0, _items.addItemToDb)(item);
-    (0, _itemForm.updateTagsSelect)();
-});
-_state.subscribe(_state.fields.items, _state.events.remove, (item)=>{
-    (0, _items1.removeItemFromList)(item.id);
-    (0, _items.removeItemFromDb)(item);
-    (0, _itemForm.updateTagsSelect)();
-});
-_state.subscribe(_state.fields.periods, _state.events.update, (periods)=>{
-    (0, _periods1.renderPeriodsList)(periods);
-});
-_state.subscribe(_state.fields.periods, _state.events.add, (period)=>{
-    (0, _periods1.addPeriodToList)(period);
-    (0, _periods.addPeriodToDb)(period);
-    _state.setActivePeriod(period);
-});
-_state.subscribe(_state.fields.activePeriod, _state.events.update, (activePeriod)=>{
-    const periodItems = _state.getPeriodItems();
-    (0, _items1.renderItemsList)(periodItems);
-});
+(0, _subscribe.subscribeToStore)();
 // Database
 (0, _db.initDB)().then(({ tags, items, periods })=>{
     const periodsList = periods;
@@ -638,28 +589,28 @@ _state.subscribe(_state.fields.activePeriod, _state.events.update, (activePeriod
             createdAt: null
         };
         periodsList.push(basePeriod);
-        (0, _periods.addPeriodToDb)(basePeriod);
+        (0, _db.addPeriodToDb)(basePeriod);
     }
-    _state.init({
+    (0, _store.initStore)({
         tags,
         items,
         periods: periodsList
     });
 });
 // Init
-(0, _itemForm.initNewItemForm)({
+(0, _view.initNewItemForm)({
     onSubmit: (formData)=>{
         const { text, price, tag, subitems } = formData;
         const createdAt = +new Date();
         const newItem = {
-            id: _state.getId(_state.fields.items),
+            id: (0, _store.getNextId)((0, _store.storeFields).items),
             text,
             price,
             tag,
             createdAt,
             subitems: subitems.map((subitem)=>{
                 return {
-                    id: _state.getId(_state.fields.items),
+                    id: (0, _store.getNextId)((0, _store.storeFields).items),
                     text: subitem.text,
                     price: subitem.price,
                     tag: subitem.tag,
@@ -667,155 +618,71 @@ _state.subscribe(_state.fields.activePeriod, _state.events.update, (activePeriod
                 };
             })
         };
-        _state.add(_state.fields.items, newItem);
+        (0, _store.addItem)(newItem);
     }
 });
-(0, _tagForm.initNewTagForm)({
+(0, _view.initNewTagForm)({
     onSubmit: (formData)=>{
         const { name } = formData;
         const newTag = {
-            id: _state.getId(_state.fields.tags),
+            id: (0, _store.getNextId)((0, _store.storeFields).tags),
             name,
             createdAt: +new Date()
         };
-        _state.add(_state.fields.tags, newTag);
+        (0, _store.addTag)(newTag);
     }
 });
-(0, _items1.initItemsList)({
+(0, _view.initItemsList)({
     onRemove: (itemId)=>{
-        const items = _state.getState(_state.fields.items);
-        const item = items.find((i)=>i.id === itemId);
-        _state.remove(_state.fields.items, item);
+        const item = (0, _store.selectItemById)(itemId);
+        (0, _store.removeItem)(item);
     }
 });
-(0, _tags1.initTagsList)({
+(0, _view.initTagsList)({
     onRemove: (tagId)=>{
-        const tags = _state.getState(_state.fields.tags);
-        const tag = tags.find((t)=>t.id === tagId);
-        const items = _state.getState(_state.fields.items);
-        const tagItems = items.some((item)=>{
-            if (item.tag === tag.id) return true;
-            return item.subitems.some((subitem)=>subitem.tag === tag.id);
-        });
-        if (tagItems) {
+        const tag = (0, _store.selectTagById)(tagId);
+        const tagItems = (0, _store.selectItemsByTag)(tagId);
+        if (tagItems.length) {
             (0, _notifier.notifyError)("Тег нельзя удалить");
             return;
         }
-        _state.remove(_state.fields.tags, tag);
+        (0, _store.removeTag)(tag);
     }
 });
-(0, _periods1.initPeriodsList)({
+(0, _view.initPeriodsList)({
     onStart: ()=>{
         const newPeriod = {
-            id: _state.getId(_state.fields.periods),
+            id: (0, _store.getNextId)((0, _store.storeFields).periods),
             createdAt: +new Date()
         };
-        _state.add(_state.fields.periods, newPeriod);
+        (0, _store.addPeriod)(newPeriod);
     },
     onRemove: (periodId)=>{
-        const periods = _state.getState(_state.fields.periods);
-        const period = periods.find((p)=>p.id === periodId);
-        _state.remove(_state.fields.periods, period);
+        const period = (0, _store.selectPeriodById)(periodId);
+        (0, _store.removePeriod)(period);
     },
     onSelect: (periodId)=>{
-        const periods = _state.getState(_state.fields.periods);
-        const period = periods.find((p)=>p.id === periodId);
-        _state.setActivePeriod(period);
+        const period = (0, _store.selectPeriodById)(periodId);
+        (0, _store.setActivePeriod)(period);
     }
 });
 
-},{"./js/db":"aF8BE","./js/db/items":"g7UNv","./js/db/tags":"4asb7","./js/state":"8eIFt","./js/view/itemForm":"ls1cb","./js/view/items":"hxYzp","./js/view/tagForm":"a9hVv","./js/view/tags":"74Zyy","./js/utils/notifier":"7aVBF","./js/view/periods":"iKb5k","./js/db/periods":"ch64E"}],"aF8BE":[function(require,module,exports) {
+},{"./js/db":"aF8BE","./js/store":"2rPL6","./js/view":"3gZq0","./subscribe":"lvYRj","./js/utils/notifier":"7aVBF"}],"aF8BE":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "getStore", ()=>getStore);
-parcelHelpers.export(exports, "initDB", ()=>initDB);
-var _constants = require("./constants");
-let dbRequest;
-function getStore(storeName, toWrite) {
-    let db = dbRequest.result;
-    let transaction = db.transaction(storeName, toWrite ? "readwrite" : "readonly");
-    let store = transaction.objectStore(storeName);
-    return store;
-}
-function getItems() {
-    return new Promise((resolve)=>{
-        const items = getStore((0, _constants.ITEMS_STORE_NAME));
-        const request = items.getAll();
-        request.onsuccess = function() {
-            const result = request.result;
-            resolve(result);
-        };
-    });
-}
-async function getTags() {
-    return new Promise((resolve)=>{
-        const tags = getStore((0, _constants.TAGS_STORE_NAME));
-        const request = tags.getAll();
-        request.onsuccess = function() {
-            const result = request.result;
-            resolve(result);
-        };
-    });
-}
-async function getPeriods() {
-    return new Promise((resolve)=>{
-        const periods = getStore((0, _constants.PERIODS_STORE_NAME));
-        const request = periods.getAll();
-        request.onsuccess = function() {
-            const result = request.result;
-            resolve(result);
-        };
-    });
-}
-async function initDB() {
-    return new Promise((resolve)=>{
-        dbRequest = indexedDB.open((0, _constants.DB_NAME), (0, _constants.DB_VERSION));
-        dbRequest.onupgradeneeded = function() {
-            let db = dbRequest.result;
-            if (!db.objectStoreNames.contains((0, _constants.ITEMS_STORE_NAME))) db.createObjectStore((0, _constants.ITEMS_STORE_NAME), {
-                keyPath: "id"
-            });
-            if (!db.objectStoreNames.contains((0, _constants.TAGS_STORE_NAME))) db.createObjectStore((0, _constants.TAGS_STORE_NAME), {
-                keyPath: "id"
-            });
-            if (!db.objectStoreNames.contains((0, _constants.PERIODS_STORE_NAME))) db.createObjectStore((0, _constants.PERIODS_STORE_NAME), {
-                keyPath: "id"
-            });
-        };
-        dbRequest.onerror = function() {
-            console.error("DB ERROR", dbRequest.error);
-        };
-        dbRequest.onsuccess = function() {
-            Promise.all([
-                getTags(),
-                getItems(),
-                getPeriods()
-            ]).then(([tags, items, periods])=>{
-                resolve({
-                    tags,
-                    items,
-                    periods
-                });
-            });
-        };
-    });
-}
+parcelHelpers.export(exports, "initDB", ()=>(0, _init.initDB));
+parcelHelpers.export(exports, "addItemToDb", ()=>(0, _items.addItemToDb));
+parcelHelpers.export(exports, "removeItemFromDb", ()=>(0, _items.removeItemFromDb));
+parcelHelpers.export(exports, "addTagToDb", ()=>(0, _tags.addTagToDb));
+parcelHelpers.export(exports, "removeTagFromDb", ()=>(0, _tags.removeTagFromDb));
+parcelHelpers.export(exports, "addPeriodToDb", ()=>(0, _periods.addPeriodToDb));
+parcelHelpers.export(exports, "removePeriodFromDb", ()=>(0, _periods.removePeriodFromDb));
+var _init = require("./init");
+var _items = require("./items");
+var _tags = require("./tags");
+var _periods = require("./periods");
 
-},{"./constants":"b0ukR","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"b0ukR":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "DB_NAME", ()=>DB_NAME);
-parcelHelpers.export(exports, "DB_VERSION", ()=>DB_VERSION);
-parcelHelpers.export(exports, "ITEMS_STORE_NAME", ()=>ITEMS_STORE_NAME);
-parcelHelpers.export(exports, "TAGS_STORE_NAME", ()=>TAGS_STORE_NAME);
-parcelHelpers.export(exports, "PERIODS_STORE_NAME", ()=>PERIODS_STORE_NAME);
-const DB_NAME = "wallet";
-const DB_VERSION = 4;
-const ITEMS_STORE_NAME = "items";
-const TAGS_STORE_NAME = "tags";
-const PERIODS_STORE_NAME = "periods";
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./init":"jSoDn","./items":"g7UNv","./tags":"4asb7","./periods":"ch64E"}],"gkKU3":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -845,36 +712,80 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}],"g7UNv":[function(require,module,exports) {
+},{}],"jSoDn":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "addItemToDb", ()=>addItemToDb);
-parcelHelpers.export(exports, "removeItemFromDb", ()=>removeItemFromDb);
-var _ = require(".");
+parcelHelpers.export(exports, "initDB", ()=>initDB);
 var _notifier = require("../utils/notifier");
 var _constants = require("./constants");
-function addItemToDb(item) {
-    const items = (0, _.getStore)((0, _constants.ITEMS_STORE_NAME), true);
-    let request = items.add(item);
-    request.onsuccess = function() {
-        (0, _notifier.notify)("Запись успешно сохранена");
-    };
-    request.onerror = function() {
-        (0, _notifier.notifyError)("Не удалось сохранить запись", request.error);
-    };
+var _db = require("./db");
+var _utils = require("./utils");
+function getItems() {
+    return new Promise((resolve)=>{
+        const items = (0, _utils.getStore)((0, _constants.ITEMS_STORE_NAME));
+        const request = items.getAll();
+        request.onsuccess = function() {
+            const result = request.result;
+            resolve(result);
+        };
+    });
 }
-function removeItemFromDb(item) {
-    let items = (0, _.getStore)((0, _constants.ITEMS_STORE_NAME), true);
-    let request = items.delete(item.id);
-    request.onsuccess = function() {
-        (0, _notifier.notify)("Запись успешно удалена");
-    };
-    request.onerror = function() {
-        (0, _notifier.notifyError)("Не удалось удалить запись", request.error);
-    };
+async function getTags() {
+    return new Promise((resolve)=>{
+        const tags = (0, _utils.getStore)((0, _constants.TAGS_STORE_NAME));
+        const request = tags.getAll();
+        request.onsuccess = function() {
+            const result = request.result;
+            resolve(result);
+        };
+    });
+}
+async function getPeriods() {
+    return new Promise((resolve)=>{
+        const periods = (0, _utils.getStore)((0, _constants.PERIODS_STORE_NAME));
+        const request = periods.getAll();
+        request.onsuccess = function() {
+            const result = request.result;
+            resolve(result);
+        };
+    });
+}
+async function initDB() {
+    return new Promise((resolve)=>{
+        const dbRequest = indexedDB.open((0, _constants.DB_NAME), (0, _constants.DB_VERSION));
+        dbRequest.onupgradeneeded = function() {
+            let db = dbRequest.result;
+            if (!db.objectStoreNames.contains((0, _constants.ITEMS_STORE_NAME))) db.createObjectStore((0, _constants.ITEMS_STORE_NAME), {
+                keyPath: "id"
+            });
+            if (!db.objectStoreNames.contains((0, _constants.TAGS_STORE_NAME))) db.createObjectStore((0, _constants.TAGS_STORE_NAME), {
+                keyPath: "id"
+            });
+            if (!db.objectStoreNames.contains((0, _constants.PERIODS_STORE_NAME))) db.createObjectStore((0, _constants.PERIODS_STORE_NAME), {
+                keyPath: "id"
+            });
+        };
+        dbRequest.onerror = function() {
+            (0, _notifier.notifyError)("DB ERROR", dbRequest.error);
+        };
+        dbRequest.onsuccess = function() {
+            Promise.all([
+                getTags(),
+                getItems(),
+                getPeriods()
+            ]).then(([tags, items, periods])=>{
+                resolve({
+                    tags,
+                    items,
+                    periods
+                });
+            });
+        };
+        (0, _db.setDb)(dbRequest);
+    });
 }
 
-},{".":"aF8BE","./constants":"b0ukR","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../utils/notifier":"7aVBF"}],"7aVBF":[function(require,module,exports) {
+},{"../utils/notifier":"7aVBF","./constants":"b0ukR","./db":"aFICN","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./utils":"7hJH5"}],"7aVBF":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "notify", ()=>notify);
@@ -888,16 +799,84 @@ function notifyError(message, data) {
     console.error(message, data);
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4asb7":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"b0ukR":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "DB_NAME", ()=>DB_NAME);
+parcelHelpers.export(exports, "DB_VERSION", ()=>DB_VERSION);
+parcelHelpers.export(exports, "ITEMS_STORE_NAME", ()=>ITEMS_STORE_NAME);
+parcelHelpers.export(exports, "TAGS_STORE_NAME", ()=>TAGS_STORE_NAME);
+parcelHelpers.export(exports, "PERIODS_STORE_NAME", ()=>PERIODS_STORE_NAME);
+const DB_NAME = "wallet";
+const DB_VERSION = 4;
+const ITEMS_STORE_NAME = "items";
+const TAGS_STORE_NAME = "tags";
+const PERIODS_STORE_NAME = "periods";
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aFICN":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "setDb", ()=>setDb);
+parcelHelpers.export(exports, "getDb", ()=>getDb);
+let dbRequest;
+function setDb(db) {
+    dbRequest = db;
+}
+function getDb() {
+    return dbRequest.result;
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7hJH5":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "getStore", ()=>getStore);
+var _db = require("./db");
+function getStore(storeName, toWrite) {
+    let db = (0, _db.getDb)();
+    let transaction = db.transaction(storeName, toWrite ? "readwrite" : "readonly");
+    let store = transaction.objectStore(storeName);
+    return store;
+}
+
+},{"./db":"aFICN","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"g7UNv":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "addItemToDb", ()=>addItemToDb);
+parcelHelpers.export(exports, "removeItemFromDb", ()=>removeItemFromDb);
+var _utils = require("./utils");
+var _notifier = require("../utils/notifier");
+var _constants = require("./constants");
+function addItemToDb(item) {
+    const items = (0, _utils.getStore)((0, _constants.ITEMS_STORE_NAME), true);
+    let request = items.add(item);
+    request.onsuccess = function() {
+        (0, _notifier.notify)("Запись успешно сохранена");
+    };
+    request.onerror = function() {
+        (0, _notifier.notifyError)("Не удалось сохранить запись", request.error);
+    };
+}
+function removeItemFromDb(item) {
+    let items = (0, _utils.getStore)((0, _constants.ITEMS_STORE_NAME), true);
+    let request = items.delete(item.id);
+    request.onsuccess = function() {
+        (0, _notifier.notify)("Запись успешно удалена");
+    };
+    request.onerror = function() {
+        (0, _notifier.notifyError)("Не удалось удалить запись", request.error);
+    };
+}
+
+},{"../utils/notifier":"7aVBF","./constants":"b0ukR","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./utils":"7hJH5"}],"4asb7":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "addTagToDb", ()=>addTagToDb);
 parcelHelpers.export(exports, "removeTagFromDb", ()=>removeTagFromDb);
-var _ = require(".");
 var _notifier = require("../utils/notifier");
 var _constants = require("./constants");
+var _utils = require("./utils");
 function addTagToDb(tag) {
-    let tags = (0, _.getStore)((0, _constants.TAGS_STORE_NAME), true);
+    let tags = (0, _utils.getStore)((0, _constants.TAGS_STORE_NAME), true);
     let request = tags.add(tag);
     request.onsuccess = function() {
         (0, _notifier.notify)("Запись успешно сохранена");
@@ -907,7 +886,7 @@ function addTagToDb(tag) {
     };
 }
 function removeTagFromDb(tag) {
-    let tags = (0, _.getStore)((0, _constants.TAGS_STORE_NAME), true);
+    let tags = (0, _utils.getStore)((0, _constants.TAGS_STORE_NAME), true);
     let request = tags.delete(tag.id);
     request.onsuccess = function() {
         (0, _notifier.notify)("Запись успешно удалена");
@@ -917,50 +896,161 @@ function removeTagFromDb(tag) {
     };
 }
 
-},{".":"aF8BE","./constants":"b0ukR","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../utils/notifier":"7aVBF"}],"8eIFt":[function(require,module,exports) {
+},{"../utils/notifier":"7aVBF","./constants":"b0ukR","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./utils":"7hJH5"}],"ch64E":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "fields", ()=>fields);
-parcelHelpers.export(exports, "events", ()=>events);
-parcelHelpers.export(exports, "getState", ()=>getState);
-parcelHelpers.export(exports, "getPeriodItems", ()=>getPeriodItems);
-parcelHelpers.export(exports, "getAllItems", ()=>getAllItems);
-parcelHelpers.export(exports, "getTagsWeight", ()=>getTagsWeight);
-parcelHelpers.export(exports, "getId", ()=>getId);
-parcelHelpers.export(exports, "subscribe", ()=>subscribe);
-parcelHelpers.export(exports, "init", ()=>init);
-parcelHelpers.export(exports, "add", ()=>add);
-parcelHelpers.export(exports, "remove", ()=>remove);
-parcelHelpers.export(exports, "setActivePeriod", ()=>setActivePeriod);
-const fields = {
-    items: "items",
-    tags: "tags",
-    periods: "periods",
-    activePeriod: "activePeriod"
-};
-const events = {
-    update: "update",
-    add: "add",
-    remove: "remove"
-};
-const state = {
-    items: [],
-    tags: [],
-    periods: [],
-    activePeriod: null
-};
-const lastId = {
-    items: 0,
-    tags: 0,
-    periods: 0
-};
-const callbacks = {};
-function getState(field) {
-    return state[field];
+parcelHelpers.export(exports, "addPeriodToDb", ()=>addPeriodToDb);
+parcelHelpers.export(exports, "removePeriodFromDb", ()=>removePeriodFromDb);
+var _utils = require("./utils");
+var _notifier = require("../utils/notifier");
+var _constants = require("./constants");
+function addPeriodToDb(period) {
+    const periods = (0, _utils.getStore)((0, _constants.PERIODS_STORE_NAME), true);
+    let request = periods.add(period);
+    request.onsuccess = function() {
+        (0, _notifier.notify)("Запись успешно сохранена");
+    };
+    request.onerror = function() {
+        (0, _notifier.notifyError)("Не удалось сохранить запись", request.error);
+    };
 }
-function getPeriodItems() {
+function removePeriodFromDb(period) {
+    let periods = (0, _utils.getStore)((0, _constants.PERIODS_STORE_NAME), true);
+    let request = periods.delete(period.id);
+    request.onsuccess = function() {
+        (0, _notifier.notify)("Запись успешно удалена");
+    };
+    request.onerror = function() {
+        (0, _notifier.notifyError)("Не удалось удалить запись", request.error);
+    };
+}
+
+},{"../utils/notifier":"7aVBF","./constants":"b0ukR","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./utils":"7hJH5"}],"2rPL6":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "subscribe", ()=>(0, _emitter.subscribe));
+parcelHelpers.export(exports, "events", ()=>(0, _events.events));
+parcelHelpers.export(exports, "storeFields", ()=>(0, _constants.storeFields));
+parcelHelpers.export(exports, "getNextId", ()=>(0, _ids.getNextId));
+parcelHelpers.export(exports, "selectItems", ()=>(0, _items.selectItems));
+parcelHelpers.export(exports, "selectItemById", ()=>(0, _items.selectItemById));
+parcelHelpers.export(exports, "selectFlatItems", ()=>(0, _items.selectFlatItems));
+parcelHelpers.export(exports, "selectItemsByTag", ()=>(0, _items.selectItemsByTag));
+parcelHelpers.export(exports, "selectActiveItems", ()=>(0, _items.selectActiveItems));
+parcelHelpers.export(exports, "selectPeriods", ()=>(0, _periods.selectPeriods));
+parcelHelpers.export(exports, "selectPeriodById", ()=>(0, _periods.selectPeriodById));
+parcelHelpers.export(exports, "selectActivePeriod", ()=>(0, _periods.selectActivePeriod));
+parcelHelpers.export(exports, "selectTags", ()=>(0, _tags.selectTags));
+parcelHelpers.export(exports, "selectTagById", ()=>(0, _tags.selectTagById));
+parcelHelpers.export(exports, "selectWeightedTags", ()=>(0, _tags.selectWeightedTags));
+parcelHelpers.export(exports, "initStore", ()=>(0, _state.initStore));
+parcelHelpers.export(exports, "addItem", ()=>(0, _state.addItem));
+parcelHelpers.export(exports, "addTag", ()=>(0, _state.addTag));
+parcelHelpers.export(exports, "addPeriod", ()=>(0, _state.addPeriod));
+parcelHelpers.export(exports, "removeItem", ()=>(0, _state.removeItem));
+parcelHelpers.export(exports, "removeTag", ()=>(0, _state.removeTag));
+parcelHelpers.export(exports, "removePeriod", ()=>(0, _state.removePeriod));
+parcelHelpers.export(exports, "setActivePeriod", ()=>(0, _state.setActivePeriod));
+var _emitter = require("./emitter");
+var _events = require("./events");
+var _constants = require("./constants");
+var _ids = require("./ids");
+var _items = require("./items");
+var _periods = require("./periods");
+var _tags = require("./tags");
+var _state = require("./state");
+
+},{"./emitter":"443qx","./events":"3nR5h","./constants":"kyqGh","./ids":"3p0Iy","./items":"ckKP9","./periods":"5eesY","./tags":"3ze5P","./state":"ekZMZ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"443qx":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "subscribe", ()=>subscribe);
+parcelHelpers.export(exports, "emit", ()=>emit);
+const callbacks = {};
+function subscribe(eventName, eventCb) {
+    if (!(eventName in callbacks)) callbacks[eventName] = [];
+    callbacks[eventName].push(eventCb);
+}
+function emit(eventName, eventData) {
+    const eventCallbacks = callbacks[eventName];
+    if (!eventCallbacks) return;
+    eventCallbacks.forEach((cb)=>cb(eventData));
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3nR5h":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "events", ()=>events);
+const events = {
+    inited: "store/inited",
+    addItem: "item/add",
+    removeItem: "item/remove",
+    addTag: "tag/add",
+    removeTag: "tag/remove",
+    addPeriod: "period/add",
+    removePeriod: "period/remove",
+    setActivePeriod: "activePeriod/set"
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kyqGh":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "storeFields", ()=>storeFields);
+const storeFields = {
+    items: "items",
+    periods: "periods",
+    tags: "tags"
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3p0Iy":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "getNextId", ()=>getNextId);
+parcelHelpers.export(exports, "setLastId", ()=>setLastId);
+const ids = {};
+function getNextId(fieldName) {
+    if (!(fieldName in ids)) ids[fieldName] = 0;
+    return ++ids[fieldName];
+}
+function setLastId(fieldName, id) {
+    ids[fieldName] = id;
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ckKP9":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "selectItems", ()=>selectItems);
+parcelHelpers.export(exports, "selectItemById", ()=>selectItemById);
+parcelHelpers.export(exports, "selectFlatItems", ()=>selectFlatItems);
+parcelHelpers.export(exports, "selectItemsByTag", ()=>selectItemsByTag);
+parcelHelpers.export(exports, "selectActiveItems", ()=>selectActiveItems);
+var _state = require("./state");
+function selectItems() {
+    return [
+        ...(0, _state.getState)().items
+    ];
+}
+function selectItemById(itemId) {
+    const items = selectItems();
+    return items.find((i)=>i.id === itemId);
+}
+function selectFlatItems() {
+    const items = [];
+    (0, _state.getState)().items.forEach((item)=>{
+        items.push(item);
+        items.push(...item.subitems);
+    });
+    return items;
+}
+function selectItemsByTag(tagId) {
+    const items = selectFlatItems();
+    return items.filter((i)=>i.tag === tagId);
+}
+function selectActiveItems() {
+    const state = (0, _state.getState)();
     const period = state.activePeriod;
-    if (!period) return state.items;
+    if (!period) return [
+        ...state.items
+    ];
     const periodIndex = state.periods.findIndex((p)=>p.id === period.id);
     const nextPeriod = state.periods[periodIndex + 1];
     return state.items.filter((item)=>{
@@ -969,16 +1059,118 @@ function getPeriodItems() {
         return true;
     });
 }
-function getAllItems() {
-    const items = [];
-    state.items.forEach((item)=>{
-        items.push(item);
-        items.push(...item.subitems);
-    });
-    return items;
+
+},{"./state":"ekZMZ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ekZMZ":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "getState", ()=>getState);
+parcelHelpers.export(exports, "initStore", ()=>initStore);
+parcelHelpers.export(exports, "addItem", ()=>addItem);
+parcelHelpers.export(exports, "addTag", ()=>addTag);
+parcelHelpers.export(exports, "addPeriod", ()=>addPeriod);
+parcelHelpers.export(exports, "removeItem", ()=>removeItem);
+parcelHelpers.export(exports, "removeTag", ()=>removeTag);
+parcelHelpers.export(exports, "removePeriod", ()=>removePeriod);
+parcelHelpers.export(exports, "setActivePeriod", ()=>setActivePeriod);
+var _constants = require("./constants");
+var _emitter = require("./emitter");
+var _events = require("./events");
+var _ids = require("./ids");
+const state = {
+    items: [],
+    tags: [],
+    periods: [],
+    activePeriod: null
+};
+function getState() {
+    return {
+        ...state
+    };
 }
-function getTagsWeight() {
-    const items = getAllItems();
+function initStore({ tags: tagsList, items: itemsList, periods: periodsList }) {
+    if (tagsList.length > 0) {
+        (0, _ids.setLastId)((0, _constants.storeFields).tags, tagsList[tagsList.length - 1].id);
+        state.tags = tagsList;
+    }
+    if (itemsList.length > 0) {
+        (0, _ids.setLastId)((0, _constants.storeFields).items, itemsList[itemsList.length - 1].id);
+        state.items = itemsList;
+    }
+    if (periodsList.length > 0) {
+        const lastPeriod = periodsList[periodsList.length - 1];
+        (0, _ids.setLastId)((0, _constants.storeFields).periods, lastPeriod.id);
+        state.periods = periodsList;
+        state.activePeriod = lastPeriod;
+    }
+    (0, _emitter.emit)((0, _events.events).inited, state);
+}
+function addItem(item) {
+    state.items.push(item);
+    (0, _emitter.emit)((0, _events.events).addItem, item);
+}
+function addTag(tag) {
+    state.tags.push(tag);
+    (0, _emitter.emit)((0, _events.events).addTag, tag);
+}
+function addPeriod(period) {
+    state.periods.push(period);
+    (0, _emitter.emit)((0, _events.events).addPeriod, period);
+}
+function removeItem(item) {
+    state.items = state.items.filter((i)=>i.id !== item.id);
+    (0, _emitter.emit)((0, _events.events).removeItem, item);
+}
+function removeTag(tag) {
+    state.tags = state.tags.filter((t)=>t.id !== tag.id);
+    (0, _emitter.emit)((0, _events.events).removeTag, tag);
+}
+function removePeriod(period) {
+    state.periods = state.items.filter((p)=>p.id !== period.id);
+    (0, _emitter.emit)((0, _events.events).removePeriod, period);
+}
+function setActivePeriod(period) {
+    state.activePeriod = period;
+    (0, _emitter.emit)((0, _events.events).setActivePeriod, period);
+}
+
+},{"./constants":"kyqGh","./emitter":"443qx","./events":"3nR5h","./ids":"3p0Iy","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5eesY":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "selectPeriods", ()=>selectPeriods);
+parcelHelpers.export(exports, "selectPeriodById", ()=>selectPeriodById);
+parcelHelpers.export(exports, "selectActivePeriod", ()=>selectActivePeriod);
+var _state = require("./state");
+function selectPeriods() {
+    return (0, _state.getState)().periods;
+}
+function selectPeriodById(periodId) {
+    const periods = selectPeriods();
+    return periods.find((p)=>p.id === periodId);
+}
+function selectActivePeriod() {
+    return (0, _state.getState)().activePeriod;
+}
+
+},{"./state":"ekZMZ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3ze5P":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "selectTags", ()=>selectTags);
+parcelHelpers.export(exports, "selectTagById", ()=>selectTagById);
+parcelHelpers.export(exports, "selectWeightedTags", ()=>selectWeightedTags);
+var _items = require("./items");
+var _state = require("./state");
+function selectTags() {
+    return [
+        ...(0, _state.getState)().tags
+    ];
+}
+function selectTagById(tagId) {
+    const tags = selectTags();
+    return tags.find((t)=>t.id === tagId);
+}
+function selectTagsWeight() {
+    const state = (0, _state.getState)();
+    const items = (0, _items.selectFlatItems)();
     const weight = {};
     state.tags.forEach((tag)=>{
         weight[tag.id] = 0;
@@ -988,61 +1180,47 @@ function getTagsWeight() {
     });
     return weight;
 }
-function getId(field) {
-    return ++lastId[field];
-}
-function onChange(field, event, data) {
-    const fieldCbs = callbacks[field];
-    if (!fieldCbs) return;
-    const eventCbs = fieldCbs[event];
-    if (!eventCbs) return;
-    eventCbs.forEach((cb)=>cb(data));
-}
-function subscribe(field, event, cb) {
-    if (!(field in callbacks)) callbacks[field] = {};
-    if (!(event in callbacks[field])) callbacks[field][event] = [];
-    callbacks[field][event].push(cb);
-}
-function init({ tags: tagsList, items: itemsList, periods: periodsList }) {
-    if (tagsList.length > 0) {
-        lastId.tags = tagsList[tagsList.length - 1].id;
-        state.tags = tagsList;
-    }
-    if (itemsList.length > 0) {
-        lastId.items = itemsList[itemsList.length - 1].id;
-        state.items = itemsList;
-    }
-    if (periodsList.length > 0) {
-        const lastPeriod = periodsList[periodsList.length - 1];
-        lastId.periods = lastPeriod.id;
-        state.periods = periodsList;
-        state.activePeriod = lastPeriod;
-    }
-    onChange(fields.tags, events.update, tagsList);
-    onChange(fields.items, events.update, itemsList);
-    onChange(fields.periods, events.update, periodsList);
-}
-function add(field, instance) {
-    state[field].push(instance);
-    onChange(field, events.add, instance);
-}
-function remove(field, instance) {
-    state[field] = state[field].filter((i)=>i.id !== instance.id);
-    onChange(field, events.remove, instance);
-}
-function setActivePeriod(period) {
-    state.activePeriod = period;
-    onChange(fields.activePeriod, events.update, period);
+function selectWeightedTags() {
+    const tags = selectTags();
+    const weight = selectTagsWeight();
+    tags.sort((a, b)=>weight[b.id] - weight[a.id]);
+    return tags;
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ls1cb":[function(require,module,exports) {
+},{"./state":"ekZMZ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./items":"ckKP9"}],"3gZq0":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "updateTagsSelect", ()=>(0, _itemForm.updateTagsSelect));
+parcelHelpers.export(exports, "closeNewItemForm", ()=>(0, _itemForm.closeNewItemForm));
+parcelHelpers.export(exports, "initNewItemForm", ()=>(0, _itemForm.initNewItemForm));
+parcelHelpers.export(exports, "closeNewTagForm", ()=>(0, _tagForm.closeNewTagForm));
+parcelHelpers.export(exports, "initNewTagForm", ()=>(0, _tagForm.initNewTagForm));
+parcelHelpers.export(exports, "renderItemsList", ()=>(0, _items.renderItemsList));
+parcelHelpers.export(exports, "addItemToList", ()=>(0, _items.addItemToList));
+parcelHelpers.export(exports, "removeItemFromList", ()=>(0, _items.removeItemFromList));
+parcelHelpers.export(exports, "initItemsList", ()=>(0, _items.initItemsList));
+parcelHelpers.export(exports, "renderTagsList", ()=>(0, _tags.renderTagsList));
+parcelHelpers.export(exports, "addTagToList", ()=>(0, _tags.addTagToList));
+parcelHelpers.export(exports, "removeTagFromList", ()=>(0, _tags.removeTagFromList));
+parcelHelpers.export(exports, "initTagsList", ()=>(0, _tags.initTagsList));
+parcelHelpers.export(exports, "renderPeriodsList", ()=>(0, _periods.renderPeriodsList));
+parcelHelpers.export(exports, "addPeriodToList", ()=>(0, _periods.addPeriodToList));
+parcelHelpers.export(exports, "removePeriodFromList", ()=>(0, _periods.removePeriodFromList));
+parcelHelpers.export(exports, "initPeriodsList", ()=>(0, _periods.initPeriodsList));
+parcelHelpers.export(exports, "highlightActivePeriod", ()=>(0, _periods.highlightActivePeriod));
+var _itemForm = require("./itemForm");
+var _tagForm = require("./tagForm");
+var _items = require("./items");
+var _tags = require("./tags");
+var _periods = require("./periods");
+
+},{"./itemForm":"ls1cb","./tagForm":"a9hVv","./items":"hxYzp","./tags":"74Zyy","./periods":"iKb5k","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ls1cb":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "updateTagsSelect", ()=>updateTagsSelect);
 parcelHelpers.export(exports, "closeNewItemForm", ()=>closeNewItemForm);
-parcelHelpers.export(exports, "getNewItemFormData", ()=>getNewItemFormData);
 parcelHelpers.export(exports, "initNewItemForm", ()=>initNewItemForm);
-var _state = require("../state");
+var _store = require("../store");
 var _elements = require("./elements");
 const selectors = {
     subitem: ".subitem-form"
@@ -1051,7 +1229,7 @@ function renderSubitemForm() {
     const $clone = (0, _elements.getTemplate)((0, _elements.IDS).itemForm.subitemTemplate);
     const $subitem = $clone.querySelector(selectors.subitem);
     const $subitemSelect = $subitem.querySelector("select");
-    const tags = (0, _state.getState)((0, _state.fields).tags);
+    const tags = (0, _store.selectWeightedTags)();
     tags.forEach((tag)=>{
         const $tag = renderTagOption(tag);
         $subitemSelect.appendChild($tag);
@@ -1064,14 +1242,9 @@ function renderTagOption(tag) {
     $option.value = tag.id;
     return $option;
 }
-function updateTagsSelect() {
+function updateTagsSelect(tags) {
     const $tagsSelect = (0, _elements.getElement)((0, _elements.IDS).itemForm.tagsSelect);
     $tagsSelect.innerHTML = "";
-    const tags = [
-        ...(0, _state.getState)((0, _state.fields).tags)
-    ];
-    const tagsWeight = (0, _state.getTagsWeight)();
-    tags.sort((a, b)=>tagsWeight[b.id] - tagsWeight[a.id]);
     tags.forEach((tag)=>{
         const $option = renderTagOption(tag);
         $tagsSelect.appendChild($option);
@@ -1134,7 +1307,7 @@ function initNewItemForm(config) {
     });
 }
 
-},{"../state":"8eIFt","./elements":"8Ekdt","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8Ekdt":[function(require,module,exports) {
+},{"./elements":"8Ekdt","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../store":"2rPL6"}],"8Ekdt":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "IDS", ()=>IDS);
@@ -1189,14 +1362,73 @@ function getTemplate(id) {
     return $clone;
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hxYzp":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"a9hVv":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "closeNewTagForm", ()=>closeNewTagForm);
+parcelHelpers.export(exports, "initNewTagForm", ()=>initNewTagForm);
+var _store = require("../store");
+var _notifier = require("../utils/notifier");
+var _elements = require("./elements");
+function resetNewTagForm() {
+    const $newTagForm = (0, _elements.getElement)((0, _elements.IDS).tagForm.form);
+    $newTagForm.reset();
+}
+function openNewTagForm() {
+    const $newTagDialog = (0, _elements.getElement)((0, _elements.IDS).tagForm.dialog);
+    $newTagDialog.showModal();
+}
+function closeNewTagForm() {
+    const $newTagDialog = (0, _elements.getElement)((0, _elements.IDS).tagForm.dialog);
+    $newTagDialog.close();
+    resetNewTagForm();
+}
+function getNewTagFormData() {
+    const $newTagForm = (0, _elements.getElement)((0, _elements.IDS).tagForm.form);
+    return {
+        name: $newTagForm.elements.name.value
+    };
+}
+function initNewTagForm(config) {
+    const { onSubmit } = config;
+    const $newTagForm = (0, _elements.getElement)((0, _elements.IDS).tagForm.form);
+    const $addTagButton = (0, _elements.getElement)((0, _elements.IDS).tagForm.addButton);
+    const $closeDialogButton = (0, _elements.getElement)((0, _elements.IDS).tagForm.closeButton);
+    $newTagForm.addEventListener("submit", (e)=>{
+        e.preventDefault();
+        const formData = getNewTagFormData();
+        if (!formData.name) {
+            (0, _notifier.notifyError)("Не заполнено поле name", {
+                formData
+            });
+            return;
+        }
+        const tags = (0, _store.selectTags)();
+        const isDouble = tags.some((t)=>t.name === formData.name);
+        if (isDouble) {
+            (0, _notifier.notifyError)(`Тег с именем ${formData.name} уже добавлен`, {
+                formData
+            });
+            return;
+        }
+        onSubmit(formData);
+    });
+    $addTagButton.addEventListener("click", ()=>{
+        openNewTagForm();
+    });
+    $closeDialogButton.addEventListener("click", ()=>{
+        closeNewTagForm();
+    });
+}
+
+},{"../store":"2rPL6","../utils/notifier":"7aVBF","./elements":"8Ekdt","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hxYzp":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "renderItemsList", ()=>renderItemsList);
 parcelHelpers.export(exports, "addItemToList", ()=>addItemToList);
 parcelHelpers.export(exports, "removeItemFromList", ()=>removeItemFromList);
 parcelHelpers.export(exports, "initItemsList", ()=>initItemsList);
-var _state = require("../state");
+var _store = require("../store");
 var _elements = require("./elements");
 const selectors = {
     item: ".item",
@@ -1215,8 +1447,7 @@ function renderSubitem(subitem) {
     const $subitem = $clone.querySelector(selectors.subitem);
     $subitem.querySelector(selectors.subitemText).textContent = subitem.text;
     $subitem.querySelector(selectors.subitemPrice).textContent = subitem.price;
-    const tags = (0, _state.getState)((0, _state.fields).tags);
-    const subitemTag = tags.find((tag)=>tag.id === subitem.tag);
+    const subitemTag = (0, _store.selectTagById)(subitem.tag);
     $subitem.querySelector(selectors.subitemTag).textContent = subitemTag?.name || "";
     return $subitem;
 }
@@ -1226,8 +1457,7 @@ function renderItem(item) {
     $item.dataset.itemId = item.id;
     $item.querySelector(selectors.itemText).textContent = item.text;
     $item.querySelector(selectors.itemPrice).textContent = item.price;
-    const tags = (0, _state.getState)((0, _state.fields).tags);
-    const itemTag = tags.find((tag)=>tag.id === item.tag);
+    const itemTag = (0, _store.selectTagById)(item.tag);
     $item.querySelector(selectors.itemTag).textContent = itemTag?.name || "";
     if (item.subitems?.length > 0) {
         const $subitemsList = $item.querySelector(selectors.subitems);
@@ -1267,66 +1497,7 @@ function initItemsList(config) {
     });
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./elements":"8Ekdt","../state":"8eIFt"}],"a9hVv":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "closeNewTagForm", ()=>closeNewTagForm);
-parcelHelpers.export(exports, "initNewTagForm", ()=>initNewTagForm);
-var _state = require("../state");
-var _notifier = require("../utils/notifier");
-var _elements = require("./elements");
-function resetNewTagForm() {
-    const $newTagForm = (0, _elements.getElement)((0, _elements.IDS).tagForm.form);
-    $newTagForm.reset();
-}
-function openNewTagForm() {
-    const $newTagDialog = (0, _elements.getElement)((0, _elements.IDS).tagForm.dialog);
-    $newTagDialog.showModal();
-}
-function closeNewTagForm() {
-    const $newTagDialog = (0, _elements.getElement)((0, _elements.IDS).tagForm.dialog);
-    $newTagDialog.close();
-    resetNewTagForm();
-}
-function getNewTagFormData() {
-    const $newTagForm = (0, _elements.getElement)((0, _elements.IDS).tagForm.form);
-    return {
-        name: $newTagForm.elements.name.value
-    };
-}
-function initNewTagForm(config) {
-    const { onSubmit } = config;
-    const $newTagForm = (0, _elements.getElement)((0, _elements.IDS).tagForm.form);
-    const $addTagButton = (0, _elements.getElement)((0, _elements.IDS).tagForm.addButton);
-    const $closeDialogButton = (0, _elements.getElement)((0, _elements.IDS).tagForm.closeButton);
-    $newTagForm.addEventListener("submit", (e)=>{
-        e.preventDefault();
-        const formData = getNewTagFormData();
-        if (!formData.name) {
-            (0, _notifier.notifyError)("Не заполнено поле name", {
-                formData
-            });
-            return;
-        }
-        const tags = (0, _state.getState)((0, _state.fields).tags);
-        const isDouble = tags.some((t)=>t.name === formData.name);
-        if (isDouble) {
-            (0, _notifier.notifyError)(`Тег с именем ${formData.name} уже добавлен`, {
-                formData
-            });
-            return;
-        }
-        onSubmit(formData);
-    });
-    $addTagButton.addEventListener("click", ()=>{
-        openNewTagForm();
-    });
-    $closeDialogButton.addEventListener("click", ()=>{
-        closeNewTagForm();
-    });
-}
-
-},{"./elements":"8Ekdt","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../state":"8eIFt","../utils/notifier":"7aVBF"}],"74Zyy":[function(require,module,exports) {
+},{"./elements":"8Ekdt","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../store":"2rPL6"}],"74Zyy":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "renderTagsList", ()=>renderTagsList);
@@ -1348,6 +1519,7 @@ function renderTag(tag) {
 }
 function renderTagsList(tags) {
     const $tagsList = (0, _elements.getElement)((0, _elements.IDS).tags.list);
+    $tagsList.innerHTML = "";
     tags.forEach((tag)=>{
         const $tag = renderTag(tag);
         $tagsList.appendChild($tag);
@@ -1387,6 +1559,7 @@ parcelHelpers.export(exports, "renderPeriodsList", ()=>renderPeriodsList);
 parcelHelpers.export(exports, "addPeriodToList", ()=>addPeriodToList);
 parcelHelpers.export(exports, "removePeriodFromList", ()=>removePeriodFromList);
 parcelHelpers.export(exports, "initPeriodsList", ()=>initPeriodsList);
+parcelHelpers.export(exports, "highlightActivePeriod", ()=>highlightActivePeriod);
 var _date = require("../utils/date");
 var _elements = require("./elements");
 const selectors = {
@@ -1418,7 +1591,10 @@ function addPeriodToList(period) {
     const $period = renderPeriod(period);
     $periodsList.appendChild($period);
 }
-function removePeriodFromList(periodId) {}
+function removePeriodFromList(periodId) {
+    const $element = document.querySelector(`[data-period-id="${periodId}"]`);
+    $element.remove();
+}
 function initPeriodsList(config) {
     const { onStart, onRemove, onSelect } = config;
     const $toggleButton = (0, _elements.getElement)((0, _elements.IDS).periods.toggleButton);
@@ -1437,15 +1613,13 @@ function initPeriodsList(config) {
             return;
         }
         const $period = e.target.closest(selectors.period);
-        if ($period) {
-            console.log("click", $period.dataset.periodId);
-            onSelect(Number($period.dataset.periodId));
-        }
+        if ($period) onSelect(Number($period.dataset.periodId));
     });
     $startButton.addEventListener("click", onStart);
 }
+function highlightActivePeriod(period) {}
 
-},{"./elements":"8Ekdt","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../utils/date":"2Vjtu"}],"2Vjtu":[function(require,module,exports) {
+},{"../utils/date":"2Vjtu","./elements":"8Ekdt","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2Vjtu":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "formatDate", ()=>formatDate);
@@ -1453,35 +1627,57 @@ function formatDate(date) {
     return `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`;
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ch64E":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lvYRj":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "addPeriodToDb", ()=>addPeriodToDb);
-parcelHelpers.export(exports, "removePeriodFromDb", ()=>removePeriodFromDb);
-var _ = require(".");
-var _notifier = require("../utils/notifier");
-var _constants = require("./constants");
-function addPeriodToDb(period) {
-    const periods = (0, _.getStore)((0, _constants.PERIODS_STORE_NAME), true);
-    let request = periods.add(period);
-    request.onsuccess = function() {
-        (0, _notifier.notify)("Запись успешно сохранена");
-    };
-    request.onerror = function() {
-        (0, _notifier.notifyError)("Не удалось сохранить запись", request.error);
-    };
+parcelHelpers.export(exports, "subscribeToStore", ()=>subscribeToStore);
+var _db = require("./js/db");
+var _store = require("./js/store");
+var _view = require("./js/view");
+function updateTagsHelper() {
+    (0, _view.updateTagsSelect)((0, _store.selectWeightedTags)());
 }
-function removePeriodFromDb(period) {
-    let periods = (0, _.getStore)((0, _constants.PERIODS_STORE_NAME), true);
-    let request = periods.delete(period.id);
-    request.onsuccess = function() {
-        (0, _notifier.notify)("Запись успешно удалена");
-    };
-    request.onerror = function() {
-        (0, _notifier.notifyError)("Не удалось удалить запись", request.error);
-    };
+function subscribeToStore() {
+    (0, _store.subscribe)((0, _store.events).inited, ()=>{
+        (0, _view.renderTagsList)((0, _store.selectTags)());
+        (0, _view.renderItemsList)((0, _store.selectActiveItems)());
+        (0, _view.renderPeriodsList)((0, _store.selectPeriods)());
+        (0, _view.highlightActivePeriod)((0, _store.selectActivePeriod)());
+        updateTagsHelper();
+    });
+    (0, _store.subscribe)((0, _store.events).addItem, (item)=>{
+        (0, _db.addItemToDb)(item);
+        (0, _view.addItemToList)(item);
+        (0, _view.closeNewItemForm)();
+        updateTagsHelper();
+    });
+    (0, _store.subscribe)((0, _store.events).addTag, (tag)=>{
+        (0, _db.addTagToDb)(tag);
+        (0, _view.addTagToList)(tag);
+        (0, _view.closeNewTagForm)();
+        updateTagsHelper();
+    });
+    (0, _store.subscribe)((0, _store.events).addPeriod, (period)=>{
+        (0, _db.addPeriodToDb)(period);
+        (0, _view.addPeriodToList)(period);
+        (0, _store.setActivePeriod)(period);
+    });
+    (0, _store.subscribe)((0, _store.events).removeTag, (tag)=>{
+        (0, _db.removeTagFromDb)(tag);
+        removeTagFromList(tag.id);
+        updateTagsHelper();
+    });
+    (0, _store.subscribe)((0, _store.events).removeItem, (item)=>{
+        (0, _db.removeItemFromDb)(item);
+        (0, _view.removeItemFromList)(item.id);
+        updateTagsHelper();
+    });
+    (0, _store.subscribe)((0, _store.events).setActivePeriod, (activePeriod)=>{
+        (0, _view.renderItemsList)((0, _store.selectActiveItems)());
+        (0, _view.highlightActivePeriod)(activePeriod);
+    });
 }
 
-},{".":"aF8BE","../utils/notifier":"7aVBF","./constants":"b0ukR","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["fH7gS","8ZNvh"], "8ZNvh", "parcelRequire1d24")
+},{"./js/store":"2rPL6","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./js/view":"3gZq0","./js/db":"aF8BE"}]},["fH7gS","8ZNvh"], "8ZNvh", "parcelRequire1d24")
 
 //# sourceMappingURL=index.f5c48570.js.map
