@@ -1,4 +1,4 @@
-const staticDev = "dev-coffee-site-v1";
+const staticDev = "money-keeper-v1";
 const assets = [
   "/",
   "/index.html",
@@ -6,7 +6,6 @@ const assets = [
   "/static/css/**/*.css",
   "/static/js/*.js",
   "/static/js/**/*.js",
-  "*.png",
 ];
 
 // eslint-disable-next-line
