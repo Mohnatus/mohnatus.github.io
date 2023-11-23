@@ -280,6 +280,10 @@ const $bonusForm = document.getElementById('bonus-form');
 const $bonus = document.getElementById('bonus');
 const $bonusBtn = document.getElementById('bonus-btn');
 
+function resetSavedDataFromLs() {
+	localStorage.setItem(LS_KEY, ``);
+}
+
 function getUsedCodesFromLS() {
 	const data = localStorage.getItem(LS_KEY) || '';
 	return data.split(',').filter(Boolean);
@@ -424,6 +428,11 @@ function showModal(id) {
 }
 
 function init() {
+	const sp = new URLSearchParams(location.search.slice(1));
+	if (sp.has('reset')) {
+		resetSavedDataFromLs();
+	}
+
 	initModals();
 
 	usedCodes = getUsedCodesFromLS();
