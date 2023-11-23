@@ -1,0 +1,187 @@
+@font-face {
+	font-family: 'Good Vibes Pro';
+	src: url('./assets/Good-Vibes-Pro.ttf') format('trueType');
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background: url('./assets/bg.jpeg');
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+#root {
+	position: relative;
+}
+
+#add {
+	position: fixed;
+	right: 40px;
+	bottom: 40px;
+	z-index: 1;
+	width: 60px;
+	height: 60px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: transparent;
+	cursor: pointer;
+	border: none;
+	outline: none;
+	background-image: url('./assets/plus.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	transition: transform 250ms;
+}
+
+#add:hover {
+	transform: scale(1.3);
+}
+
+.modal {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.35);
+	box-shadow: 0 -10px 10px rgba(0, 0, 0, 0.25);
+	z-index: 2;
+}
+
+.modal .mask {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	cursor: pointer;
+	z-index: 1;
+}
+
+.modal .container {
+	padding: 20px;
+	margin: auto;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	overflow: auto;
+}
+
+.modal .frame {
+	padding: 20px;
+	position: relative;
+	z-index: 3;
+	background-image: url('./assets/bg.jpeg');
+	background-size: cover;
+	box-shadow: 0 0 10px 15px rgba(0, 0, 0, 0.25);
+	border-radius: 40px;
+	font-family: 'Good Vibes Pro', sans-serif;
+	width: 100%;
+	max-width: 500px;
+	display: flex;
+	flex-direction: column;
+}
+
+.modal .scroll {
+	overflow: auto;
+	height: 100%;
+}
+
+.modal h2 {
+	margin-bottom: 20px;
+  font-size: 30px;
+  line-height: 1.5;
+}
+
+.modal input {
+	display: block;
+	width: 100%;
+	border: 3px solid black;
+	height: 60px;
+	border-radius: 5px;
+	padding: 5px 20px;
+	text-align: center;
+	font: inherit;
+  font-size: 35px;
+	line-height: 2;
+	margin-bottom: 20px;
+	outline: none;
+}
+
+.modal button {
+	display: flex;
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+	font: inherit;
+	background: transparent;
+	border: none;
+	outline: none;
+	cursor: pointer;
+  font-size: inherit;
+  font-size: 40px;
+}
+
+#code .error {
+  color: red;
+  font-size: 20px;
+  height: 40px;
+  text-align: center;
+}
+
+#text {
+	padding: 20px;
+	padding-bottom: 80vh;
+	font-family: 'Good Vibes Pro', sans-serif;
+	font-size: 30px;
+	line-height: 1.5;
+}
+
+#text p {
+  margin: 0.5em 0;
+}
+
+#text:empty:before {
+	content: 'История ждет тебя...';
+	opacity: 0.6;
+}
+
+#bonus-btn {
+  position: fixed;
+  right: 0px;
+  bottom: 0px;
+  padding: 40px;
+  background: black;
+  color: white;
+  font-family: 'Good Vibes Pro', sans-serif;
+	font-size: 40px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+#text[data-index="28"] ~ #bonus-btn {
+  display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+#text[data-index="28"] ~ #add {
+  display: none;
+}
+
+#bonus {
+	font-size: 30px;
+	line-height: 1.5;
+}

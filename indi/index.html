@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="root">
+
+
+    <div id="text"></div>
+
+    <button id="add"></button>
+    <button id="bonus-btn" hidden>Бонус</button>
+
+    <form class="modal" id="code" hidden>
+      <div class="container">
+        <div class="mask"></div>
+        <div class="frame">
+          <h2>Введи код, чтобы узнать,<br>что было дальше</h2>
+          <input type="text" name="code" autocomplete="off">
+          <div class="error"></div>
+          <button type="submit">Применить</button>
+        </div>
+      </div>
+    </form>
+
+    <form class="modal" id="bonus-form" hidden>
+      <div class="container">
+        <div class="mask"></div>
+        <div class="frame">
+          <h2>Введи код, чтобы получить бонус</h2>
+          <input type="text" autocomplete="off" name="code">
+          <button type="submit">Получить бонус</button>
+        </div>
+      </div>
+    </form>
+
+    <div id="bonus" class="modal" hidden>
+      <div class="container">
+        <div class="mask"></div>
+        <div class="frame">
+
+
+
+          Грохочет гром, сверкает молния в ночи<br>
+          А на холме стоит индеец и кричит:<br>
+          «Сейчас создам свое я племя и порядок будет в нем,<br>
+          Стану самым я прекрасновым вождем!»<br><br>
+          К мечте индеец мчится,<br>
+          Под солнцем, под дождем,<br>
+          И все стать стремится<br>
+          Он вождем!<br><br>
+          Ужасный лес, и наш индеец обречен,<br>
+          Уже конец - но светлой девой он спасен.<br>
+          «Стань же ты моим шаманом, будь подругой мне в пути,<br>
+          Тараканов твоих тоже приютим!»<br><br>
+          К мечте индеец мчится,<br>
+          Под солнцем, под дождем,<br>
+          И все стать стремится<br>
+          Он вождем!<br><br>
+          Настала ночь, и враг их кру́гом обходил,<br>
+          Но друг в кустах, индейца он предупредил.<br>
+          «Друг, ты спас меня от смерти громкой рвотою своей,<br>
+          Так вступай же в мое племя поскорей!»<br><br>
+          К мечте индеец мчится,<br>
+          Под солнцем, под дождем,<br>
+          И все стать стремится<br>
+          Он вождем!<br><br>
+          За ними хвост! «И что мы делать будем с ним?»<br>
+          Возник вопрос, шаман же непокобелим.<br>
+          «Тараканы все решили, я его себе беру!<br>
+          Он такой мохнатый, милый, уруру!»<br><br>
+          К мечте индеец мчится,<br>
+          Под солнцем, под дождем,<br>
+          И все стать стремится<br>
+          Он вождем!<br><br>
+          Утром по сельской дороге<br>
+          Медленно шёл могучий вождь<br>
+          И еще с ним трое рож<br>
+          И улыбался!<br><br>
+
+
+          К мечте индеец мчится,<br>
+          Под солнцем, под дождем,<br>
+          И все стать стремится<br>
+          Он вождем!
+
+
+
+          <button type="button" data-close>Закрыть</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+  <script src="./script.js"></script>
+</body>
+
+</html>
