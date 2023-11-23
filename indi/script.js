@@ -282,7 +282,6 @@ const $bonusBtn = document.getElementById('bonus-btn');
 
 function resetSavedDataFromLs() {
 	localStorage.setItem(LS_KEY, ``);
-	location.reload();
 }
 
 function getUsedCodesFromLS() {
@@ -429,9 +428,11 @@ function showModal(id) {
 }
 
 function init() {
-	const sp = new URLSearchParams(location.search.slice(1));
-	if (sp.has('reset')) {
+	const url = new URL(location.href);
+	if (url.searchParams.has('reset')) {
 		resetSavedDataFromLs();
+		url.searchParams.delete('reset');
+		window.location = url;
 	}
 
 	initModals();
