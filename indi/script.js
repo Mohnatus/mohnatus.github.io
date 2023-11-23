@@ -282,6 +282,7 @@ const $bonusBtn = document.getElementById('bonus-btn');
 
 function resetSavedDataFromLs() {
 	localStorage.setItem(LS_KEY, ``);
+	location.reload();
 }
 
 function getUsedCodesFromLS() {
