@@ -1,4 +1,4 @@
-const staticDev = "money-keeper-v4";
+const staticDev = "money-keeper-v5";
 const assets = [
   "/",
   "/index.html",
